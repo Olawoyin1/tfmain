@@ -1,0 +1,205 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.uf{padding:1.5rem 0;font-family:var(--font-sans)}
+.phase-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
+.pn{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:500;cursor:pointer;border:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary);background:var(--color-background-primary);transition:all .15s;white-space:nowrap}
+.pn.act{color:var(--color-text-info);background:var(--color-background-info);border-color:var(--color-border-info)}
+.flow-container{display:flex;flex-direction:column;gap:8px}
+.step-row{display:flex;gap:10px;align-items:stretch}
+.step-num{width:32px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0}
+.snum-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.snum-line{flex:1;width:2px;background:var(--color-border-tertiary);margin:3px 0}
+.step-card{flex:1;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);background:var(--color-background-primary);overflow:hidden;cursor:pointer;transition:border-color .15s}
+.step-card:hover{border-color:var(--color-border-primary)}
+.step-card.expanded{border-color:var(--color-border-info)}
+.sc-head{padding:10px 14px;display:flex;align-items:center;gap:10px}
+.sc-icon{width:32px;height:32px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.sc-title{font-size:14px;font-weight:500;color:var(--color-text-primary);flex:1}
+.sc-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:100px}
+.sc-chevron{font-size:12px;color:var(--color-text-tertiary);transition:transform .2s}
+.sc-chevron.open{transform:rotate(180deg)}
+.sc-body{padding:0 14px 14px;border-top:0.5px solid var(--color-border-tertiary);display:none}
+.sc-body.open{display:block;padding-top:12px}
+.sc-screen{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;margin-bottom:10px;border:0.5px solid var(--color-border-tertiary)}
+.sc-screen-title{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:6px}
+.sc-fields{display:flex;flex-direction:column;gap:5px}
+.sc-field{height:24px;border-radius:4px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;padding:0 8px}
+.sc-field span{font-size:11px;color:var(--color-text-tertiary)}
+.sc-field.filled span{color:var(--color-text-primary)}
+.sc-field.btn{background:var(--color-background-info);border-color:var(--color-border-info);justify-content:center}
+.sc-field.btn span{color:var(--color-text-info);font-weight:500}
+.sc-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.sc-checks{display:flex;flex-direction:column;gap:4px}
+.sc-check{font-size:12px;color:var(--color-text-secondary);display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+.sc-check::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--color-background-success);flex-shrink:0;margin-top:1px;display:inline-flex;align-items:center;justify-content:center}
+.sc-check.warn::before{background:var(--color-background-warning)}
+.sc-check.info::before{background:var(--color-background-info)}
+.decision-row{display:flex;gap:8px;margin-top:8px}
+.dec-card{flex:1;padding:8px 10px;border-radius:var(--border-radius-md);border:0.5px solid;font-size:11px;font-weight:500}
+.dec-pass{background:var(--color-background-success);border-color:var(--color-border-success);color:var(--color-text-success)}
+.dec-fail{background:var(--color-background-danger);border-color:var(--color-border-danger);color:var(--color-text-danger)}
+.dec-wait{background:var(--color-background-warning);border-color:var(--color-border-warning);color:var(--color-text-warning)}
+.phase-header{padding:10px 14px;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);background:var(--color-background-secondary);border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);margin-bottom:4px}
+
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:1.5rem}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}
+.leg-dot{width:10px;height:10px;border-radius:50%}
+</style>
+
+<h2 class="sr-only">Talent Factory product user flow, showing the complete journey from sign up through graduation with interactive step details.</h2>
+
+<div class="uf">
+
+<div class="legend">
+  <div class="leg-item"><div class="leg-dot" style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary)"></div>Discovery</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--color-background-info)"></div>Application</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--color-background-warning)"></div>Assessment</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--color-background-success)"></div>Enrolled</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#B5D4F4"></div>Learning</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#9FE1CB"></div>Internship</div>
+</div>
+
+<div class="phase-nav">
+  <div class="pn act" onclick="filterPhase('all',this)">All steps</div>
+  <div class="pn" onclick="filterPhase('discovery',this)">Discovery</div>
+  <div class="pn" onclick="filterPhase('application',this)">Application</div>
+  <div class="pn" onclick="filterPhase('assessment',this)">Assessment</div>
+  <div class="pn" onclick="filterPhase('decision',this)">Decision</div>
+  <div class="pn" onclick="filterPhase('enrolled',this)">Enrolment</div>
+  <div class="pn" onclick="filterPhase('learning',this)">Learning</div>
+  <div class="pn" onclick="filterPhase('internship',this)">Internship</div>
+  <div class="pn" onclick="filterPhase('graduation',this)">Graduation</div>
+</div>
+
+<div class="flow-container" id="flow"></div>
+</div>
+
+<script>
+const steps=[
+  {phase:'discovery',color:'var(--color-background-secondary)',border:'var(--color-border-secondary)',icon:'🌐',title:'Visit tf.thegenzhr.com',tag:'Discovery',tagStyle:'background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-secondary)',
+   screenTitle:'Landing page',fields:[{t:'Nigeria\'s first HR Academy',f:true},{t:'Waitlist CTA button',f:true},{t:'Program overview',f:true}],
+   desc:'Prospect discovers TF via social media, referral, or community. Visits landing page. Reads about the 6-month program.',
+   checks:['Sees cohort details, fee structure, and graduate outcomes','Views instructor profiles and partner company logos','Decides to join the waitlist or apply directly']},
+
+  {phase:'discovery',color:'var(--color-background-secondary)',border:'var(--color-border-secondary)',icon:'📋',title:'Join the waitlist',tag:'Discovery',tagStyle:'background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-secondary)',
+   screenTitle:'Waitlist form',fields:[{t:'Name',f:false},{t:'Email',f:false},{t:'I am a... (dropdown)',f:false},{t:'→ Join Waitlist',f:true,btn:true}],
+   desc:'Prospect submits their email and role type (student, instructor, partner). Triggers the 7-email waitlist nurture sequence automatically.',
+   checks:['Receives WL-E01 confirmation within 60 seconds','Enters automated email nurture sequence (7 emails over 21 days)','Waitlist count shown publicly on homepage — social proof']},
+
+  {phase:'application',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'💳',title:'Pay ₦10,000 application fee',tag:'Application',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
+   screenTitle:'Payment screen',fields:[{t:'Application Fee — ₦10,000',f:true},{t:'Card / Bank Transfer',f:false},{t:'→ Pay Now via Paystack',f:true,btn:true}],
+   desc:'Applications open announcement triggers payment. Prospect pays the non-refundable ₦10,000 admin fee via Paystack to unlock the application form.',
+   checks:['Payment confirmed by Paystack in real time','Ops team logs payment in Applications Tracker within 2 hours','Application form link sent to applicant\'s email within 2 hours']},
+
+  {phase:'application',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'📝',title:'Complete application form',tag:'Application',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
+   screenTitle:'Typeform application',fields:[{t:'Personal details + CV upload',f:false},{t:'Background & experience',f:false},{t:'Motivation statement (2–3 sentences)',f:false},{t:'→ Submit Application',f:true,btn:true}],
+   desc:'Applicant completes the Typeform. Takes 20–30 minutes. Application is reviewed within 5 business days using the TF Scoring Rubric (100 points).',
+   checks:['Motivation quality (30%) · Background fit (25%)','Communication quality (20%) · Commitment signals (15%)','Completeness (10%) — minimum 60/100 to advance']},
+
+  {phase:'assessment',color:'var(--color-background-warning)',border:'var(--color-border-warning)',icon:'🧠',title:'Pre-admission test',tag:'Assessment',tagStyle:'background:var(--color-background-warning);color:var(--color-text-warning);border:0.5px solid var(--color-border-warning)',
+   screenTitle:'Test centre — 30 minutes',fields:[{t:'Section A: HR Knowledge (20 pts)',f:true},{t:'Section B: Situational Judgement (20 pts)',f:true},{t:'Section C: Written Thinking (10 pts)',f:false},{t:'→ Submit Test',f:true,btn:true}],
+   desc:'Applicants who score ≥60% on the rubric receive a test link within 24 hours. 48-hour window to complete. Scored automatically.',
+   checks:['30 minutes · 50 points · Pass mark: 25/50 (50%)','No extensions granted except documented emergencies','Result logged in tracker within 24 hours of submission',{t:'No-show after 48 hours = closed, no refund',w:true}]},
+
+  {phase:'decision',color:'var(--color-background-warning)',border:'var(--color-border-warning)',icon:'📊',title:'Admissions decision',tag:'Decision',tagStyle:'background:var(--color-background-warning);color:var(--color-text-warning);border:0.5px solid var(--color-border-warning)',
+   screenTitle:'Decision outcomes',fields:[],
+   desc:'Ops team reviews combined scores (rubric + test). Decisions sent within 5 business days: Offer, Rejection, or Waitlist.',
+   checks:[],
+   decisions:true},
+
+  {phase:'decision',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'🎉',title:'Receive admission letter',tag:'Decision',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
+   screenTitle:'Student portal — Inbox',fields:[{t:'Your admission letter',f:true},{t:'Cohort 1 — [Start Date]',f:true},{t:'Congratulations, [Name]!',f:true},{t:'→ Download Letter (PDF)',f:true,btn:true}],
+   desc:'Accepted students receive the official Talent Factory Admission Letter — in their email AND accessible on their student portal dashboard.',
+   checks:['Letter includes cohort dates, program structure, and payment options','5 business days to accept the offer','Rejection and waitlist emails sent with same turnaround']},
+
+  {phase:'enrolled',color:'var(--color-background-success)',border:'var(--color-border-success)',icon:'💰',title:'Tuition payment link',tag:'Enrolment',tagStyle:'background:var(--color-background-success);color:var(--color-text-success);border:0.5px solid var(--color-border-success)',
+   screenTitle:'Payment hub — student portal',fields:[{t:'Option A: Full payment — ₦[Amount]',f:false},{t:'Option B: Instalment — ₦[Dep] + ₦[Bal]',f:false},{t:'→ Pay via Paystack',f:true,btn:true},{t:'Payment status: Pending',f:false}],
+   desc:'Student receives a personalised payment link in their portal and by email. Selects full payment or instalment plan. Seat is only confirmed after payment.',
+   checks:['Payment confirmation triggers cohort roster addition','WhatsApp group invite sent within 24 hours of confirmation','Welcome Kit email with orientation details sent same day']},
+
+  {phase:'enrolled',color:'var(--color-background-success)',border:'var(--color-border-success)',icon:'🎯',title:'Orientation day',tag:'Enrolment',tagStyle:'background:var(--color-background-success);color:var(--color-text-success);border:0.5px solid var(--color-border-success)',
+   screenTitle:'Student portal home',fields:[{t:'Orientation Day — [Date] 7PM',f:true},{t:'Zoom link (auto-populated)',f:true},{t:'Student Handbook (PDF)',f:true},{t:'Your cohort: 38 students enrolled',f:true}],
+   desc:'Student portal home becomes active after tuition is confirmed. Shows orientation invite, handbook, and cohort info. Portal is now their home base.',
+   checks:['2-hour virtual session on Zoom — attendance mandatory','Cohort WhatsApp group activated','All 12 class schedule dates visible in portal calendar']},
+
+  {phase:'learning',color:'#B5D4F4',border:'#378ADD',icon:'📚',title:'Learning phase — Weeks 1–12',tag:'Learning',tagStyle:'background:#E6F1FB;color:#0C447C;border:0.5px solid #85B7EB',
+   screenTitle:'Learning dashboard',fields:[{t:'Week 4: HR Operations (Live tonight 7PM)',f:true},{t:'Assignment 3: Submitted ✓',f:true},{t:'Attendance: 4/4 sessions',f:true},{t:'Overall grade: 74%',f:true}],
+   desc:'Student portal becomes their classroom. Weekly modules, recordings uploaded within 24 hours, assignment submissions, progress tracking, and mid-cohort NPS survey at Week 6.',
+   checks:['12 live modules · 1 expert instructor per week','All recordings in portal within 24 hours','Min. 80% attendance + 70% assignment completion for certificate','Capstone project brief submitted in Week 9']},
+
+  {phase:'learning',color:'#B5D4F4',border:'#378ADD',icon:'🏆',title:'Capstone project',tag:'Learning',tagStyle:'background:#E6F1FB;color:#0C447C;border:0.5px solid #85B7EB',
+   screenTitle:'Capstone workspace',fields:[{t:'Project brief: Approved ✓',f:true},{t:'Deliverables: 5 of 7 submitted',f:false},{t:'Presentation date: [Date]',f:true},{t:'→ Submit final package',f:false,btn:true}],
+   desc:'Weeks 9–12 students build a full HR Strategy for a real or fictional Nigerian company. Presented live to a panel of practitioners in Week 12.',
+   checks:['7 deliverables: company brief, diagnostic, strategy, implementation plan, policy design, analytics dashboard, presentation deck','Pass mark 60% · Distinction 85%+','Certificate issued within 48 hours of Week 12 panel']},
+
+  {phase:'internship',color:'#9FE1CB',border:'#1D9E75',icon:'🔗',title:'Internship matching',tag:'Internship',tagStyle:'background:#E1F5EE;color:#085041;border:0.5px solid #5DCAA5',
+   screenTitle:'Internship placement hub',fields:[{t:'Internship Profile Form',f:false},{t:'Location preference',f:false},{t:'Function preference',f:false},{t:'→ Submit for matching',f:false,btn:true}],
+   desc:'Week 10–12. Students submit internship profile form in portal. Ops team matches to partner companies. Placement letter issued by Week 12.',
+   checks:['Match based on: location, function, student preference, company capacity','Placement letter in student portal + email','Intern introduction email to company supervisor 1 week before start']},
+
+  {phase:'internship',color:'#9FE1CB',border:'#1D9E75',icon:'💼',title:'Internship phase — Weeks 13–24',tag:'Internship',tagStyle:'background:#E1F5EE;color:#085041;border:0.5px solid #5DCAA5',
+   screenTitle:'Internship tracker',fields:[{t:'Host company: [Company Name]',f:true},{t:'Week 6 of 12 — In progress',f:true},{t:'Check-in form: Due Friday',f:false},{t:'Supervisor eval: Pending (Week 6)',f:false}],
+   desc:'12 weeks at a partner company. Portal tracks weekly check-in submissions, supervisor evaluations, and final report. TF team monitors in real time.',
+   checks:['Weekly check-in form in portal (student self-report)','Mid-internship supervisor evaluation at Week 6','Final internship report submitted via portal in Week 12','Internship certificate triggered on completion']},
+
+  {phase:'graduation',color:'var(--color-background-secondary)',border:'var(--color-border-primary)',icon:'🎓',title:'Graduation & certificates',tag:'Graduation',tagStyle:'background:var(--color-background-secondary);color:var(--color-text-primary);border:0.5px solid var(--color-border-primary)',
+   screenTitle:'Certificate vault',fields:[{t:'Learning Certificate — Issued ✓',f:true},{t:'Internship Certificate — Issued ✓',f:true},{t:'→ Download PDF',f:true,btn:true},{t:'→ Share to LinkedIn',f:true,btn:true}],
+   desc:'Physical graduation ceremony. Each student called by name. Two certificates issued digitally in portal AND presented physically at the ceremony.',
+   checks:['Physical ceremony — families, instructors, partner companies invited','Capstone showcase for top students · Awards segment','Certificates downloadable from portal within 48 hours of ceremony','Alumni network access unlocked automatically in portal']},
+];
+
+function card(s,i){
+  const isLast=i===steps.length-1;
+  return `<div class="step-row" data-phase="${s.phase}" style="opacity:1">
+    <div class="step-num">
+      <div class="snum-circle" style="background:${s.color};border:0.5px solid ${s.border};color:var(--color-text-primary);font-size:11px">${i+1}</div>
+      ${!isLast?`<div class="snum-line" style="background:${s.border};opacity:0.4"></div>`:''}
+    </div>
+    <div class="step-card" id="sc${i}" onclick="toggle(${i})">
+      <div class="sc-head">
+        <div class="sc-icon" style="background:${s.color};border:0.5px solid ${s.border};font-size:16px">${s.icon}</div>
+        <div class="sc-title">${s.title}</div>
+        <span class="sc-tag" style="${s.tagStyle}">${s.tag}</span>
+        <span class="sc-chevron" id="chev${i}">&#9660;</span>
+      </div>
+      <div class="sc-body" id="sb${i}">
+        ${s.screenTitle?`<div class="sc-screen">
+          <div class="sc-screen-title">${s.screenTitle}</div>
+          <div class="sc-fields">${(s.fields||[]).map(f=>`<div class="sc-field${f.f?' filled':''}${f.btn?' btn':''}"><span>${f.t}</span></div>`).join('')}</div>
+        </div>`:''}
+        ${s.desc?`<div class="sc-desc">${s.desc}</div>`:''}
+        ${s.decisions?`<div class="decision-row">
+          <div class="dec-pass">Offer letter issued → Go to Step 7</div>
+          <div class="dec-wait">Waitlisted → Notified, next cohort</div>
+          <div class="dec-fail">Declined → Rejection email + feedback</div>
+        </div>`:''}
+        ${s.checks&&s.checks.length?`<div class="sc-checks">${s.checks.map(c=>typeof c==='string'?`<div class="sc-check">${c}</div>`:`<div class="sc-check ${c.w?'warn':''}">${c.t}</div>`).join('')}</div>`:''}
+      </div>
+    </div>
+  </div>`;
+}
+
+const flow=document.getElementById('flow');
+flow.innerHTML=steps.map((s,i)=>card(s,i)).join('');
+
+function toggle(i){
+  const sb=document.getElementById('sb'+i);
+  const chev=document.getElementById('chev'+i);
+  const sc=document.getElementById('sc'+i);
+  const open=sb.classList.contains('open');
+  sb.classList.toggle('open',!open);
+  chev.classList.toggle('open',!open);
+  sc.classList.toggle('expanded',!open);
+}
+
+function filterPhase(ph,el){
+  document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
+  el.classList.add('act');
+  document.querySelectorAll('.step-row').forEach(r=>{
+    r.style.display=(ph==='all'||r.dataset.phase===ph)?'flex':'none';
+  });
+}
+
+toggle(0);
+</script>
