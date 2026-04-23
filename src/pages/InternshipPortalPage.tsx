@@ -14,157 +14,189 @@ const InternshipPortalPage: React.FC = () => {
   return (
     <StudentSidebar>
       <div className="animate-slide-up pb-20">
-        <div className="mb-12 flex justify-between items-end">
-          <div>
-            <div className="hero-tag mb-4 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.1)]">
-              <span className="hero-tag-dot bg-gold"></span>
-              Professional Residency
+        <div className="mb-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+          <div className="space-y-4">
+            <div className="hero-tag shadow-sm inline-flex items-center">
+              <span className="hero-tag-dot bg-gold animate-pulse"></span>
+              24/7 Corporate Residency Active
             </div>
-            <h1 className="sec-h text-6xl leading-[1.1]">The <em>Studio</em> Experience.</h1>
+            <h1 className="sec-h text-7xl italic leading-none tracking-tight">The <em>Studio</em> Experience.</h1>
+            <p className="text-sm text-muted font-medium italic max-w-sm">Translating classroom theory into high-impact corporate human capital solutions.</p>
           </div>
-          <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center gap-6">
-            <div className="text-right">
-              <div className="text-[10px] font-bold text-muted uppercase tracking-widest mb-1">Company Rating</div>
-              <div className="text-lg font-bold text-black italic">Excellent • 4.8</div>
+          <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-xl flex items-center gap-8 group hover:border-gold/20 transition-all">
+            <div className="text-right border-r border-gray-100 pr-8">
+              <div className="text-[10px] font-bold text-muted uppercase tracking-widest mb-2">Residency Pulse</div>
+              <div className="text-2xl font-bold text-black italic">Excellent • 4.9</div>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-xl">🌟</div>
+            <div className="w-16 h-16 rounded-3xl bg-black text-white flex items-center justify-center text-3xl shadow-2xl group-hover:bg-gold group-hover:text-black transition-all">🏦</div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Main Content Area */}
+          <div className="lg:col-span-8 space-y-14">
+            {/* Immersive Placement Card */}
             <section>
-              <div className="portal-card bg-black text-white p-12 overflow-hidden relative min-h-[400px] flex flex-col justify-between">
+              <div className="portal-card bg-black text-white p-14 overflow-hidden relative min-h-[480px] flex flex-col justify-between group">
                 <div className="relative z-10">
-                  <div className="text-gold font-bold text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-gold/20 py-1.5 px-4 rounded-full">Active Corporate Placement</div>
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+                  <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-20">
                     <div>
-                      <h2 className="text-6xl font-bold mb-3 italic">Sterling Bank Plc</h2>
-                      <p className="text-white/40 text-lg italic font-medium max-w-sm">Human Capital Group • Organizational Design Unit • Victoria Island, Lagos</p>
+                      <div className="text-gold font-bold text-[10px] uppercase tracking-[0.4em] mb-6 inline-block border border-gold/30 py-2 px-6 rounded-full bg-gold/5 backdrop-blur-sm">Tier-1 Corporate Placement</div>
+                      <h2 className="text-7xl font-bold mb-4 italic leading-tight group-hover:tracking-tight transition-all">Sterling Bank</h2>
+                      <p className="text-white/40 text-xl italic font-medium max-w-md leading-relaxed">Human Capital Group • Core Operations Unit • HQ Victoria Island</p>
                     </div>
-                    <div className="text-right">
-                      <div className="text-6xl font-bold text-gold italic leading-none">06<span className="text-2xl not-italic opacity-40 ml-2">/12</span></div>
-                      <div className="text-[10px] uppercase font-bold tracking-[0.3em] opacity-40 mt-3">Completed Weeks</div>
+                    <div className="bg-white/5 backdrop-blur-xl p-8 rounded-[40px] border border-white/10 text-center min-w-[160px]">
+                      <div className="text-7xl font-bold text-gold italic leading-none">06</div>
+                      <div className="text-[9px] uppercase font-bold tracking-[0.3em] opacity-40 mt-4">Weeks Vetted</div>
+                      <div className="w-full bg-white/10 h-0.5 mt-6 rounded-full overflow-hidden">
+                        <div className="bg-gold h-full w-1/2"></div>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                    <div className="p-10 bg-white/5 rounded-[32px] border border-white/10 backdrop-blur-xl group hover:bg-white/10 transition-all cursor-pointer">
-                      <h4 className="font-bold mb-6 flex items-center gap-4 text-sm uppercase tracking-widest text-gold">
-                        <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                        Strategic Priority
-                      </h4>
-                      <p className="text-white/80 mb-10 text-sm font-medium leading-relaxed italic">"Lead the overhaul of the Q2 performance appraisal framework for the Digital Banking division, focusing on KPI alignment with new ESG targets."</p>
-                      <button className="flex items-center gap-4 text-[10px] font-bold text-white uppercase tracking-[0.3em] group-hover:gap-6 transition-all">Submit Review Log <span className="text-gold">→</span></button>
-                    </div>
-                    <div className="p-10 bg-white/5 rounded-[32px] border border-white/10 backdrop-blur-xl grayscale hover:grayscale-0 transition-all">
-                      <h4 className="font-bold mb-6 uppercase text-[10px] tracking-[0.3em] text-white/40">Residency Supervisor</h4>
-                      <div className="flex items-center gap-6">
-                        <div className="w-20 h-20 rounded-[24px] bg-white text-black flex items-center justify-center font-bold text-2xl font-fraunces shadow-2xl">FA</div>
-                        <div>
-                          <div className="text-xl font-bold italic">Funke Adeyemi</div>
-                          <div className="text-[10px] text-white/40 font-bold uppercase tracking-[0.2em] mt-2">Head, Org. Performance</div>
-                        </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                    <div className="p-10 bg-white/5 rounded-[44px] border border-white/10 backdrop-blur-2xl hover:bg-white/10 transition-all cursor-pointer">
+                      <div className="flex items-center gap-4 mb-6">
+                        <span className="w-2.5 h-2.5 rounded-full bg-gold animate-ping"></span>
+                        <h4 className="font-bold text-[10px] uppercase tracking-[0.3em] text-gold">Strategic Mandate</h4>
                       </div>
+                      <p className="text-white/80 mb-12 text-sm font-medium leading-relaxed italic">"Lead the overhaul of the Q2 performance appraisal framework for the Digital Banking division."</p>
+                      <button className="flex items-center gap-4 text-[10px] font-bold text-white uppercase tracking-[0.4em] hover:gap-8 transition-all">Access Review Log <span className="text-gold text-lg">→</span></button>
+                    </div>
+                    
+                    <div className="p-10 bg-white/5 rounded-[44px] border border-white/10 backdrop-blur-2xl transition-all flex items-center gap-8">
+                       <div className="w-24 h-24 rounded-[32px] bg-white text-black flex items-center justify-center font-bold text-3xl font-fraunces shadow-2xl">FA</div>
+                       <div>
+                         <div className="text-[9px] text-white/40 font-bold uppercase tracking-[0.3em] mb-2">Mentor-In-Charge</div>
+                         <div className="text-2xl font-bold italic">Funke Adeyemi</div>
+                         <div className="text-[10px] text-gold font-bold uppercase tracking-[0.2em] mt-2">Head, Org. Performance</div>
+                       </div>
                     </div>
                   </div>
                 </div>
+                
+                {/* Visual Flair */}
                 <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(255,215,0,0.15),transparent_60%)] pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-3/4 h-3/4 bg-gold/5 blur-[150px] rounded-full translate-x-[-20%] translate-y-[20%] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-3/4 h-3/4 bg-gold/5 blur-[160px] rounded-full translate-x-[-20%] translate-y-[20%] pointer-events-none"></div>
               </div>
             </section>
 
+            {/* Daily Journal / Logbook */}
             <section>
-              <div className="flex justify-between items-end mb-8">
-                <h3 className="text-2xl font-bold italic">Daily Residency Log</h3>
-                <button className="text-xs font-bold text-gold uppercase tracking-widest border-b border-gold pb-1 hover:opacity-60 transition-all">Download Historical Logs</button>
+              <div className="flex justify-between items-end mb-10">
+                <div>
+                  <h3 className="text-3xl font-bold italic mb-2">Residency Logbook</h3>
+                  <p className="text-xs text-muted font-bold uppercase tracking-widest italic opacity-60">Verified Daily Journaling Required</p>
+                </div>
+                <button className="text-[9px] font-bold text-gold uppercase tracking-[0.3em] border-b border-gold/30 pb-1.5 hover:text-black transition-all">Audit Previous Logs</button>
               </div>
-              <div className="portal-card p-12 bg-off/50 border-dashed border-2">
-                <div className="space-y-8">
-                  <div className="flex gap-10 items-start">
-                    <div className="w-16 h-16 rounded-2xl bg-black text-white flex flex-col items-center justify-center font-bold">
-                      <span className="text-[10px] opacity-40 uppercase">Feb</span>
-                      <span className="text-xl">14</span>
+              <div className="portal-card p-14 bg-white border-2 border-dashed border-gray-100 relative overflow-hidden group">
+                <div className="flex gap-14 items-start relative z-10">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-20 h-20 rounded-[30px] bg-black text-white flex flex-col items-center justify-center font-bold shadow-2xl">
+                      <span className="text-[9px] opacity-40 uppercase tracking-widest">Feb</span>
+                      <span className="text-2xl italic">14</span>
                     </div>
-                    <div className="flex-1">
-                      <div className="text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-3">Today's Summary Required</div>
-                      <textarea className="w-full bg-white border border-gray-100 rounded-3xl p-6 text-sm italic font-medium focus:ring-2 focus:ring-gold/20 outline-none transition-all placeholder:opacity-30" rows={4} placeholder="Describe your key learnings, challenges tackled, and professional observations from today's work..."></textarea>
-                      <div className="flex justify-between items-center mt-6">
-                        <div className="flex gap-4">
-                          <button className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-lg hover:border-black transition-all">📎</button>
-                          <button className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-lg hover:border-black transition-all">📸</button>
-                        </div>
-                        <button className="btn-primary py-4 px-12 text-xs font-extrabold uppercase tracking-widest">Sign Logbook →</button>
-                      </div>
+                    <div className="w-[2px] h-32 bg-off rounded-full"></div>
+                  </div>
+                  <div className="flex-1 space-y-10">
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-bold text-muted uppercase tracking-[0.3em] block">Journal Entry #42</label>
+                      <textarea className="w-full bg-off border border-gray-50 rounded-[40px] p-10 text-base italic font-medium focus:ring-4 focus:ring-gold/5 outline-none transition-all placeholder:opacity-30 min-h-[220px] shadow-inner" placeholder="Analyze your strategic contributions today. What friction did you encounter in the organizational design process?"></textarea>
+                    </div>
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                       <div className="flex gap-4">
+                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">📎</button>
+                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">🎙️</button>
+                       </div>
+                       <button className="bg-black text-white px-12 py-5 rounded-2xl text-[10px] font-extrabold uppercase tracking-[0.3em] hover:bg-gold hover:text-black transition-all shadow-2xl shadow-black/20">Sign & Authorize Entry →</button>
                     </div>
                   </div>
                 </div>
+                <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-off/50 rounded-full blur-3xl pointer-events-none group-hover:bg-gold/5 transition-all"></div>
               </div>
             </section>
 
+            {/* Journey Milestone Map */}
             <section>
-              <h3 className="text-2xl font-bold mb-10 italic">Journey Progression</h3>
-              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-4">
+              <h3 className="text-3xl font-bold mb-12 italic">Studio Progression</h3>
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {[...Array(12)].map((_, i) => (
-                  <div key={i} className={`group relative h-24 rounded-[20px] border-2 flex flex-col items-center justify-center transition-all duration-500 overflow-hidden ${i + 1 < currentWeek ? 'bg-black border-black text-white shadow-xl translate-y-[-4px]' : i + 1 === currentWeek ? 'border-gold bg-white scale-110 shadow-2xl z-10 border-4' : 'border-gray-100 text-gray-300 italic'}`}>
-                    <div className="text-[8px] font-bold uppercase tracking-widest mb-1 opacity-40">Week</div>
-                    <div className="text-2xl font-bold italic">{(i + 1).toString().padStart(2, '0')}</div>
-                    {i + 1 < currentWeek && <div className="absolute bottom-1 right-1 text-[8px]">✔️</div>}
-                    {i + 1 === currentWeek && <div className="absolute top-1 right-2 text-[12px] animate-pulse">🎯</div>}
+                  <div key={i} className={`group relative h-36 rounded-[36px] border-2 flex flex-col items-center justify-center transition-all duration-700 overflow-hidden ${i + 1 < currentWeek ? 'bg-black border-black text-white shadow-2xl scale-95 opacity-80' : i + 1 === currentWeek ? 'border-gold bg-white scale-105 shadow-[0_30px_60px_-15px_rgba(255,215,0,0.3)] z-10 border-4 pt-4' : 'border-gray-50 text-gray-200 italic'}`}>
+                    <div className="text-[9px] font-bold uppercase tracking-widest mb-2 opacity-40">Phase</div>
+                    <div className="text-4xl font-bold italic">{(i + 1).toString().padStart(2, '0')}</div>
+                    {i + 1 < currentWeek && <div className="absolute top-4 right-4 text-xs opacity-60">Verified</div>}
+                    {i + 1 === currentWeek && <div className="mt-4 px-4 py-1.5 bg-gold text-black rounded-full font-bold text-[8px] uppercase tracking-widest animate-pulse">Live Site</div>}
                   </div>
                 ))}
               </div>
             </section>
           </div>
 
-          <div className="space-y-12">
+          {/* Sidebar Area */}
+          <div className="lg:col-span-4 space-y-12">
+            {/* Verified Skills Matrix */}
             <section>
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-gold"></span>
-                Verified Skills
+               <h3 className="text-xl font-bold mb-8 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-gold"></span>
+                Skills Intelligence
               </h3>
-              <div className="portal-card p-10 space-y-8">
+              <div className="portal-card p-12 space-y-10 bg-white">
                 {verifiedSkills.map((skill, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-xs font-bold text-black italic">{skill.name}</span>
-                      <span className="text-[10px] font-bold text-gold">{skill.level}%</span>
+                  <div key={i} className="group">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-sm font-bold text-black italic group-hover:text-gold transition-colors">{skill.name}</span>
+                      <span className="text-[10px] font-bold text-muted tabular-nums">{skill.level}%</span>
                     </div>
-                    <div className="w-full h-1.5 bg-gray-50 rounded-full overflow-hidden">
-                      <div className="h-full bg-black transition-all duration-1000" style={{ width: `${skill.level}%` }}></div>
+                    <div className="w-full h-2 bg-off rounded-full overflow-hidden">
+                      <div className="h-full bg-black transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(0,0,0,0.1)]" style={{ width: `${skill.level}%` }}></div>
                     </div>
                   </div>
                 ))}
-                <p className="text-[10px] text-muted font-bold uppercase tracking-widest text-center pt-4 italic border-t border-gray-50">Authorized by Sterling Bank Unit</p>
-              </div>
-            </section>
-
-            <section>
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-gold"></span>
-                Supervisor's Feed
-              </h3>
-              <div className="portal-card p-0 overflow-hidden">
-                <div className="p-8 bg-off/30 italic">
-                  <p className="text-xs text-black leading-relaxed mb-6 font-medium">"Your analysis of the digital banking silos was insightful. Next week, I want you to present these findings to the HR Director. Dress corporate-formal."</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-gold flex items-center justify-center font-bold text-[10px]">FA</div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Funke Adeyemi • Yesterday</span>
-                  </div>
+                <div className="pt-8 border-t border-gray-50">
+                   <div className="flex items-center gap-4 p-4 bg-off/50 rounded-2xl italic">
+                     <span className="text-xl">🎓</span>
+                     <p className="text-[9px] font-bold text-muted uppercase tracking-wider leading-relaxed">External Audit by Human Capital Board • Feb '26</p>
+                   </div>
                 </div>
-                <button className="w-full py-5 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-black transition-all">Reply to Supervisor →</button>
               </div>
             </section>
 
+            {/* Encrypted Supervisor Directives */}
             <section>
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-gold"></span>
-                Official Help
+              <h3 className="text-xl font-bold mb-8 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-gold"></span>
+                Mentor Directives
               </h3>
-              <div className="portal-card p-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
-                <p className="text-xs text-muted mb-8 italic leading-relaxed">Having issues with your corporate login or work environment?</p>
-                <button className="w-full py-4 rounded-xl border border-black text-xs font-bold hover:bg-black hover:text-white transition-all uppercase tracking-widest">Contact TF Liaison</button>
+              <div className="portal-card p-0 overflow-hidden bg-black text-white border-none shadow-2xl">
+                <div className="p-10 italic bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+                   <div className="flex items-center gap-3 mb-8">
+                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                     <span className="text-[9px] font-bold text-white/40 uppercase tracking-[0.3em]">Encrypted Feed • Priority Alpha</span>
+                   </div>
+                   <p className="text-base text-white/90 leading-relaxed mb-10 font-medium">"Review the talent pipeline analysis for the Lagos HQ. Your focus must remain on high-retention profiling for executive roles."</p>
+                   <div className="flex items-center gap-5">
+                      <div className="w-12 h-12 rounded-2xl bg-gold text-black flex items-center justify-center font-bold text-sm">FA</div>
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-gold leading-none mb-1">Funke Adeyemi</div>
+                        <div className="text-[8px] text-white/40 font-bold uppercase tracking-widest">Sterling Bank • Yesterday</div>
+                      </div>
+                   </div>
+                </div>
+                <button className="w-full py-6 bg-white/10 hover:bg-gold hover:text-black transition-all font-bold text-[10px] uppercase tracking-[0.3em] backdrop-blur-xl">Initiate Response Terminal →</button>
               </div>
+            </section>
+
+            {/* Official Support Hub */}
+            <section>
+               <div className="portal-card p-12 bg-off border-gray-100 space-y-8">
+                 <div className="w-14 h-14 rounded-3xl bg-white flex items-center justify-center text-2xl shadow-sm border border-gray-50">⚙️</div>
+                 <div>
+                   <h4 className="text-xl font-bold mb-2 italic">Institutional Support</h4>
+                   <p className="text-sm text-muted italic leading-relaxed">Connect with your TF Program Liaison for corporate environment issues.</p>
+                 </div>
+                 <button className="w-full py-5 bg-white border-2 border-black rounded-2xl font-extrabold text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-all">Contact Academy Liaison</button>
+               </div>
             </section>
           </div>
         </div>

@@ -6,6 +6,13 @@ interface TestAnswer {
   answer: string | number;
 }
 
+interface Question {
+  id: number;
+  question: string;
+  options?: string[];
+  type?: 'essay';
+}
+
 const AdmissionTestPage: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<'A' | 'B' | 'C'>('A');
   const [answers, setAnswers] = useState<TestAnswer[]>([]);
@@ -21,7 +28,7 @@ const AdmissionTestPage: React.FC = () => {
     }
   }, [timeLeft, isSubmitted]);
 
-  const questions = {
+  const questions: Record<'A' | 'B' | 'C', Question[]> = {
     A: [
       {
         id: 1,
@@ -193,7 +200,7 @@ const AdmissionTestPage: React.FC = () => {
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {q.options?.map((opt, i) => {
+                      {q.options && q.options.map((opt, i) => {
                         const isSelected = answers.find(a => a.question === q.id)?.answer === opt;
                         return (
                           <button

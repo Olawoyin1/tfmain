@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import type { TypedUseSelectorHook } from 'react-redux';
 import counterReducer from './slices/counterSlice';
 import userReducer from './slices/userSlice';
 import uiReducer from './slices/uiSlice';
@@ -16,7 +17,7 @@ export const store = configureStore({
         ignoredActions: ['ui/addNotification'],
       },
     }),
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: import.meta.env.MODE !== 'production',
 });
 
 export type RootState = ReturnType<typeof store.getState>;

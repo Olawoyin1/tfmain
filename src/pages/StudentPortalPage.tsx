@@ -7,22 +7,22 @@ const StudentPortalPage: React.FC = () => {
 
   return (
     <StudentSidebar>
-      <div className="flex gap-8 mb-12 border-b border-gray-100 pb-2">
+      <div className="inline-flex gap-1 p-1 bg-off rounded-2xl mb-12 border border-gray-100 shadow-sm">
         <button 
           onClick={() => setActiveTab('overview')}
-          className={`text-xs font-bold uppercase tracking-widest pb-4 transition-all border-b-2 ${activeTab === 'overview' ? 'border-gold text-black' : 'border-transparent text-muted'}`}
+          className={`px-8 py-3 text-[10px] font-extrabold uppercase tracking-widest transition-all rounded-xl ${activeTab === 'overview' ? 'bg-black text-white shadow-lg' : 'text-muted hover:text-black'}`}
         >
           Overview
         </button>
         <button 
           onClick={() => setActiveTab('orientation')}
-          className={`text-xs font-bold uppercase tracking-widest pb-4 transition-all border-b-2 ${activeTab === 'orientation' ? 'border-gold text-black' : 'border-transparent text-muted'}`}
+          className={`px-8 py-3 text-[10px] font-extrabold uppercase tracking-widest transition-all rounded-xl ${activeTab === 'orientation' ? 'bg-black text-white shadow-lg' : 'text-muted hover:text-black'}`}
         >
           Orientation
         </button>
         <button 
           onClick={() => setActiveTab('payment')}
-          className={`text-xs font-bold uppercase tracking-widest pb-4 transition-all border-b-2 ${activeTab === 'payment' ? 'border-gold text-black' : 'border-transparent text-muted'}`}
+          className={`px-8 py-3 text-[10px] font-extrabold uppercase tracking-widest transition-all rounded-xl ${activeTab === 'payment' ? 'bg-black text-white shadow-lg' : 'text-muted hover:text-black'}`}
         >
           Tuition
         </button>
@@ -30,108 +30,132 @@ const StudentPortalPage: React.FC = () => {
 
       {activeTab === 'overview' && (
         <div className="animate-slide-up">
-          <div className="mb-12">
-            <div className="hero-tag mb-4">
-              <span className="hero-tag-dot"></span>
-              Welcome Back, Sarah
+          <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div>
+              <div className="hero-tag mb-4 shadow-sm inline-flex items-center">
+                <span className="hero-tag-dot bg-gold"></span>
+                Active Learning Batch • Cohort 1
+              </div>
+              <h1 className="sec-h text-6xl italic leading-tight">Welcome Back, <em>Sarah.</em></h1>
             </div>
-            <h1 className="sec-h text-5xl">Your <em>Learning</em> Journey</h1>
+            <div className="flex items-center gap-4 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-black text-white flex flex-col items-center justify-center font-bold">
+                <span className="text-[8px] opacity-40 uppercase">Day</span>
+                <span className="text-lg">42</span>
+              </div>
+              <div>
+                <div className="text-[10px] font-bold text-muted uppercase tracking-widest">Streak</div>
+                <div className="text-sm font-bold text-black italic">Consistent Learner</div>
+              </div>
+            </div>
           </div>
 
-          <div className="portal-grid">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-8">
-              <section>
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-gold"></span>
-                  Journey Progression
-                </h3>
-                <div className="portal-card p-12 bg-black text-white relative overflow-hidden h-full">
-                  <div className="relative z-10">
-                    <div className="flex justify-between items-start mb-10">
-                      <div>
-                        <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-white/40 mb-2">Current Phase</div>
-                        <h4 className="text-3xl font-bold italic">Human Capital <br/><em>Specialization</em></h4>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-4xl font-bold text-gold italic">40%</div>
-                        <div className="text-[9px] uppercase font-bold tracking-widest text-white/40">Overall Completion</div>
-                      </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+            {/* Main Progress Card */}
+            <div className="lg:col-span-8 space-y-8">
+              <div className="portal-card bg-black text-white p-12 relative overflow-hidden group min-h-[400px] flex flex-col justify-between">
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-12">
+                    <div>
+                      <div className="text-[10px] uppercase font-bold tracking-[0.3em] text-gold/60 mb-4 border border-gold/20 py-1.5 px-4 rounded-full inline-block">Human Capital Specialization</div>
+                      <h4 className="text-5xl font-bold italic leading-tight">Mastering Corporate <br/><em>Organizational Design</em></h4>
                     </div>
-                    
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center text-[10px] font-bold">✓</div>
-                        <span className="text-sm font-medium italic opacity-60">Admissions & Onboarding</span>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] font-bold animate-pulse">⚡</div>
-                        <span className="text-sm font-bold italic">Specialization Training</span>
-                      </div>
-                      <div className="flex items-center gap-4 opacity-30">
-                        <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-[10px] font-bold text-center">🔒</div>
-                        <span className="text-sm font-medium italic">Professional Residency</span>
-                      </div>
+                    <div className="text-right">
+                      <div className="text-6xl font-bold text-gold italic leading-none">40<span className="text-2xl not-italic opacity-40 ml-1">%</span></div>
+                      <div className="text-[9px] uppercase font-bold tracking-[0.2em] text-white/40 mt-3">Course Completion</div>
                     </div>
                   </div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                </div>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-gold"></span>
-                  Latest Resources
-                </h3>
-                <div className="portal-card p-0 overflow-hidden h-full">
-                  <div className="divide-y divide-gray-50">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
-                      { title: 'Talent Acquisition Handbook', type: 'PDF', size: '2.4MB' },
-                      { title: 'HR Process Mapping Template', type: 'XLSX', size: '1.2MB' },
-                      { title: 'Q1 Performance Matrix', type: 'DOCX', size: '0.8MB' }
-                    ].map((material, i) => (
-                      <div key={i} className="p-6 flex items-center justify-between group hover:bg-off transition-all">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-off border border-gray-100 flex items-center justify-center text-lg">📎</div>
-                          <div>
-                            <div className="text-sm font-bold text-black italic truncate max-w-[150px]">{material.title}</div>
-                            <div className="text-[9px] font-bold text-muted uppercase tracking-widest">{material.type} • {material.size}</div>
-                          </div>
+                      { label: 'Admissions', status: 'Completed', icon: '✓', active: false },
+                      { label: 'Specialization', status: 'In Progress', icon: '⚡', active: true },
+                      { label: 'Residency', status: 'Locked', icon: '🔒', active: false }
+                    ].map((phase, i) => (
+                      <div key={i} className={`p-6 rounded-[32px] border transition-all ${phase.active ? 'bg-white/10 border-white/20 shadow-xl' : 'bg-white/5 border-white/5 opacity-40'}`}>
+                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xs font-bold mb-6 ${phase.active ? 'bg-gold text-black animate-pulse' : 'bg-white/10 text-white'}`}>
+                          {phase.icon}
                         </div>
-                        <button className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center text-sm opacity-0 group-hover:opacity-100 transition-all">↓</button>
+                        <div className="text-[9px] font-bold uppercase tracking-widest text-white/40 mb-1">{phase.status}</div>
+                        <div className="text-sm font-bold italic">{phase.label}</div>
                       </div>
                     ))}
                   </div>
-                  <Link to="/portal/learning" className="block w-full py-4 bg-off text-center text-[10px] font-bold uppercase tracking-widest text-black hover:bg-gold transition-all">View All Materials →</Link>
+                </div>
+                
+                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(255,215,0,0.1),transparent_70%)] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gold/5 blur-[120px] rounded-full translate-x-[-20%] translate-y-[20%] pointer-events-none"></div>
+              </div>
+
+              {/* Bento Grid Bottom */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Link to="/portal/learning" className="portal-card p-10 bg-off/50 hover:bg-gold/5 transition-all group border-2 border-transparent hover:border-gold/20">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm group-hover:scale-110 transition-transform">📚</div>
+                  <h4 className="text-2xl font-bold mb-3 italic">Digital Classroom</h4>
+                  <p className="text-sm text-muted mb-8 leading-relaxed italic">Access course modules, submitted assignments, and peer reviews.</p>
+                  <div className="text-xs font-extrabold text-gold uppercase tracking-[0.2em] flex items-center gap-2">Enter Learning Hub <span className="group-hover:translate-x-2 transition-transform">→</span></div>
+                </Link>
+
+                <div className="portal-card p-10 group bg-white shadow-xl shadow-black/[0.02]">
+                  <div className="w-14 h-14 bg-off rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm">💬</div>
+                  <h4 className="text-2xl font-bold mb-3 italic">Cohort Community</h4>
+                  <p className="text-sm text-muted mb-8 leading-relaxed italic">Collaboratively solve challenges with fellow HR practitioners.</p>
+                  <button className="flex items-center gap-4 bg-[#25D366] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-[#25D366]/20">Join WhatsApp Hub</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Sidebar Widgets */}
+            <div className="lg:col-span-4 space-y-8">
+              <section>
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-lg font-bold italic">Latest Materials</h3>
+                  <Link to="/portal/learning" className="text-[9px] font-bold text-gold uppercase tracking-widest border-b border-gold/30 pb-0.5">Explore All</Link>
+                </div>
+                <div className="portal-card p-0 overflow-hidden border-gray-100/50">
+                  <div className="divide-y divide-gray-50">
+                    {[
+                      { title: 'Talent Acquisition Handbook', type: 'PDF', size: '2.4MB', icon: '📎' },
+                      { title: 'HR Process Mapping Template', type: 'XLSX', size: '1.2MB', icon: '📊' },
+                      { title: 'Corporate Culture Slides', type: 'PPTX', size: '6.8MB', icon: '🎞️' }
+                    ].map((material, i) => (
+                      <div key={i} className="p-6 flex items-center justify-between group hover:bg-off transition-all cursor-pointer">
+                        <div className="flex items-center gap-5">
+                          <div className="w-12 h-12 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-xl grayscale group-hover:grayscale-0 transition-all shadow-sm">{material.icon}</div>
+                          <div>
+                            <div className="text-sm font-bold text-black italic truncate max-w-[140px]">{material.title}</div>
+                            <div className="text-[9px] font-bold text-muted uppercase tracking-widest mt-1 opacity-50">{material.type} • {material.size}</div>
+                          </div>
+                        </div>
+                        <div className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-all hover:bg-black hover:text-white">↓</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </section>
-            </div>
 
-            <Link to="/portal/learning" className="portal-card hover:border-gold group">
-              <div className="text-3xl mb-6 group-hover:scale-110 transition-transform">📚</div>
-              <h4 className="text-xl font-bold mb-2">Classroom</h4>
-              <p className="text-sm text-muted mb-6">Access your course modules, assignments, and curriculum updates.</p>
-              <div className="text-xs font-bold text-gold uppercase tracking-widest">Enter Hub →</div>
-            </Link>
+              <section>
+                <div className="portal-card bg-gold/5 border-gold/20 p-8 relative overflow-hidden group">
+                  <div className="relative z-10">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-gold mb-6 border-b border-gold/10 pb-4">Faculty Broadcast</h3>
+                    <p className="text-sm font-medium leading-relaxed italic text-black mb-8">"Your analysis of the organizational design framework was exceptional. Focus on the ESG metrics for next week."</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-[10px]">MO</div>
+                      <div>
+                        <div className="text-[10px] font-bold text-black uppercase tracking-widest">Dr. Michael O.</div>
+                        <div className="text-[8px] text-muted font-bold uppercase tracking-widest">Program Director • 4h ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gold/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+              </section>
 
-            <div className="portal-card">
-              <div className="text-3xl mb-6">📋</div>
-              <h4 className="text-xl font-bold mb-2">Student Handbook</h4>
-              <p className="text-sm text-muted mb-6">Download the official guide for Talent Factory procedures and policies.</p>
-              <button className="text-xs font-bold text-black uppercase tracking-widest underline decoration-gold underline-offset-4">Download PDF</button>
-            </div>
-
-            <div className="portal-card">
-              <div className="text-3xl mb-6">💬</div>
-              <h4 className="text-xl font-bold mb-2">Cohort Community</h4>
-              <p className="text-sm text-muted mb-6">Connect with fellow learners and instructors in our private WhatsApp channel.</p>
-              <button className="px-6 py-2 bg-[#25D366] text-white rounded-full text-xs font-bold">Join Community</button>
-            </div>
-
-            <div className="portal-card opacity-50">
-              <div className="text-3xl mb-6">🎓</div>
-              <h4 className="text-xl font-bold mb-2">Certificate Vault</h4>
-              <p className="text-sm text-muted mb-6">Your professional accreditation will appear here upon program completion.</p>
-              <div className="text-[10px] font-bold text-muted uppercase tracking-widest">Available April '26</div>
+              <Link to="/portal/certificates" className="portal-card p-10 flex flex-col items-center justify-center text-center opacity-40 hover:opacity-100 transition-all group grayscale hover:grayscale-0 border-dashed border-2">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎓</div>
+                <h4 className="text-sm font-bold uppercase tracking-widest mb-1">Credential Vault</h4>
+                <p className="text-[10px] font-medium italic text-muted">Awaiting Completion of Module 08</p>
+              </Link>
             </div>
           </div>
         </div>
