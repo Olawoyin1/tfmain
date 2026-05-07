@@ -33,7 +33,6 @@ const MiniRegistrationPage: React.FC = () => {
 
   // Input styles matching the screenshots — off-white bg, rounded-2xl, italic placeholder
   const inp = "w-full bg-off border-0 rounded-2xl px-5 py-4 text-[14px] font-medium italic text-black placeholder:text-muted/60 outline-none focus:ring-2 focus:ring-gold/30 transition-all";
-  const sel = `${inp} appearance-none cursor-pointer not-italic font-semibold`;
   const lbl = "block text-[11px] font-bold uppercase tracking-widest text-muted mb-2";
 
   const tag = (text: string) => (

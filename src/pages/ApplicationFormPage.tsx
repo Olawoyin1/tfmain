@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
@@ -74,12 +73,10 @@ const Field: React.FC<{ label: string; hint?: string; req?: boolean; error?: str
 );
 
 const inputCls = "w-full px-[18px] py-[14px] rounded-md border-2 border-black/12 bg-white text-[14px] font-sans text-black outline-none focus:border-gold focus:shadow-[0_0_0_4px_rgba(212,160,23,0.1)] transition-all";
-const selectCls = `${inputCls} appearance-none cursor-pointer`;
 const textareaCls = `${inputCls} min-h-[110px] resize-y leading-relaxed`;
 
 // ── Main Component ─────────────────────────────────────────────────────────
 const ApplicationFormPage: React.FC = () => {
-  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);

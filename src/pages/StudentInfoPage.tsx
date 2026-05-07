@@ -114,20 +114,7 @@ const StudentInfoPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Program stats */}
-          <div className="grid grid-cols-3 gap-3 mt-5">
-            {[
-              { val: '6', label: 'Month program', sub: 'Learning + internship' },
-              { val: '30–50', label: 'Per cohort', sub: 'Intentionally small' },
-              { val: '100%', label: 'Placement goal', sub: 'Every graduate' },
-            ].map((s, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-100 p-4 text-center">
-                <div className="font-display text-[26px] font-black text-black">{s.val}</div>
-                <div className="text-[12px] font-bold text-black mt-0.5">{s.label}</div>
-                <div className="text-[11px] text-muted">{s.sub}</div>
-              </div>
-            ))}
-          </div>
+          
         </div>
 
         {/* ── Right: application steps + CTA ── */}
@@ -165,24 +152,25 @@ const StudentInfoPage: React.FC = () => {
           </div>
 
           {/* Time + trust */}
-          <div className="flex items-center gap-2 text-[12px] text-muted p-3 bg-white rounded-lg border border-gray-100 mb-5">
-            <FiClock size={13} className="text-gold shrink-0" />
-            About 45 minutes total. You can pause and return.
-          </div>
+          
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="flex items-center gap-1.5 text-[11px] text-muted">
-              <FiShield size={12} className="text-green-600" /> Paystack secured
-            </div>
-            <div className="w-px h-3 bg-gray-200" />
-            <div className="flex items-center gap-1.5 text-[11px] text-muted">
-              <FiLock size={12} className="text-green-600" /> 256-bit SSL
-            </div>
-            <div className="w-px h-3 bg-gray-200" />
-            <div className="flex items-center gap-1.5 text-[11px] text-muted">
-              <FiCheck size={12} className="text-green-600" /> 7-day decision
-            </div>
+
+
+          {/* Program stats */}
+          <div className="grid grid-cols-3 gap-2 my-5">
+            {[
+              { val: '6', label: 'Month program', sub: 'Learning + internship' },
+              { val: '30–50', label: 'Per cohort', sub: 'Intentionally small' },
+              { val: '100%', label: 'Placement goal', sub: 'Every graduate' },
+            ].map((s, i) => (
+              <div key={i} className="bg-white rounded-xl border border-gray-100 p-3 text-center">
+                <div className="font-display text-[23px] font-black text-black">{s.val}</div>
+                <div className="text-[12px] font-bold text-black mt-0.5">{s.label}</div>
+                <div className="text-[11px] text-muted">{s.sub}</div>
+              </div>
+            ))}
           </div>
+         
 
           <button
             onClick={() => navigate('/apply/register')}
