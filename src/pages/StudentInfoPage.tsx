@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiArrowRight, FiCheck, FiClock, FiShield, FiLock } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 const StudentInfoPage: React.FC = () => {
   const navigate = useNavigate();
