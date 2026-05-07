@@ -12,7 +12,6 @@ import Testimonials from '../components/Testimonials/Testimonials';
 import Partners from '../components/Partners/Partners';
 import Pricing from '../components/Pricing/Pricing';
 import FAQ from '../components/FAQ/FAQ';
-import Apply from '../components/Apply/Apply';
 import Footer from '../components/Footer/Footer';
 
 const LandingPage: React.FC = () => {
@@ -31,7 +30,6 @@ const LandingPage: React.FC = () => {
       <Partners />
       <Pricing />
       <FAQ />
-      <Apply />
       <Footer />
     </>
   );

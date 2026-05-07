@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
           Partner With Us
         </a>
 
-        <Link to="/apply/payment" className="nav-solid">
+        <Link to="/apply" className="nav-solid">
           Apply Now →
         </Link>
       </div>

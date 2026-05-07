@@ -22,8 +22,8 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({ children }) => {
       <aside className="portal-sidebar font-syne">
         <div className="sidebar-header">
           <Link to="/" className="nav-logo-link no-underline">
-            <div className="logo-box bg-gold text-black border-none font-fraunces">TF</div>
-            <div className="logo-name text-white font-fraunces">Talent<span>Factory</span></div>
+            <div className="logo-box bg-gold text-black border-none font-sans">TF</div>
+            <div className="logo-name text-white font-sans">Talent<span>Factory</span></div>
           </Link>
           <div className="mt-4">
             <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-gold/60">Student Portal</span>

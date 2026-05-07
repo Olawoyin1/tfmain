@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiBook, FiHome, FiAward, FiZap } from 'react-icons/fi';
 
 const Hero: React.FC = () => {
   return (
@@ -27,46 +28,26 @@ const Hero: React.FC = () => {
         </p>
         
         <div className="hero-actions">
-          <a href="#apply" className="btn-primary">
-            Apply for Cohort 1
-          </a>
-          <a href="#program" className="btn-secondary">
-            See the Program
-          </a>
+          <a href="#apply" className="btn-primary">Apply for Cohort 1</a>
+          <a href="#program" className="btn-secondary">See the Program</a>
         </div>
         
         <div className="hero-numbers">
           <div>
-            <div className="hero-number-value">
-              6<span>mo</span>
-            </div>
-            <div className="hero-number-label">
-              Full Program
-            </div>
+            <div className="hero-number-value">6<span>mo</span></div>
+            <div className="hero-number-label">Full Program</div>
           </div>
           <div>
-            <div className="hero-number-value">
-              12<span>+</span>
-            </div>
-            <div className="hero-number-label">
-              Expert Instructors
-            </div>
+            <div className="hero-number-value">12<span>+</span></div>
+            <div className="hero-number-label">Expert Instructors</div>
           </div>
           <div>
-            <div className="hero-number-value">
-              100<span>%</span>
-            </div>
-            <div className="hero-number-label">
-              Placement Goal
-            </div>
+            <div className="hero-number-value">100<span>%</span></div>
+            <div className="hero-number-label">Placement Goal</div>
           </div>
           <div>
-            <div className="hero-number-value">
-              2<span>x</span>
-            </div>
-            <div className="hero-number-label">
-              Certificates
-            </div>
+            <div className="hero-number-value">2<span>x</span></div>
+            <div className="hero-number-label">Certificates</div>
           </div>
         </div>
       </div>
@@ -78,7 +59,9 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="hero-big-card">
-          <div className="hero-big-card-eyebrow">⚡ Your Cohort 1 Journey</div>
+          <div className="hero-big-card-eyebrow" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <FiZap size={13} /> Your Cohort 1 Journey
+          </div>
           <h3 className="hero-big-card-title">Two phases. One <em>complete</em> career transformation.</h3>
           
           <div className="phase-row">
@@ -96,21 +79,21 @@ const Hero: React.FC = () => {
           
           <div className="hero-big-card-items">
             <div className="hero-big-card-item">
-              <span className="hero-big-card-icon">📚</span>
+              <span className="hero-big-card-icon"><FiBook size={18} /></span>
               <div>
                 <div className="hero-big-card-text">12 Live Weekly Modules</div>
                 <div className="hero-big-card-sub">Evenings & weekends. All sessions recorded.</div>
               </div>
             </div>
             <div className="hero-big-card-item">
-              <span className="hero-big-card-icon">🏢</span>
+              <span className="hero-big-card-icon"><FiHome size={18} /></span>
               <div>
                 <div className="hero-big-card-text">Guaranteed Internship Placement</div>
                 <div className="hero-big-card-sub">Matched & placed at a vetted partner company.</div>
               </div>
             </div>
             <div className="hero-big-card-item">
-              <span className="hero-big-card-icon">🎓</span>
+              <span className="hero-big-card-icon"><FiAward size={18} /></span>
               <div>
                 <div className="hero-big-card-text">Dual Certificate on Completion</div>
                 <div className="hero-big-card-sub">PHRi-aligned. Shareable on LinkedIn.</div>

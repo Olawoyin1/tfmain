@@ -7,10 +7,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Syne', 'sans-serif'],
-        'serif': ['Fraunces', 'serif'],
-        'syne': ['Syne', 'sans-serif'],
-        'fraunces': ['Fraunces', 'serif'],
+        'sans': ['Nunito Sans', 'sans-serif'],
+        'serif': ['Playfair Display', 'serif'],
+        'display': ['Playfair Display', 'serif'],
+        'inter': ['Nunito Sans', 'sans-serif'],
+        'syne': ['Nunito Sans', 'sans-serif'],
+        'fraunces': ['Playfair Display', 'serif'],
+        'dm-serif': ['Playfair Display', 'serif'],
       },
       colors: {
         'black': '#0A0A0A',

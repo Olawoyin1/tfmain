@@ -1,29 +1,30 @@
 import React from 'react';
+import { FiBookOpen, FiNavigation, FiMicOff, FiSearch, FiGlobe } from 'react-icons/fi';
 
 const Problem: React.FC = () => {
   const painPoints = [
     {
-      icon: "🎓",
+      icon: <FiBookOpen size={22} />,
       title: "University programs that teach theory, not practice",
       description: "Nigerian universities teach Labour Law and Management Theory. They don't teach you how to run an actual performance review, build a payroll structure, or handle a disciplinary hearing. We do."
     },
     {
-      icon: "🚧",
+      icon: <FiNavigation size={22} />,
       title: "No credible pathway for career transitioners",
       description: "If you're moving from operations, admin, customer success, or marketing into HR, there's no structured bridge to help you make that move credibly. Talent Factory is that bridge."
     },
     {
-      icon: "🔇",
+      icon: <FiMicOff size={22} />,
       title: "No access to senior HR mentors or practitioners",
       description: "Most junior HR professionals have no real exposure to how experienced practitioners think and work. Our instructor model puts them in your classroom every week."
     },
     {
-      icon: "🔍",
+      icon: <FiSearch size={22} />,
       title: "Internships that are hard to get and teach nothing",
       description: "The internship experience in Nigeria is broken — unstructured, often unpaid, and largely unguided. We give you a placement with purpose: a structured role, weekly check-ins, and a real supervisor who's accountable to us."
     },
     {
-      icon: "🌍",
+      icon: <FiGlobe size={22} />,
       title: "Generic online courses built for a different context",
       description: "Most HR courses are built for Western workplaces. They don't mention NSITF, ITF contributions, or navigating HR in a Nigerian startup. We teach HR for where you actually work."
     }
@@ -33,9 +34,7 @@ const Problem: React.FC = () => {
     <section className="problem">
       <div className="problem-inner">
         <div>
-          <div className="eyebrow">
-            Why Talent Factory Exists
-          </div>
+          <div className="eyebrow">Why Talent Factory Exists</div>
           <div className="prob-quote">
             "The problem isn't the talent. It's the pathway that was never built for them."
           </div>
@@ -51,20 +50,11 @@ const Problem: React.FC = () => {
         
         <div className="pain-list">
           {painPoints.map((point, index) => (
-            <div
-              key={index}
-              className="pain-item"
-            >
-              <span className="pain-icon">
-                {point.icon}
-              </span>
+            <div key={index} className="pain-item">
+              <span className="pain-icon">{point.icon}</span>
               <div>
-                <div className="pain-title">
-                  {point.title}
-                </div>
-                <div className="pain-desc">
-                  {point.description}
-                </div>
+                <div className="pain-title">{point.title}</div>
+                <div className="pain-desc">{point.description}</div>
               </div>
             </div>
           ))}

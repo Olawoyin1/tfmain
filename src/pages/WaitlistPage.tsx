@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Select, SelectContent, SelectItem,
+  SelectTrigger, SelectValue,
+} from '../components/UI/Select';
 
 const WaitlistPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -124,19 +128,15 @@ const WaitlistPage: React.FC = () => {
 
               <div className="input-group">
                 <label className="input-label">I am a...</label>
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleInputChange}
-                  required
-                  className="select-field"
-                >
-                  <option value="">Select your current role</option>
-                  <option value="student">Student</option>
-                  <option value="graduate">Recent Graduate</option>
-                  <option value="professional">HR Professional</option>
-                  <option value="career-changer">Career Changer</option>
-                </select>
+                <Select value={formData.role} onValueChange={v => setFormData(p => ({ ...p, role: v }))}>
+                  <SelectTrigger><SelectValue placeholder="Select your current role" /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="student">Student</SelectItem>
+                    <SelectItem value="graduate">Recent Graduate</SelectItem>
+                    <SelectItem value="professional">HR Professional</SelectItem>
+                    <SelectItem value="career-changer">Career Changer</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <button

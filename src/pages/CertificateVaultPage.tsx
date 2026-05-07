@@ -20,13 +20,13 @@ const CertificateVaultPage: React.FC = () => {
           <div className="portal-card group">
             <div className="aspect-[1.414/1] bg-black rounded-3xl mb-10 p-12 text-white relative overflow-hidden flex flex-col justify-between border-4 border-gold/10 group-hover:border-gold/30 transition-all shadow-2xl">
               <div className="relative z-10 flex justify-between items-start">
-                <div className="logo-box bg-gold text-black border-none w-14 h-14 text-2xl font-fraunces shadow-lg">TF</div>
+                <div className="logo-box bg-gold text-black border-none w-14 h-14 text-2xl font-sans shadow-lg">TF</div>
                 <div className="text-[9px] uppercase tracking-[0.5em] font-extrabold opacity-40 text-right">Verification ID<br/>TF-CERT-2026-001</div>
               </div>
               
               <div className="relative z-10 text-center">
                 <div className="text-[11px] uppercase tracking-[0.4em] font-extrabold text-gold mb-4 py-1 px-4 border border-gold/20 rounded-full inline-block mx-auto">Certificate of Excellence</div>
-                <div className="font-fraunces text-4xl font-bold italic mb-2 tracking-tight">Sarah Johnson</div>
+                <div className="font-sans text-4xl font-bold italic mb-2 tracking-tight">Sarah Johnson</div>
                 <div className="w-16 h-[2px] bg-gold mx-auto mb-6"></div>
                 <p className="text-[10px] opacity-60 leading-relaxed max-w-[260px] mx-auto uppercase tracking-widest font-medium">Has successfully achieved professional accreditation in Human Resource Management Specialization</p>
               </div>
@@ -63,7 +63,7 @@ const CertificateVaultPage: React.FC = () => {
               </div>
               <div className="opacity-10 grayscale">
                  <div className="flex justify-between">
-                   <div className="logo-box bg-black text-white w-14 h-14 font-fraunces">SB</div>
+                   <div className="logo-box bg-black text-white w-14 h-14 font-sans">SB</div>
                    <div className="text-[8px] uppercase tracking-widest font-bold">Residency Unit</div>
                  </div>
                  <div className="text-center mt-20">

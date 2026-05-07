@@ -8,11 +8,13 @@ const initialState: UserState = {
   isLoading: false,
   error: null,
 };
+7 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
 
 export const loginUser = createAsyncThunk(
   'user/login',
   async (credentials: { email: string; password: string }) => {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
@@ -25,7 +27,7 @@ export const loginUser = createAsyncThunk(
 );
 
 export const logoutUser = createAsyncThunk('user/logout', async () => {
-  await fetch('/api/auth/logout', { method: 'POST' });
+  await fetch(`${BASE_URL}/api/auth/logout`, { method: 'POST' });
 });
 
 const userSlice = createSlice({

@@ -65,7 +65,7 @@ const InternshipPortalPage: React.FC = () => {
                     </div>
                     
                     <div className="p-10 bg-white/5 rounded-[44px] border border-white/10 backdrop-blur-2xl transition-all flex items-center gap-8">
-                       <div className="w-24 h-24 rounded-[32px] bg-white text-black flex items-center justify-center font-bold text-3xl font-fraunces shadow-2xl">FA</div>
+                       <div className="w-24 h-24 rounded-[32px] bg-white text-black flex items-center justify-center font-bold text-3xl font-sans shadow-2xl">FA</div>
                        <div>
                          <div className="text-[9px] text-white/40 font-bold uppercase tracking-[0.3em] mb-2">Mentor-In-Charge</div>
                          <div className="text-2xl font-bold italic">Funke Adeyemi</div>
