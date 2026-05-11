@@ -108,8 +108,8 @@ const TutorDashboardPage: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-gold"></span>
                     Student Progress Highlight
                   </h3>
-                  <div className="portal-card p-0 overflow-hidden">
-                    <table className="w-full text-left">
+                  <div className="portal-card p-0 overflow-hidden overflow-x-auto">
+                    <table className="w-full text-left min-w-[700px]">
                       <thead className="bg-off border-b border-gray-100">
                         <tr>
                           <th className="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-muted">Student</th>
@@ -242,8 +242,8 @@ const TutorDashboardPage: React.FC = () => {
               </div>
             </div>
             
-            <div className="portal-card p-0 overflow-hidden">
-              <table className="w-full text-left">
+            <div className="portal-card p-0 overflow-hidden overflow-x-auto">
+              <table className="w-full text-left min-w-[700px]">
                 <thead className="bg-off border-b border-gray-100">
                   <tr>
                     <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted">Name</th>

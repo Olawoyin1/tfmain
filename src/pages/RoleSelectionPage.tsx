@@ -86,8 +86,8 @@ const RoleSelectionPage: React.FC = () => {
 
         <p className="mt-10 text-[12px] text-muted">
           Already applied?{' '}
-          <a href="/portal" className="text-black font-semibold underline underline-offset-2">
-            Sign in to your portal →
+          <a href="/portal" className="text-black font-semibold inline-flex items-center gap-1 hover:text-gold transition-colors">
+            Sign in to your portal <FiArrowRight size={14} />
           </a>
         </p>
       </div>

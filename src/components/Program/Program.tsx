@@ -11,7 +11,7 @@ const Program: React.FC = () => {
           Six Months. Two Phases.<br /><em>One Complete Career Transformation.</em>
         </h2>
         <p className="sec-p">
-          Talent Factory is not a course. It is not a workshop. It is a full career development program —
+          Talent Factory is not a course. It is not a workshop. It is a full career development program,
           the most structured and complete pathway into the HR profession that exists in Nigeria today.
         </p>
       </div>
@@ -26,7 +26,7 @@ const Program: React.FC = () => {
           <p className="ph-desc">
             Twelve weeks of live, online instruction from senior HR practitioners across Nigeria's best companies. One
             expert per topic. Every session is held on weekday evenings or weekends so you can attend without quitting
-            your job or pausing your studies. Every session is recorded and uploaded within 24 hoursso missing one is
+            your job or pausing your studies. Every session is recorded and uploaded within 24 hours, so missing one is
             never a crisis.
             <br /><br />
             This isn't passive watching. You'll submit assignments, tackle case studies, engage in peer discussions, and

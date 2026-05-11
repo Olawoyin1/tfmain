@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiArrowRight, FiFileText } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiFileText, FiCheck } from 'react-icons/fi';
 import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
@@ -82,7 +82,7 @@ const MiniRegistrationPage: React.FC = () => {
                         color: done ? 'white' : active ? '#0A0A0A' : 'rgba(255,255,255,0.3)',
                       }}
                     >
-                      {done ? '✓' : n}
+                      {done ? <FiCheck /> : n}
                     </div>
                     <div className={`text-[10px] font-semibold uppercase tracking-[0.8px] mt-2 ${done || active ? 'text-white/60' : 'text-white/25'}`}>
                       {label}
