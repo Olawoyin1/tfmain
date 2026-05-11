@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         
         <div className="hero-actions">
           <a href="#apply" className="btn-primary">Apply for Cohort 1</a>
-          <a href="#program" className="btn-secondary">See the Program</a>
+          <a href="#who" className="btn-secondary">Who It's For</a>
         </div>
         
         <div className="hero-numbers">

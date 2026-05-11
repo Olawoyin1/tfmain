@@ -18,8 +18,8 @@ const Navbar: React.FC = () => {
         <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="nav-link">
           Home
         </a>
-        <a href="#who" className="nav-link">
-          Who It's For
+        <a href="#program" className="nav-link">
+          Program
         </a>
         <a href="#faculty" className="nav-link">
           Faculty
