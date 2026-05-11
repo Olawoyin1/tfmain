@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
     <>
       <Navbar />
       <Hero />
-      <Marquee />
+      {/* <Marquee /> */}
       <About />
       <Problem />
       <Program />

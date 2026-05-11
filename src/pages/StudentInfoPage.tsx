@@ -32,7 +32,7 @@ const StudentInfoPage: React.FC = () => {
       tag: 'Phase 2 · Months 4–6',
       title: 'The Internship Phase',
       subtitle: 'Where You Use What You\'ve Learned',
-      body: 'The learning phase builds your knowledge. The internship phase tests it — in a real company, with real people, doing real HR work. Every student who completes the learning phase is placed with a Talent Factory partner company. You\'ll have a role, a supervisor, weekly check-ins, and structured performance evaluations.',
+      body: 'The learning phase builds your knowledge. The internship phase tests itin a real company, with real people, doing real HR work. Every student who completes the learning phase is placed with a Talent Factory partner company. You\'ll have a role, a supervisor, weekly check-ins, and structured performance evaluations.',
       stats: [
         { val: '12', label: 'Weeks of Interning' },
         { val: 'Real', label: 'Nigerian Company' },
@@ -67,7 +67,7 @@ const StudentInfoPage: React.FC = () => {
           Six Months. Two Phases.<br /><em className="text-gold">One Complete Career Transformation.</em>
         </h1>
         <p className="text-[15px] text-white/50 max-w-xl mx-auto leading-relaxed">
-          Talent Factory is not a course. It is not a workshop. It is a full career development program — the most structured and complete pathway into the HR profession that exists in Nigeria today.
+          Talent Factory is not a course. It is not a workshop. It is a full career development programthe most structured and complete pathway into the HR profession that exists in Nigeria today.
         </p>
         <div className="absolute bottom-[-1px] left-0 right-0 h-10 bg-off" style={{ clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
       </div>
@@ -181,7 +181,9 @@ const StudentInfoPage: React.FC = () => {
 
           <p className="text-center text-[11px] text-muted mt-4">
             Already applied?{' '}
-            <a href="/portal" className="text-black font-bold underline underline-offset-2">Sign in →</a>
+            <a href="/portal" className="text-black font-bold underline underline-offset-2 inline-flex items-center gap-1">
+              Sign in <FiArrowRight size={12} />
+            </a>
           </p>
         </div>
       </div>

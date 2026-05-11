@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FiCheck } from 'react-icons/fi';
 
 const plans = [
   {
@@ -12,7 +13,7 @@ const plans = [
     best: false,
     features: [
       "12-week live learning program",
-      "All session recordings — lifetime access",
+      "All session recordingslifetime access",
       "Templates, toolkits & resource library",
       "Weekly assignments & feedback",
       "Cohort community access",
@@ -32,7 +33,7 @@ const plans = [
     best: true,
     features: [
       "12-week live learning program",
-      "All session recordings — lifetime access",
+      "All session recordingslifetime access",
       "Templates, toolkits & resource library",
       "Weekly assignments & feedback",
       "Cohort community access",
@@ -73,7 +74,7 @@ const Pricing: React.FC = () => {
           One Investment.<br />A Career That <em>Lasts Forever.</em>
         </h2>
         <p className="sec-p">
-          Every tuition option includes the full 6-month program — learning, internship, both certificates,
+          Every tuition option includes the full 6-month programlearning, internship, both certificates,
           and community access. We offer instalment plans because your financial situation should never be
           what stops you from starting.
         </p>
@@ -102,8 +103,10 @@ const Pricing: React.FC = () => {
 
             <ul className="pricing-features">
               {plan.features.map((f, fi) => (
-                <li key={fi} className="pricing-feature">
-                  <span className="pricing-check">✓</span>
+                <li key={fi} className="pricing-feature flex items-start gap-2">
+                  <span className="pricing-check shrink-0 mt-0.5">
+                    <FiCheck size={14} />
+                  </span>
                   {f}
                 </li>
               ))}

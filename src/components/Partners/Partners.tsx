@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiCheck, FiArrowRight } from 'react-icons/fi';
 
 const Partners: React.FC = () => {
   const benefits = [
@@ -7,7 +8,7 @@ const Partners: React.FC = () => {
     "Weekly check-ins and ongoing support from the Talent Factory team throughout the placement.",
     "Structured mid-term and end-of-term evaluations to track and share performance feedback.",
     "First right to extend outstanding interns into full-time employment.",
-    "Recognition as a Talent Factory Partner Company — visible to our growing HR community.",
+    "Recognition as a Talent Factory Partner Companyvisible to our growing HR community.",
     "Ability to request specific cohort tracks or custom internship profiles for future cohorts."
   ];
 
@@ -37,19 +38,21 @@ const Partners: React.FC = () => {
             What You Get as a Partner
           </div>
           <p className="partner-desc mb-7">
-            Hosting a Talent Factory intern is not a charity exercise. It's smart talent strategy — getting
+            Hosting a Talent Factory intern is not a charity exercise. It's smart talent strategygetting
             trained, motivated HR hands at a fraction of the cost, with zero scouting effort on your part.
           </p>
           <div className="partner-benefits mb-9">
             {benefits.map((benefit, index) => (
-              <div key={index} className="partner-benefit">
-                <span className="partner-benefit-check">✓</span>
+              <div key={index} className="partner-benefit flex items-start gap-3">
+                <span className="partner-benefit-check shrink-0 mt-1">
+                  <FiCheck size={14} />
+                </span>
                 {benefit}
               </div>
             ))}
           </div>
-          <a href="#apply" className="partner-cta">
-            Partner With Talent Factory →
+          <a href="#apply" className="partner-cta flex items-center justify-center gap-2">
+            Partner With Talent Factory <FiArrowRight />
           </a>
         </div>
       </div>
@@ -58,3 +61,4 @@ const Partners: React.FC = () => {
 };
 
 export default Partners;
+

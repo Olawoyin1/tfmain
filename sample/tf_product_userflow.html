@@ -85,20 +85,20 @@ const steps=[
   {phase:'discovery',color:'var(--color-background-secondary)',border:'var(--color-border-secondary)',icon:'📋',title:'Join the waitlist',tag:'Discovery',tagStyle:'background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-secondary)',
    screenTitle:'Waitlist form',fields:[{t:'Name',f:false},{t:'Email',f:false},{t:'I am a... (dropdown)',f:false},{t:'→ Join Waitlist',f:true,btn:true}],
    desc:'Prospect submits their email and role type (student, instructor, partner). Triggers the 7-email waitlist nurture sequence automatically.',
-   checks:['Receives WL-E01 confirmation within 60 seconds','Enters automated email nurture sequence (7 emails over 21 days)','Waitlist count shown publicly on homepage — social proof']},
+   checks:['Receives WL-E01 confirmation within 60 seconds','Enters automated email nurture sequence (7 emails over 21 days)','Waitlist count shown publicly on homepagesocial proof']},
 
   {phase:'application',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'💳',title:'Pay ₦10,000 application fee',tag:'Application',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
-   screenTitle:'Payment screen',fields:[{t:'Application Fee — ₦10,000',f:true},{t:'Card / Bank Transfer',f:false},{t:'→ Pay Now via Paystack',f:true,btn:true}],
+   screenTitle:'Payment screen',fields:[{t:'Application Fee₦10,000',f:true},{t:'Card / Bank Transfer',f:false},{t:'→ Pay Now via Paystack',f:true,btn:true}],
    desc:'Applications open announcement triggers payment. Prospect pays the non-refundable ₦10,000 admin fee via Paystack to unlock the application form.',
    checks:['Payment confirmed by Paystack in real time','Ops team logs payment in Applications Tracker within 2 hours','Application form link sent to applicant\'s email within 2 hours']},
 
   {phase:'application',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'📝',title:'Complete application form',tag:'Application',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
    screenTitle:'Typeform application',fields:[{t:'Personal details + CV upload',f:false},{t:'Background & experience',f:false},{t:'Motivation statement (2–3 sentences)',f:false},{t:'→ Submit Application',f:true,btn:true}],
    desc:'Applicant completes the Typeform. Takes 20–30 minutes. Application is reviewed within 5 business days using the TF Scoring Rubric (100 points).',
-   checks:['Motivation quality (30%) · Background fit (25%)','Communication quality (20%) · Commitment signals (15%)','Completeness (10%) — minimum 60/100 to advance']},
+   checks:['Motivation quality (30%) · Background fit (25%)','Communication quality (20%) · Commitment signals (15%)','Completeness (10%)minimum 60/100 to advance']},
 
   {phase:'assessment',color:'var(--color-background-warning)',border:'var(--color-border-warning)',icon:'🧠',title:'Pre-admission test',tag:'Assessment',tagStyle:'background:var(--color-background-warning);color:var(--color-text-warning);border:0.5px solid var(--color-border-warning)',
-   screenTitle:'Test centre — 30 minutes',fields:[{t:'Section A: HR Knowledge (20 pts)',f:true},{t:'Section B: Situational Judgement (20 pts)',f:true},{t:'Section C: Written Thinking (10 pts)',f:false},{t:'→ Submit Test',f:true,btn:true}],
+   screenTitle:'Test centre30 minutes',fields:[{t:'Section A: HR Knowledge (20 pts)',f:true},{t:'Section B: Situational Judgement (20 pts)',f:true},{t:'Section C: Written Thinking (10 pts)',f:false},{t:'→ Submit Test',f:true,btn:true}],
    desc:'Applicants who score ≥60% on the rubric receive a test link within 24 hours. 48-hour window to complete. Scored automatically.',
    checks:['30 minutes · 50 points · Pass mark: 25/50 (50%)','No extensions granted except documented emergencies','Result logged in tracker within 24 hours of submission',{t:'No-show after 48 hours = closed, no refund',w:true}]},
 
@@ -109,21 +109,21 @@ const steps=[
    decisions:true},
 
   {phase:'decision',color:'var(--color-background-info)',border:'var(--color-border-info)',icon:'🎉',title:'Receive admission letter',tag:'Decision',tagStyle:'background:var(--color-background-info);color:var(--color-text-info);border:0.5px solid var(--color-border-info)',
-   screenTitle:'Student portal — Inbox',fields:[{t:'Your admission letter',f:true},{t:'Cohort 1 — [Start Date]',f:true},{t:'Congratulations, [Name]!',f:true},{t:'→ Download Letter (PDF)',f:true,btn:true}],
-   desc:'Accepted students receive the official Talent Factory Admission Letter — in their email AND accessible on their student portal dashboard.',
+   screenTitle:'Student portalInbox',fields:[{t:'Your admission letter',f:true},{t:'Cohort 1[Start Date]',f:true},{t:'Congratulations, [Name]!',f:true},{t:'→ Download Letter (PDF)',f:true,btn:true}],
+   desc:'Accepted students receive the official Talent Factory Admission Letterin their email AND accessible on their student portal dashboard.',
    checks:['Letter includes cohort dates, program structure, and payment options','5 business days to accept the offer','Rejection and waitlist emails sent with same turnaround']},
 
   {phase:'enrolled',color:'var(--color-background-success)',border:'var(--color-border-success)',icon:'💰',title:'Tuition payment link',tag:'Enrolment',tagStyle:'background:var(--color-background-success);color:var(--color-text-success);border:0.5px solid var(--color-border-success)',
-   screenTitle:'Payment hub — student portal',fields:[{t:'Option A: Full payment — ₦[Amount]',f:false},{t:'Option B: Instalment — ₦[Dep] + ₦[Bal]',f:false},{t:'→ Pay via Paystack',f:true,btn:true},{t:'Payment status: Pending',f:false}],
+   screenTitle:'Payment hubstudent portal',fields:[{t:'Option A: Full payment₦[Amount]',f:false},{t:'Option B: Instalment₦[Dep] + ₦[Bal]',f:false},{t:'→ Pay via Paystack',f:true,btn:true},{t:'Payment status: Pending',f:false}],
    desc:'Student receives a personalised payment link in their portal and by email. Selects full payment or instalment plan. Seat is only confirmed after payment.',
    checks:['Payment confirmation triggers cohort roster addition','WhatsApp group invite sent within 24 hours of confirmation','Welcome Kit email with orientation details sent same day']},
 
   {phase:'enrolled',color:'var(--color-background-success)',border:'var(--color-border-success)',icon:'🎯',title:'Orientation day',tag:'Enrolment',tagStyle:'background:var(--color-background-success);color:var(--color-text-success);border:0.5px solid var(--color-border-success)',
-   screenTitle:'Student portal home',fields:[{t:'Orientation Day — [Date] 7PM',f:true},{t:'Zoom link (auto-populated)',f:true},{t:'Student Handbook (PDF)',f:true},{t:'Your cohort: 38 students enrolled',f:true}],
+   screenTitle:'Student portal home',fields:[{t:'Orientation Day[Date] 7PM',f:true},{t:'Zoom link (auto-populated)',f:true},{t:'Student Handbook (PDF)',f:true},{t:'Your cohort: 38 students enrolled',f:true}],
    desc:'Student portal home becomes active after tuition is confirmed. Shows orientation invite, handbook, and cohort info. Portal is now their home base.',
-   checks:['2-hour virtual session on Zoom — attendance mandatory','Cohort WhatsApp group activated','All 12 class schedule dates visible in portal calendar']},
+   checks:['2-hour virtual session on Zoomattendance mandatory','Cohort WhatsApp group activated','All 12 class schedule dates visible in portal calendar']},
 
-  {phase:'learning',color:'#B5D4F4',border:'#378ADD',icon:'📚',title:'Learning phase — Weeks 1–12',tag:'Learning',tagStyle:'background:#E6F1FB;color:#0C447C;border:0.5px solid #85B7EB',
+  {phase:'learning',color:'#B5D4F4',border:'#378ADD',icon:'📚',title:'Learning phaseWeeks 1–12',tag:'Learning',tagStyle:'background:#E6F1FB;color:#0C447C;border:0.5px solid #85B7EB',
    screenTitle:'Learning dashboard',fields:[{t:'Week 4: HR Operations (Live tonight 7PM)',f:true},{t:'Assignment 3: Submitted ✓',f:true},{t:'Attendance: 4/4 sessions',f:true},{t:'Overall grade: 74%',f:true}],
    desc:'Student portal becomes their classroom. Weekly modules, recordings uploaded within 24 hours, assignment submissions, progress tracking, and mid-cohort NPS survey at Week 6.',
    checks:['12 live modules · 1 expert instructor per week','All recordings in portal within 24 hours','Min. 80% attendance + 70% assignment completion for certificate','Capstone project brief submitted in Week 9']},
@@ -138,15 +138,15 @@ const steps=[
    desc:'Week 10–12. Students submit internship profile form in portal. Ops team matches to partner companies. Placement letter issued by Week 12.',
    checks:['Match based on: location, function, student preference, company capacity','Placement letter in student portal + email','Intern introduction email to company supervisor 1 week before start']},
 
-  {phase:'internship',color:'#9FE1CB',border:'#1D9E75',icon:'💼',title:'Internship phase — Weeks 13–24',tag:'Internship',tagStyle:'background:#E1F5EE;color:#085041;border:0.5px solid #5DCAA5',
-   screenTitle:'Internship tracker',fields:[{t:'Host company: [Company Name]',f:true},{t:'Week 6 of 12 — In progress',f:true},{t:'Check-in form: Due Friday',f:false},{t:'Supervisor eval: Pending (Week 6)',f:false}],
+  {phase:'internship',color:'#9FE1CB',border:'#1D9E75',icon:'💼',title:'Internship phaseWeeks 13–24',tag:'Internship',tagStyle:'background:#E1F5EE;color:#085041;border:0.5px solid #5DCAA5',
+   screenTitle:'Internship tracker',fields:[{t:'Host company: [Company Name]',f:true},{t:'Week 6 of 12In progress',f:true},{t:'Check-in form: Due Friday',f:false},{t:'Supervisor eval: Pending (Week 6)',f:false}],
    desc:'12 weeks at a partner company. Portal tracks weekly check-in submissions, supervisor evaluations, and final report. TF team monitors in real time.',
    checks:['Weekly check-in form in portal (student self-report)','Mid-internship supervisor evaluation at Week 6','Final internship report submitted via portal in Week 12','Internship certificate triggered on completion']},
 
   {phase:'graduation',color:'var(--color-background-secondary)',border:'var(--color-border-primary)',icon:'🎓',title:'Graduation & certificates',tag:'Graduation',tagStyle:'background:var(--color-background-secondary);color:var(--color-text-primary);border:0.5px solid var(--color-border-primary)',
-   screenTitle:'Certificate vault',fields:[{t:'Learning Certificate — Issued ✓',f:true},{t:'Internship Certificate — Issued ✓',f:true},{t:'→ Download PDF',f:true,btn:true},{t:'→ Share to LinkedIn',f:true,btn:true}],
+   screenTitle:'Certificate vault',fields:[{t:'Learning CertificateIssued ✓',f:true},{t:'Internship CertificateIssued ✓',f:true},{t:'→ Download PDF',f:true,btn:true},{t:'→ Share to LinkedIn',f:true,btn:true}],
    desc:'Physical graduation ceremony. Each student called by name. Two certificates issued digitally in portal AND presented physically at the ceremony.',
-   checks:['Physical ceremony — families, instructors, partner companies invited','Capstone showcase for top students · Awards segment','Certificates downloadable from portal within 48 hours of ceremony','Alumni network access unlocked automatically in portal']},
+   checks:['Physical ceremonyfamilies, instructors, partner companies invited','Capstone showcase for top students · Awards segment','Certificates downloadable from portal within 48 hours of ceremony','Alumni network access unlocked automatically in portal']},
 ];
 
 function card(s,i){

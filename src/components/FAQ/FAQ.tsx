@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiPlus, FiMinus, FiArrowRight } from 'react-icons/fi';
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -55,8 +56,8 @@ const FAQ: React.FC = () => {
           <p className="sec-p mb-8">
             We've tried to answer everything that matters below. If you have a question that isn't here, reach out directly. We respond to everyone.
           </p>
-          <a href="mailto:hello@talentfactory.ng" className="btn-primary">
-            Email Us →
+          <a href="mailto:hello@talentfactory.ng" className="btn-primary flex items-center justify-center gap-2">
+            Email Us <FiArrowRight />
           </a>
         </div>
         
@@ -71,7 +72,9 @@ const FAQ: React.FC = () => {
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
-                <span className="faq-icon">+</span>
+                <span className="faq-icon">
+                  {openIndex === index ? <FiMinus /> : <FiPlus />}
+                </span>
               </button>
               <div className="faq-a">
                 <div className="faq-a-inner">

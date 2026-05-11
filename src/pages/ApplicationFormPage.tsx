@@ -3,6 +3,7 @@ import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
 } from '../components/UI/Select';
+import { FiCheck, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface FormState {
@@ -25,7 +26,7 @@ const STEPS = ['Personal', 'Background', 'Motivation', 'Program', 'Final'];
 
 const NIGERIAN_STATES = [
   'Abia','Adamawa','Akwa Ibom','Anambra','Bauchi','Bayelsa','Benue','Borno',
-  'Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','FCT — Abuja','Gombe',
+  'Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','FCTAbuja','Gombe',
   'Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos',
   'Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto',
   'Taraba','Yobe','Zamfara','Outside Nigeria',
@@ -55,7 +56,7 @@ const RadioOpt: React.FC<{ label: string; sub?: string; selected: boolean; onCli
 const CheckOpt: React.FC<{ label: string; selected: boolean; onClick: () => void }> = ({ label, selected, onClick }) => (
   <div onClick={onClick} className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all select-none ${selected ? 'border-gold bg-gold/5' : 'border-black/10 bg-white hover:border-gold/40 hover:bg-gold/5'}`}>
     <div className={`w-[18px] h-[18px] rounded-[4px] border-2 shrink-0 flex items-center justify-center transition-all ${selected ? 'border-gold bg-gold' : 'border-black/20'}`}>
-      {selected && <span className="text-white text-[11px] font-bold leading-none">✓</span>}
+      {selected && <FiCheck className="text-white text-[11px] font-bold" />}
     </div>
     <span className="text-[14px] font-semibold text-black">{label}</span>
   </div>
@@ -159,11 +160,13 @@ const ApplicationFormPage: React.FC = () => {
         </div>
         <div className="flex-1 flex items-center justify-center px-6 py-20 text-center">
           <div className="max-w-md">
-            <div className="text-6xl mb-6">🎉</div>
+            <div className="text-6xl mb-6 text-gold flex justify-center">
+              <FiCheck size={64} />
+            </div>
             <h2 className="font-display text-[40px] font-black text-black leading-tight mb-4">Application <em className="text-gold not-italic">Received!</em></h2>
             <p className="text-[16px] text-muted leading-relaxed mb-8">Thank you for applying to Talent Factory Cohort 1. We've received your application and our team will review it personally. You'll hear from us within <strong>7 working days</strong>.</p>
             <div className="inline-block px-6 py-4 bg-gold/10 border border-gold/30 rounded-lg text-[13px] font-semibold text-black">
-              📧 Keep an eye on your inbox — and check your spam folder just in case.
+              📧 Keep an eye on your inboxand check your spam folder just in case.
             </div>
           </div>
         </div>
@@ -179,12 +182,14 @@ const ApplicationFormPage: React.FC = () => {
           <div className="logo-box">TF</div>
           <div className="logo-name" style={{ color: 'white' }}>Talent<span>Factory</span></div>
         </a>
-        <a href="/" className="text-[13px] font-semibold text-white/40 hover:text-gold transition-colors">← Back to website</a>
+        <a href="/" className="text-[13px] font-semibold text-white/40 hover:text-gold transition-colors flex items-center gap-2">
+          <FiArrowLeft /> Back to website
+        </a>
       </div>
 
       {/* ── Hero strip with progress ── */}
       <div className="bg-black px-6 pt-12 pb-20 text-center relative overflow-hidden">
-        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1 — Applications Open</div>
+        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1Applications Open</div>
         <h1 className="text-[clamp(28px,4vw,48px)] font-black text-white leading-tight mb-4">
           Complete Your <span className="text-gold italic">Profile</span>
         </h1>
@@ -204,7 +209,7 @@ const ApplicationFormPage: React.FC = () => {
                   <div className="flex flex-col items-center flex-1">
                     <div className={`w-9 h-9 rounded-full border-2 flex items-center justify-center text-[13px] font-bold transition-all ${done ? 'bg-green border-green text-white' : active ? 'bg-gold border-gold text-black' : 'bg-white/8 border-white/15 text-white/30'}`}
                       style={{ background: done ? '#1B4D3E' : active ? '#D4A017' : 'rgba(255,255,255,0.08)', borderColor: done ? '#1B4D3E' : active ? '#D4A017' : 'rgba(255,255,255,0.15)' }}>
-                      {done ? '✓' : n}
+                      {done ? <FiCheck /> : n}
                     </div>
                     <div className={`text-[10px] font-semibold uppercase tracking-[0.8px] mt-2 text-center ${done || active ? 'text-white/60' : 'text-white/25'}`}>{label}</div>
                   </div>
@@ -232,7 +237,7 @@ const ApplicationFormPage: React.FC = () => {
               <h2 className="text-[28px] font-black text-black mb-2">Personal Information</h2>
               <p className="text-[14px] text-muted leading-relaxed">Tell us the basics about you. All information is kept confidential and used only for application review.</p>
             </div>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Field label="First Name" req error={errors.firstName}><input className={inputCls} value={form.firstName} onChange={e => set('firstName', e.target.value)} placeholder="e.g. Amina" /></Field>
               <Field label="Last Name" req error={errors.lastName}><input className={inputCls} value={form.lastName} onChange={e => set('lastName', e.target.value)} placeholder="e.g. Fawaz" /></Field>
             </div>
@@ -242,7 +247,7 @@ const ApplicationFormPage: React.FC = () => {
             <Field label="Phone Number" req hint="Include your country code. e.g. +234 810 000 0000" error={errors.phone}>
               <input type="tel" className={inputCls} value={form.phone} onChange={e => set('phone', e.target.value)} placeholder="+234 810 000 0000" />
             </Field>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Field label="State of Residence" req error={errors.state}>
                 <Select value={form.state} onValueChange={v => set('state', v)}>
                   <SelectTrigger><SelectValue placeholder="Select your state" /></SelectTrigger>
@@ -278,7 +283,9 @@ const ApplicationFormPage: React.FC = () => {
               </Select>
             </Field>
             <div className="flex justify-end mt-8">
-              <button onClick={() => goTo(2)} className="btn-primary px-9 py-4">Next: Background →</button>
+              <button onClick={() => goTo(2)} className="btn-primary px-9 py-4 flex items-center gap-2">
+                Next: Background <FiArrowRight />
+              </button>
             </div>
           </div>
         )}
@@ -289,7 +296,7 @@ const ApplicationFormPage: React.FC = () => {
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 2 of 5</div>
               <h2 className="text-[28px] font-black text-black mb-2">Educational & Professional Background</h2>
-              <p className="text-[14px] text-muted leading-relaxed">Help us understand where you're coming from. There's no wrong answer — we welcome all starting points.</p>
+              <p className="text-[14px] text-muted leading-relaxed">Help us understand where you're coming from. There's no wrong answerwe welcome all starting points.</p>
             </div>
             <Field label="Highest Level of Education Completed" req error={errors.education}>
               <div className="flex flex-col gap-2">
@@ -308,8 +315,8 @@ const ApplicationFormPage: React.FC = () => {
                   { v: 'Employed part-time', s: 'Working but not full-time' },
                   { v: 'Self-employed / Freelance' },
                   { v: 'Student (full-time)' },
-                  { v: 'Unemployed — actively job searching' },
-                  { v: 'Unemployed — not currently searching' },
+                  { v: 'Unemployedactively job searching' },
+                  { v: 'Unemployednot currently searching' },
                 ].map(({ v, s }) => (
                   <RadioOpt key={v} label={v} sub={s} selected={form.employment === v} onClick={() => set('employment', v)} />
                 ))}
@@ -339,12 +346,16 @@ const ApplicationFormPage: React.FC = () => {
                 ))}
               </div>
             </Field>
-            <Field label="LinkedIn Profile URL" hint="Optional but recommended — helps us learn more about your background.">
+            <Field label="LinkedIn Profile URL" hint="Optional but recommendedhelps us learn more about your background.">
               <input type="url" className={inputCls} value={form.linkedin} onChange={e => set('linkedin', e.target.value)} placeholder="https://linkedin.com/in/yourname" />
             </Field>
             <div className="flex justify-between mt-8">
-              <button onClick={() => goTo(1)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all">← Back</button>
-              <button onClick={() => goTo(3)} className="btn-primary px-9 py-4">Next: Motivation →</button>
+              <button onClick={() => goTo(1)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all flex items-center gap-2">
+                <FiArrowLeft /> Back
+              </button>
+              <button onClick={() => goTo(3)} className="btn-primary px-9 py-4 flex items-center gap-2">
+                Next: Motivation <FiArrowRight />
+              </button>
             </div>
           </div>
         )}
@@ -355,7 +366,7 @@ const ApplicationFormPage: React.FC = () => {
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 3 of 5</div>
               <h2 className="text-[28px] font-black text-black mb-2">Your Motivation</h2>
-              <p className="text-[14px] text-muted leading-relaxed">This is the most important section. We want to understand why you want this, not just what you want. Be genuine — we read every answer.</p>
+              <p className="text-[14px] text-muted leading-relaxed">This is the most important section. We want to understand why you want this, not just what you want. Be genuinewe read every answer.</p>
             </div>
             <Field label="Which best describes your reason for applying?" req error={errors.applyReason}>
               <div className="flex flex-col gap-2">
@@ -364,19 +375,23 @@ const ApplicationFormPage: React.FC = () => {
                 ))}
               </div>
             </Field>
-            <Field label="In your own words, why do you want to join Talent Factory?" req hint="Minimum 100 words. Tell us your story — what brought you here, what you're hoping for, and what you're committed to putting in." error={errors.whyJoin}>
+            <Field label="In your own words, why do you want to join Talent Factory?" req hint="Minimum 100 words. Tell us your storywhat brought you here, what you're hoping for, and what you're committed to putting in." error={errors.whyJoin}>
               <textarea className={textareaCls} value={form.whyJoin} onChange={e => set('whyJoin', e.target.value)} placeholder="Write your answer here. Be honest, be specific, and be yourself..." />
               <p className="text-[11px] text-muted mt-1">{form.whyJoin.length} characters</p>
             </Field>
             <Field label="Where do you see yourself in HR in 2 years?" req hint="This helps us understand your ambition and how Talent Factory fits into your bigger career picture." error={errors.twoYears}>
               <textarea className={textareaCls} value={form.twoYears} onChange={e => set('twoYears', e.target.value)} placeholder="Describe the role, level, or impact you want to have in HR within 2 years..." />
             </Field>
-            <Field label="What is the biggest challenge you've faced in building your HR career so far?" hint="Optional — but very helpful for us to understand.">
+            <Field label="What is the biggest challenge you've faced in building your HR career so far?" hint="Optionalbut very helpful for us to understand.">
               <textarea className={textareaCls} value={form.biggestChallenge} onChange={e => set('biggestChallenge', e.target.value)} placeholder="e.g. No clear pathway, lack of mentors, couldn't get internships..." />
             </Field>
             <div className="flex justify-between mt-8">
-              <button onClick={() => goTo(2)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all">← Back</button>
-              <button onClick={() => goTo(4)} className="btn-primary px-9 py-4">Next: Program Details →</button>
+              <button onClick={() => goTo(2)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all flex items-center gap-2">
+                <FiArrowLeft /> Back
+              </button>
+              <button onClick={() => goTo(4)} className="btn-primary px-9 py-4 flex items-center gap-2">
+                Next: Program Details <FiArrowRight />
+              </button>
             </div>
           </div>
         )}
@@ -407,7 +422,7 @@ const ApplicationFormPage: React.FC = () => {
               <Select value={form.internIndustry} onValueChange={v => set('internIndustry', v)}>
                 <SelectTrigger><SelectValue placeholder="Select a preference" /></SelectTrigger>
                 <SelectContent>
-                  {["No preference — place me where it's the best fit",'Fintech / Financial Services','Technology / Software','eCommerce / Retail','Healthcare / Pharmaceuticals','FMCG / Consumer Goods','Education / EdTech','Media & Entertainment','NGO / Non-profit','Consulting','Manufacturing','Other'].map(o => (
+                  {["No preferenceplace me where it's the best fit",'Fintech / Financial Services','Technology / Software','eCommerce / Retail','Healthcare / Pharmaceuticals','FMCG / Consumer Goods','Education / EdTech','Media & Entertainment','NGO / Non-profit','Consulting','Manufacturing','Other'].map(o => (
                     <SelectItem key={o} value={o}>{o}</SelectItem>
                   ))}
                 </SelectContent>
@@ -427,8 +442,12 @@ const ApplicationFormPage: React.FC = () => {
               <input className={inputCls} value={form.referredBy} onChange={e => set('referredBy', e.target.value)} placeholder="e.g. Referred by Taiwo Ogundimu, saw a LinkedIn post by Elizabeth Odetokun" />
             </Field>
             <div className="flex justify-between mt-8">
-              <button onClick={() => goTo(3)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all">← Back</button>
-              <button onClick={() => goTo(5)} className="btn-primary px-9 py-4">Next: Final Step →</button>
+              <button onClick={() => goTo(3)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all flex items-center gap-2">
+                <FiArrowLeft /> Back
+              </button>
+              <button onClick={() => goTo(5)} className="btn-primary px-9 py-4 flex items-center gap-2">
+                Next: Final Step <FiArrowRight />
+              </button>
             </div>
           </div>
         )}
@@ -438,14 +457,14 @@ const ApplicationFormPage: React.FC = () => {
           <div>
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 5 of 5</div>
-              <h2 className="text-[28px] font-black text-black mb-2">Almost There — Final Details</h2>
+              <h2 className="text-[28px] font-black text-black mb-2">Almost ThereFinal Details</h2>
               <p className="text-[14px] text-muted leading-relaxed">Last few questions. You're doing great.</p>
             </div>
-            <Field label="Payment Preference" req hint="This does not commit you to anything — it helps us plan cohort payment schedules." error={errors.payment}>
+            <Field label="Payment Preference" req hint="This does not commit you to anythingit helps us plan cohort payment schedules." error={errors.payment}>
               <div className="flex flex-col gap-3">
                 {[
                   {
-                    v: 'Full Payment — ₦250,000',
+                    v: 'Full Payment₦250,000',
                     badge: 'Best Value',
                     badgeStyle: 'bg-green-100 text-green-700',
                     price: '₦250,000',
@@ -454,7 +473,7 @@ const ApplicationFormPage: React.FC = () => {
                     note: 'No interest. Spot secured immediately on payment.',
                   },
                   {
-                    v: '3-Part Instalment — ₦87,500 × 3',
+                    v: '3-Part Instalment₦87,500 × 3',
                     badge: 'Most Popular',
                     badgeStyle: 'bg-gold/15 text-gold',
                     price: '₦87,500 × 3 months',
@@ -513,23 +532,23 @@ const ApplicationFormPage: React.FC = () => {
             <Field label="Do you have a laptop/computer with stable internet access?" req error={errors.techAccess}>
               <div className="flex flex-col gap-2">
                 {[
-                  { v: 'Yes — reliable laptop and internet' },
+                  { v: 'Yesreliable laptop and internet' },
                   { v: 'Laptop yes, internet sometimes unstable' },
                   { v: 'I use my phone primarily' },
-                  { v: 'Limited access — would need support' },
+                  { v: 'Limited accesswould need support' },
                 ].map(({ v }) => (
                   <RadioOpt key={v} label={v} selected={form.techAccess === v} onClick={() => set('techAccess', v)} />
                 ))}
               </div>
             </Field>
             <Field label="Is there anything else you'd like us to know?" hint="Additional context, special circumstances, or anything that didn't fit elsewhere.">
-              <textarea className={textareaCls} value={form.additionalInfo} onChange={e => set('additionalInfo', e.target.value)} placeholder="Optional — but we read everything you write..." />
+              <textarea className={textareaCls} value={form.additionalInfo} onChange={e => set('additionalInfo', e.target.value)} placeholder="Optionalbut we read everything you write..." />
             </Field>
             <div className="h-px bg-black/8 my-8" />
             <Field label="" error={errors.consent}>
               <div onClick={() => set('consent', !form.consent)} className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${form.consent ? 'border-gold bg-gold/5' : 'border-black/10 bg-white hover:border-gold/40'}`}>
                 <div className={`w-[18px] h-[18px] rounded-[4px] border-2 shrink-0 mt-0.5 flex items-center justify-center transition-all ${form.consent ? 'border-gold bg-gold' : 'border-black/20'}`}>
-                  {form.consent && <span className="text-white text-[11px] font-bold">✓</span>}
+                  {form.consent && <FiCheck className="text-white text-[11px] font-bold" />}
                 </div>
                 <span className="text-[13px] font-semibold text-black leading-relaxed">
                   I confirm that the information I have provided is accurate and truthful. I understand that Talent Factory will contact me via the email and phone number I've provided to discuss my application. <span className="text-gold">*</span>
@@ -537,9 +556,11 @@ const ApplicationFormPage: React.FC = () => {
               </div>
             </Field>
             <div className="flex justify-between mt-8">
-              <button onClick={() => goTo(4)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all">← Back</button>
-              <button onClick={handleSubmit} disabled={submitting} className="px-10 py-4 rounded-md bg-green text-white text-[15px] font-bold hover:bg-green-l transition-all disabled:opacity-50" style={{ background: '#1B4D3E' }}>
-                {submitting ? 'Submitting...' : 'Submit Application ✓'}
+              <button onClick={() => goTo(4)} className="px-7 py-4 border-2 border-black/15 rounded-md text-[14px] font-bold text-muted hover:border-black hover:text-black transition-all flex items-center gap-2">
+                <FiArrowLeft /> Back
+              </button>
+              <button onClick={handleSubmit} disabled={submitting} className="px-10 py-4 rounded-md bg-green text-white text-[15px] font-bold hover:bg-green-l transition-all disabled:opacity-50 flex items-center gap-2" style={{ background: '#1B4D3E' }}>
+                {submitting ? 'Submitting...' : <>{'Submit Application'} <FiCheck /></>}
               </button>
             </div>
           </div>

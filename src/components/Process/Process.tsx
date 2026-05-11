@@ -6,7 +6,7 @@ const Process: React.FC = () => {
     {
       number: 1,
       title: "Apply Online",
-      description: "Fill out a straightforward application form — your background, your motivation, and what you're hoping to get out of Talent Factory. Takes about 15 minutes.",
+      description: "Fill out a straightforward application formyour background, your motivation, and what you're hoping to get out of Talent Factory. Takes about 15 minutes.",
       noteIcon: <FiClock size={12} />,
       note: "Response within 7 days"
     },
@@ -48,12 +48,12 @@ const Process: React.FC = () => {
   ];
 
   const timeline = [
-    { label: "Week 1", text: "<strong>Orientation & Kickoff</strong> — Meet your cohort, faculty, and program roadmap. Set intentions." },
-    { label: "Weeks 2–11", text: "<strong>Core Modules</strong> — One practitioner. One topic. One week. Twelve transformative sessions covering every dimension of the HR function." },
-    { label: "Week 12", text: "<strong>Capstone & Graduation</strong> — Present your final project to a panel. Receive your Learning Certificate. Celebrate." },
-    { label: "Month 4", text: "<strong>Internship Begins</strong> — You've been matched and placed. Your role, your supervisor, your mission starts now.", special: true },
-    { label: "Months 4–6", text: "<strong>Weekly Check-Ins</strong> — Our team supports you every step through the internship. You're never left to figure it out alone.", special: true },
-    { label: "Month 6", text: "<strong>Internship Certificate & Alumni</strong> — You're done. You're certified. You're career-ready. Welcome to the alumni network." }
+    { label: "Week 1", text: "<strong>Orientation & Kickoff</strong>Meet your cohort, faculty, and program roadmap. Set intentions." },
+    { label: "Weeks 2–11", text: "<strong>Core Modules</strong>One practitioner. One topic. One week. Twelve transformative sessions covering every dimension of the HR function." },
+    { label: "Week 12", text: "<strong>Capstone & Graduation</strong>Present your final project to a panel. Receive your Learning Certificate. Celebrate." },
+    { label: "Month 4", text: "<strong>Internship Begins</strong>You've been matched and placed. Your role, your supervisor, your mission starts now.", special: true },
+    { label: "Months 4–6", text: "<strong>Weekly Check-Ins</strong>Our team supports you every step through the internship. You're never left to figure it out alone.", special: true },
+    { label: "Month 6", text: "<strong>Internship Certificate & Alumni</strong>You're done. You're certified. You're career-ready. Welcome to the alumni network." }
   ];
 
   return (

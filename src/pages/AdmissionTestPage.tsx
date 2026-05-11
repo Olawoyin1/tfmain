@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiCheck } from 'react-icons/fi';
+import { FiCheck, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 
 interface Question {
   id: number;
@@ -65,13 +65,13 @@ const AdmissionTestPage: React.FC = () => {
             Assessment <span className="text-gold italic">submitted.</span>
           </h2>
           <p className="text-[15px] text-muted leading-relaxed mb-8">
-            Your responses are being reviewed. An admissions decision — Offer, Waitlist, or Decline — will be issued within 5 business days.
+            Your responses are being reviewed. An admissions decisionOffer, Waitlist, or Declinewill be issued within 5 business days.
           </p>
           <div className="p-4 bg-gold/10 border border-gold/20 rounded-xl text-[13px] font-semibold text-black mb-8">
-            📧 Keep an eye on your inbox — check spam too.
+            📧 Keep an eye on your inboxcheck spam too.
           </div>
-          <Link to="/apply/form" className="btn-primary w-full block text-center py-4">
-            Complete Your Profile →
+          <Link to="/portal" className="btn-primary w-full flex items-center justify-center gap-2 py-4">
+            Complete Your Profile <FiArrowRight />
           </Link>
         </div>
       </div>
@@ -81,25 +81,25 @@ const AdmissionTestPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-off">
       {/* Nav */}
-      <div className="bg-black px-10 py-4 flex items-center justify-between">
+      <div className="bg-black px-6 sm:px-10 py-4 flex items-center justify-between">
         <a href="/" className="nav-logo-link">
           <div className="logo-box">TF</div>
           <div className="logo-name" style={{ color: 'white' }}>Talent<span>Factory</span></div>
         </a>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Timer */}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5">
+          <div className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg border border-white/10 bg-white/5">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className={`text-[15px] font-black tabular-nums ${timeLeft < 300 ? 'text-red-400' : 'text-white'}`}>
+            <span className={`text-sm sm:text-[15px] font-black tabular-nums ${timeLeft < 300 ? 'text-red-400' : 'text-white'}`}>
               {fmt(timeLeft)}
             </span>
           </div>
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="px-5 py-2 rounded-lg bg-gold text-black text-[13px] font-bold hover:bg-gold-l transition-all disabled:opacity-50"
+            className="px-4 sm:px-5 py-2 rounded-lg bg-gold text-black text-[11px] sm:text-[13px] font-bold hover:bg-gold-l transition-all disabled:opacity-50 flex items-center gap-1"
           >
-            {submitting ? 'Submitting...' : 'Submit →'}
+            {submitting ? 'Submitting...' : <>{'Submit'} <FiArrowRight /></>}
           </button>
         </div>
       </div>
@@ -116,8 +116,8 @@ const AdmissionTestPage: React.FC = () => {
           {SECTIONS[sectionIdx].points} points · {QUESTIONS[section].length} question{QUESTIONS[section].length > 1 ? 's' : ''}
         </p>
 
-        {/* Section progress dots — same pattern as registration */}
-        <div className="max-w-xs mx-auto px-4">
+        {/* Section progress dots */}
+        <div className="max-w-2xl mx-auto px-4">
           <div className="flex items-start">
             {SECTIONS.map((s, i) => {
               const done = sectionIdx > i;
@@ -134,7 +134,7 @@ const AdmissionTestPage: React.FC = () => {
                         color: done ? 'white' : active ? '#0A0A0A' : 'rgba(255,255,255,0.3)',
                       }}
                     >
-                      {done ? '✓' : s.key}
+                      {done ? <FiCheck /> : s.key}
                     </button>
                     <div className={`text-[10px] font-semibold uppercase tracking-[0.8px] mt-2 ${done || active ? 'text-white/60' : 'text-white/25'}`}>
                       {s.label}
@@ -206,9 +206,9 @@ const AdmissionTestPage: React.FC = () => {
           <button
             onClick={() => setSection(section === 'C' ? 'B' : 'A')}
             disabled={section === 'A'}
-            className="text-[13px] font-semibold text-muted hover:text-black transition-colors disabled:opacity-0"
+            className="text-[13px] font-semibold text-muted hover:text-black transition-colors disabled:opacity-0 flex items-center gap-2"
           >
-            ← Previous Section
+            <FiArrowLeft /> Previous Section
           </button>
 
           {!isLast ? (
@@ -216,16 +216,16 @@ const AdmissionTestPage: React.FC = () => {
               onClick={() => setSection(section === 'A' ? 'B' : 'C')}
               className="btn-primary flex items-center gap-2 px-8 py-4"
             >
-              Next Section →
+              Next Section <FiArrowRight />
             </button>
           ) : (
             <button
               onClick={handleSubmit}
               disabled={submitting}
-              className="px-8 py-4 rounded-md font-bold text-[14px] transition-all disabled:opacity-50"
+              className="px-8 py-4 rounded-md font-bold text-[14px] transition-all disabled:opacity-50 flex items-center gap-2"
               style={{ background: '#1B4D3E', color: 'white' }}
             >
-              {submitting ? 'Submitting...' : 'Submit Assessment ✓'}
+              {submitting ? 'Submitting...' : <>{'Submit Assessment'} <FiCheck /></>}
             </button>
           )}
         </div>
@@ -235,4 +235,5 @@ const AdmissionTestPage: React.FC = () => {
 };
 
 export default AdmissionTestPage;
+
 

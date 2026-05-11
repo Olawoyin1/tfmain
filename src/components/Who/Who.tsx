@@ -6,42 +6,42 @@ const Who: React.FC = () => {
     {
       icon: <FiRefreshCw size={32} />,
       title: "The Career Transitioner",
-      description: "You're coming from marketing, admin, customer success, or any other field — and you've decided HR is where you want to build your career. Talent Factory gives you the knowledge, the credentials, and the work experience to make that transition stick permanently.",
+      description: "You're coming from marketing, admin, customer success, or any other fieldand you've decided HR is where you want to build your career. Talent Factory gives you the knowledge, the credentials, and the work experience to make that transition stick permanently.",
       tag: "Career Switcher",
       dark: false
     },
     {
       icon: <FiBookOpen size={32} />,
       title: "The University Student",
-      description: "Studying HR Management, Personnel Management, or any related business program? We close the gap between what your textbooks teach and what the actual job demands — and we get you your first real internship before you graduate.",
+      description: "Studying HR Management, Personnel Management, or any related business program? We close the gap between what your textbooks teach and what the actual job demandsand we get you your first real internship before you graduate.",
       tag: "Undergraduate",
       dark: false
     },
     {
       icon: <FiTrendingUp size={32} />,
       title: "The Junior HR Professional",
-      description: "0–3 years in and you're realising just how much you still have to learn. Talent Factory gives you the structured foundation, senior mentorship, and peer community to grow with intention and confidence — not just experience by accident.",
+      description: "0–3 years in and you're realising just how much you still have to learn. Talent Factory gives you the structured foundation, senior mentorship, and peer community to grow with intention and confidencenot just experience by accident.",
       tag: "0–3 Years Experience",
       dark: false
     },
     {
       icon: <FiCompass size={32} />,
       title: "The Curious Explorer",
-      description: "You've been drawn to HR for a while but haven't fully committed yet. Talent Factory is the best way to find out if it's truly the path for you — through real exposure, real practitioners, and real work experience that shows you what the job actually looks like.",
+      description: "You've been drawn to HR for a while but haven't fully committed yet. Talent Factory is the best way to find out if it's truly the path for youthrough real exposure, real practitioners, and real work experience that shows you what the job actually looks like.",
       tag: "Career Explorer",
       dark: false
     },
     {
       icon: <FiHeart size={32} />,
       title: "The HR Enthusiast",
-      description: "HR is your thing — you read about it, think about it, and talk about it. You just haven't had a structured, high-quality environment to develop it properly. This is your community, your curriculum, and your launchpad.",
+      description: "HR is your thingyou read about it, think about it, and talk about it. You just haven't had a structured, high-quality environment to develop it properly. This is your community, your curriculum, and your launchpad.",
       tag: "Passionate About HR",
       dark: false
     },
     {
       icon: <FiStar size={32} />,
       title: "Those Who Want the Very Best",
-      description: "If your standard is high — if you want to learn from Nigeria's finest HR minds, build real skills, and graduate into a career you're proud of — then Talent Factory was built exactly for you. We teach HR at its highest level.",
+      description: "If your standard is highif you want to learn from Nigeria's finest HR minds, build real skills, and graduate into a career you're proud ofthen Talent Factory was built exactly for you. We teach HR at its highest level.",
       tag: "High Achievers",
       dark: true
     }
@@ -58,10 +58,10 @@ const Who: React.FC = () => {
         </div>
         <div>
           <p className="sec-p mb-6">
-            Talent Factory was built with a broad tent deliberately. The HR profession should be accessible to everyone who wants it — not just those who happened to study it at university or landed the right internship.
+            Talent Factory was built with a broad tent deliberately. The HR profession should be accessible to everyone who wants itnot just those who happened to study it at university or landed the right internship.
           </p>
           <p className="sec-p">
-            Whether you are a fresh graduate, a career switcher, a junior professional trying to grow faster, or simply someone who finds HR endlessly fascinating — there is a place for you in the next cohort.
+            Whether you are a fresh graduate, a career switcher, a junior professional trying to grow faster, or simply someone who finds HR endlessly fascinatingthere is a place for you in the next cohort.
           </p>
         </div>
       </div>

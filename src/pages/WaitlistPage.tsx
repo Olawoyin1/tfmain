@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiMail, FiTarget, FiCheckCircle } from 'react-icons/fi';
 import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
@@ -37,7 +38,9 @@ const WaitlistPage: React.FC = () => {
     return (
       <div className="flow-page-container flex items-center justify-center px-6">
         <div className="form-card status-card max-w-lg w-full">
-          <div className="status-icon">🎉</div>
+          <div className="status-icon flex items-center justify-center text-gold">
+            <FiCheckCircle size={48} />
+          </div>
           <h2 className="sec-h text-4xl mb-4">You're on the list!</h2>
           <p className="sec-p mx-auto mb-8">
             We've received your email. You are now part of the exclusive group that will be notified the moment Cohort 1 applications open.
@@ -81,14 +84,18 @@ const WaitlistPage: React.FC = () => {
             
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-full bg-gold-pale flex items-center justify-center text-gold flex-shrink-0">📧</div>
+                <div className="w-10 h-10 rounded-full bg-gold-pale flex items-center justify-center text-gold flex-shrink-0">
+                  <FiMail size={20} />
+                </div>
                 <div>
                   <h4 className="font-bold text-sm">7-Day Nurture Sequence</h4>
                   <p className="text-xs text-muted">Get a deep dive into what to expect from the program.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-full bg-gold-pale flex items-center justify-center text-gold flex-shrink-0">🎯</div>
+                <div className="w-10 h-10 rounded-full bg-gold-pale flex items-center justify-center text-gold flex-shrink-0">
+                  <FiTarget size={20} />
+                </div>
                 <div>
                   <h4 className="font-bold text-sm">Early Access</h4>
                   <p className="text-xs text-muted">Secure your spot before the general public.</p>
@@ -159,4 +166,5 @@ const WaitlistPage: React.FC = () => {
 };
 
 export default WaitlistPage;
+
 

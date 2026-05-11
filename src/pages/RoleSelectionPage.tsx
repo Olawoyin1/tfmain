@@ -25,7 +25,7 @@ const RoleSelectionPage: React.FC = () => {
       <div className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-16">
         {/* Header */}
         <div className="text-center mb-14 max-w-xl">
-          <div className="eyebrow mb-4">Applications Open — Cohort 1</div>
+          <div className="eyebrow mb-4">Applications OpenCohort 1</div>
           <h1 className="section-title mb-4">
             Who are you<br />applying <em>as?</em>
           </h1>
@@ -34,7 +34,7 @@ const RoleSelectionPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Role Cards — 2 columns */}
+        {/* Role Cards2 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-2xl">
 
           {/* Student */}
@@ -55,7 +55,7 @@ const RoleSelectionPage: React.FC = () => {
             </div>
           </button>
 
-          {/* Instructor — coming soon */}
+          {/* Instructorcoming soon */}
           <button
             onClick={() => setShowInstructorMsg(true)}
             className="group text-left p-8 rounded-2xl border-2 bg-white border-transparent hover:border-black shadow-sm transition-all duration-200"

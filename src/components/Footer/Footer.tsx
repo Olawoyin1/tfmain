@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaXTwitter, FaLinkedin } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
   return (
@@ -13,13 +14,10 @@ const Footer: React.FC = () => {
           </p>
           <div className="footer-social">
             <a href="#" className="fsoc">
-              𝕏
+              <FaXTwitter />
             </a>
             <a href="#" className="fsoc">
-              in
-            </a>
-            <a href="#" className="fsoc">
-              𝕏
+              <FaLinkedin />
             </a>
           </div>
         </div>
@@ -97,3 +95,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+

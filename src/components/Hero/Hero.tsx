@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       <div className="hero-left">
         <div className="hero-tag">
           <span className="hero-tag-dot"></span>
-          Cohort 1 — Applications Open Now
+          Cohort 1Applications Open Now
         </div>
         
         <h1 className="hero-title">
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         </h1>
         
         <p className="hero-body">
-          Talent Factory is a <strong>6-month cohort program</strong> — 3 months of live, practitioner-led HR training and
+          Talent Factory is a <strong>6-month cohort program</strong>3 months of live, practitioner-led HR training and
           3 months of <strong>guaranteed internship placement</strong> at a real Nigerian company. Built for anyone who
           wants to enter, grow in, or transition into the HR profession. No recycled slides. No theory-only lectures. Just
           the real work.
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             className="hero-big-card-btn"
             onClick={() => document.getElementById('apply')?.scrollIntoView({behavior: 'smooth'})}
           >
-            Apply Now — Cohort 1 Open
+            Apply NowCohort 1 Open
           </button>
         </div>
       </div>

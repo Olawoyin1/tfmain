@@ -21,7 +21,7 @@ const Problem: React.FC = () => {
     {
       icon: <FiSearch size={22} />,
       title: "Internships that are hard to get and teach nothing",
-      description: "The internship experience in Nigeria is broken — unstructured, often unpaid, and largely unguided. We give you a placement with purpose: a structured role, weekly check-ins, and a real supervisor who's accountable to us."
+      description: "The internship experience in Nigeria is brokenunstructured, often unpaid, and largely unguided. We give you a placement with purpose: a structured role, weekly check-ins, and a real supervisor who's accountable to us."
     },
     {
       icon: <FiGlobe size={22} />,
@@ -44,7 +44,7 @@ const Problem: React.FC = () => {
             online courses that have nothing to do with the Nigerian workplace.
             <br /><br />
             Five specific problems have been holding aspiring HR professionals back in Nigeria. Talent Factory was
-            designed to solve all five — at once.
+            designed to solve all fiveat once.
           </p>
         </div>
         

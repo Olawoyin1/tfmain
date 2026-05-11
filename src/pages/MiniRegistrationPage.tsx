@@ -31,7 +31,7 @@ const MiniRegistrationPage: React.FC = () => {
     if (e.target.files?.[0]) setForm(p => ({ ...p, resume: e.target.files![0] }));
   };
 
-  // Input styles matching the screenshots — off-white bg, rounded-2xl, italic placeholder
+  // Input styles matching the screenshotsoff-white bg, rounded-2xl, italic placeholder
   const inp = "w-full bg-off border-0 rounded-2xl px-5 py-4 text-[14px] font-medium italic text-black placeholder:text-muted/60 outline-none focus:ring-2 focus:ring-gold/30 transition-all";
   const lbl = "block text-[11px] font-bold uppercase tracking-widest text-muted mb-2";
 
@@ -56,7 +56,7 @@ const MiniRegistrationPage: React.FC = () => {
 
       {/* Hero strip with progress */}
       <div className="bg-black px-6 pt-12 pb-20 text-center relative overflow-hidden">
-        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1 — Applications Open</div>
+        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1Applications Open</div>
         <h1 className="text-[clamp(28px,4vw,44px)] font-black text-white leading-tight mb-4">
           Create Your <span className="text-gold italic">Account</span>
         </h1>

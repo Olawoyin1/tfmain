@@ -53,7 +53,7 @@ const Apply: React.FC = () => {
         Your HR Career<br />Starts <em>Right Here.</em>
       </h2>
       <p className="sec-p">
-        Cohort 1 applications are open now. Spots are intentionally limited. If you've been waiting for something like this — this is it. Apply today, and we'll be in touch within 7 days.
+        Cohort 1 applications are open now. Spots are intentionally limited. If you've been waiting for something like thisthis is it. Apply today, and we'll be in touch within 7 days.
       </p>
       
       <form onSubmit={handleSubmit} className="apply-form">

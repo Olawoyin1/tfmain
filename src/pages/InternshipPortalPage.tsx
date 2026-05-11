@@ -1,5 +1,7 @@
 import React from 'react';
 import StudentSidebar from '../components/Navigation/StudentSidebar';
+import { FiPaperclip, FiMic, FiAward, FiSettings, FiArrowRight } from 'react-icons/fi';
+import { FaBuildingColumns } from 'react-icons/fa6';
 
 const InternshipPortalPage: React.FC = () => {
   const currentWeek = 6;
@@ -14,6 +16,7 @@ const InternshipPortalPage: React.FC = () => {
   return (
     <StudentSidebar>
       <div className="animate-slide-up pb-20">
+        {/* ... existing content ... */}
         <div className="mb-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div className="space-y-4">
             <div className="hero-tag shadow-sm inline-flex items-center">
@@ -28,10 +31,12 @@ const InternshipPortalPage: React.FC = () => {
               <div className="text-[10px] font-bold text-muted uppercase tracking-widest mb-2">Residency Pulse</div>
               <div className="text-2xl font-bold text-black italic">Excellent • 4.9</div>
             </div>
-            <div className="w-16 h-16 rounded-3xl bg-black text-white flex items-center justify-center text-3xl shadow-2xl group-hover:bg-gold group-hover:text-black transition-all">🏦</div>
+            <div className="w-16 h-16 rounded-3xl bg-black text-white flex items-center justify-center text-3xl shadow-2xl group-hover:bg-gold group-hover:text-black transition-all">
+              <FaBuildingColumns size={32} />
+            </div>
           </div>
         </div>
-
+        {/* ... existing content ... */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Content Area */}
           <div className="lg:col-span-8 space-y-14">
@@ -61,7 +66,7 @@ const InternshipPortalPage: React.FC = () => {
                         <h4 className="font-bold text-[10px] uppercase tracking-[0.3em] text-gold">Strategic Mandate</h4>
                       </div>
                       <p className="text-white/80 mb-12 text-sm font-medium leading-relaxed italic">"Lead the overhaul of the Q2 performance appraisal framework for the Digital Banking division."</p>
-                      <button className="flex items-center gap-4 text-[10px] font-bold text-white uppercase tracking-[0.4em] hover:gap-8 transition-all">Access Review Log <span className="text-gold text-lg">→</span></button>
+                      <button className="flex items-center gap-4 text-[10px] font-bold text-white uppercase tracking-[0.4em] hover:gap-8 transition-all">Access Review Log <span className="text-gold text-lg"><FiArrowRight /></span></button>
                     </div>
                     
                     <div className="p-10 bg-white/5 rounded-[44px] border border-white/10 backdrop-blur-2xl transition-all flex items-center gap-8">
@@ -106,10 +111,14 @@ const InternshipPortalPage: React.FC = () => {
                     </div>
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                        <div className="flex gap-4">
-                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">📎</button>
-                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">🎙️</button>
+                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">
+                           <FiPaperclip />
+                         </button>
+                         <button className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl hover:border-black transition-all shadow-sm">
+                           <FiMic />
+                         </button>
                        </div>
-                       <button className="bg-black text-white px-12 py-5 rounded-2xl text-[10px] font-extrabold uppercase tracking-[0.3em] hover:bg-gold hover:text-black transition-all shadow-2xl shadow-black/20">Sign & Authorize Entry →</button>
+                       <button className="bg-black text-white px-12 py-5 rounded-2xl text-[10px] font-extrabold uppercase tracking-[0.3em] hover:bg-gold hover:text-black transition-all shadow-2xl shadow-black/20 flex items-center gap-2">Sign & Authorize Entry <FiArrowRight /></button>
                     </div>
                   </div>
                 </div>
@@ -155,7 +164,9 @@ const InternshipPortalPage: React.FC = () => {
                 ))}
                 <div className="pt-8 border-t border-gray-50">
                    <div className="flex items-center gap-4 p-4 bg-off/50 rounded-2xl italic">
-                     <span className="text-xl">🎓</span>
+                     <span className="text-xl">
+                       <FiAward />
+                     </span>
                      <p className="text-[9px] font-bold text-muted uppercase tracking-wider leading-relaxed">External Audit by Human Capital Board • Feb '26</p>
                    </div>
                 </div>
@@ -183,14 +194,16 @@ const InternshipPortalPage: React.FC = () => {
                       </div>
                    </div>
                 </div>
-                <button className="w-full py-6 bg-white/10 hover:bg-gold hover:text-black transition-all font-bold text-[10px] uppercase tracking-[0.3em] backdrop-blur-xl">Initiate Response Terminal →</button>
+                <button className="w-full py-6 bg-white/10 hover:bg-gold hover:text-black transition-all font-bold text-[10px] uppercase tracking-[0.3em] backdrop-blur-xl flex items-center justify-center gap-2">Initiate Response Terminal <FiArrowRight /></button>
               </div>
             </section>
 
             {/* Official Support Hub */}
             <section>
                <div className="portal-card p-12 bg-off border-gray-100 space-y-8">
-                 <div className="w-14 h-14 rounded-3xl bg-white flex items-center justify-center text-2xl shadow-sm border border-gray-50">⚙️</div>
+                 <div className="w-14 h-14 rounded-3xl bg-white flex items-center justify-center text-gold shadow-sm border border-gray-50">
+                   <FiSettings size={28} />
+                 </div>
                  <div>
                    <h4 className="text-xl font-bold mb-2 italic">Institutional Support</h4>
                    <p className="text-sm text-muted italic leading-relaxed">Connect with your TF Program Liaison for corporate environment issues.</p>
@@ -205,5 +218,5 @@ const InternshipPortalPage: React.FC = () => {
   );
 };
 
-
 export default InternshipPortalPage;
+

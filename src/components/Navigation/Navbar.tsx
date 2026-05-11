@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 const Navbar: React.FC = () => {
   return (
@@ -14,9 +15,9 @@ const Navbar: React.FC = () => {
       </Link>
       
       <div className="nav-center">
-        <a href="#program" className="nav-link">
+        {/* <a href="#program" className="nav-link">
           Program
-        </a>
+        </a> */}
         <a href="#who" className="nav-link">
           Who It's For
         </a>
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
           Tuition
         </a>
         <a href="#faq" className="nav-link">
-          FAQ
+          FAQs
         </a>
       </div>
       
@@ -42,8 +43,8 @@ const Navbar: React.FC = () => {
           Partner With Us
         </a>
 
-        <Link to="/apply" className="nav-solid">
-          Apply Now →
+        <Link to="/apply" className="nav-solid flex items-center gap-2">
+          Apply Now <FiArrowRight />
         </Link>
       </div>
 
@@ -52,4 +53,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-

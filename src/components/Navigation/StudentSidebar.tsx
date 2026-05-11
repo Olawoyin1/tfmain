@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FiLayout, FiBook, FiBriefcase, FiAward, FiSettings, FiLogOut } from 'react-icons/fi';
 
 interface StudentSidebarProps {
   children: React.ReactNode;
@@ -10,10 +11,10 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({ children }) => {
   const location = useLocation();
 
   const menuItems = [
-    { path: '/portal', label: 'Dashboard', icon: '🏛️' },
-    { path: '/portal/learning', label: 'Classroom', icon: '📚' },
-    { path: '/portal/internship', label: 'Internship', icon: '💼' },
-    { path: '/portal/certificates', label: 'Certificates', icon: '🎓' },
+    { path: '/portal', label: 'Dashboard', icon: <FiLayout size={18} /> },
+    { path: '/portal/learning', label: 'Classroom', icon: <FiBook size={18} /> },
+    { path: '/portal/internship', label: 'Internship', icon: <FiBriefcase size={18} /> },
+    { path: '/portal/certificates', label: 'Certificates', icon: <FiAward size={18} /> },
   ];
 
   return (
@@ -45,14 +46,14 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({ children }) => {
           <div className="my-4 h-[1px] bg-white/10 mx-4"></div>
           
           <button className="sidebar-link opacity-60 cursor-not-allowed">
-            <span className="sidebar-link-icon">⚙️</span>
+            <span className="sidebar-link-icon"><FiSettings size={18} /></span>
             Settings
           </button>
         </nav>
 
         <div className="sidebar-footer">
           <Link to="/" className="sidebar-link text-white/40 hover:text-white">
-            <span className="sidebar-link-icon">🚪</span>
+            <span className="sidebar-link-icon"><FiLogOut size={18} /></span>
             Sign Out
           </Link>
         </div>
@@ -81,3 +82,4 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({ children }) => {
 };
 
 export default StudentSidebar;
+

@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  FiUsers, 
+  FiCalendar, 
+  FiPaperclip, 
+  FiTrash2, 
+  FiFolder, 
+  FiBarChart2, 
+  FiMail, 
+  FiLogOut,
+  FiCompass
+} from 'react-icons/fi';
+import { FaRocket } from 'react-icons/fa6';
 
 const TutorDashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'cohorts' | 'students' | 'applications' | 'materials'>('overview');
 
   const stats = [
-    { label: 'Total Students', value: '128', icon: '👥' },
-    { label: 'Upcoming Sessions', value: '4', icon: '📅' },
-    { label: 'Materials Shared', value: '24', icon: '📎' },
-    { label: 'Active Cohorts', value: '2', icon: '🚀' }
+    { label: 'Total Students', value: '128', icon: <FiUsers size={24} /> },
+    { label: 'Upcoming Sessions', value: '4', icon: <FiCalendar size={24} /> },
+    { label: 'Materials Shared', value: '24', icon: <FiPaperclip size={24} /> },
+    { label: 'Active Cohorts', value: '2', icon: <FaRocket size={24} /> }
   ];
 
   const upcomingSessions = [
@@ -50,7 +62,7 @@ const TutorDashboardPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {stats.map((stat, i) => (
                 <div key={i} className="portal-card p-8 flex items-center gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-2xl shadow-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-gold shadow-sm">
                     {stat.icon}
                   </div>
                   <div>
@@ -187,7 +199,7 @@ const TutorDashboardPage: React.FC = () => {
                     }`}>
                       {cohort.status}
                     </div>
-                    <div className="text-[10px] font-bold text-muted">{cohort.start} — {cohort.end}</div>
+                    <div className="text-[10px] font-bold text-muted">{cohort.start}{cohort.end}</div>
                   </div>
                   <h3 className="text-3xl font-bold mb-2 italic">0{cohort.id}</h3>
                   <h4 className="text-xl font-bold mb-6">{cohort.name}</h4>
@@ -298,7 +310,9 @@ const TutorDashboardPage: React.FC = () => {
                   
                   <div className="flex gap-3">
                     <button className="flex-1 py-4 bg-off border border-gray-100 text-black rounded-xl font-bold text-xs hover:bg-black hover:text-white transition-all">Download View</button>
-                    <button className="w-14 h-14 bg-red-50 text-red-600 rounded-xl font-bold flex items-center justify-center hover:bg-red-600 hover:text-white transition-all" title="Delete Material">🗑️</button>
+                    <button className="w-14 h-14 bg-red-50 text-red-600 rounded-xl font-bold flex items-center justify-center hover:bg-red-600 hover:text-white transition-all" title="Delete Material">
+                      <FiTrash2 size={20} />
+                    </button>
                   </div>
 
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
@@ -306,7 +320,9 @@ const TutorDashboardPage: React.FC = () => {
               ))}
               
               <div className="portal-card border-dashed p-10 flex flex-col items-center justify-center gap-6 text-muted hover:text-gold hover:border-gold transition-all min-h-[250px] cursor-pointer">
-                <div className="w-16 h-16 rounded-3xl bg-off border border-gray-100 flex items-center justify-center text-3xl">📁</div>
+                <div className="w-16 h-16 rounded-3xl bg-off border border-gray-100 flex items-center justify-center text-gold">
+                  <FiFolder size={32} />
+                </div>
                 <div className="text-center">
                   <div className="text-xs font-extrabold uppercase tracking-widest mb-1 text-black">Drag & Drop</div>
                   <div className="text-[10px] font-medium leading-relaxed">Limit 50MB per file. PDF, PPTX, XLS preferred.</div>
@@ -379,42 +395,42 @@ const TutorDashboardPage: React.FC = () => {
             onClick={() => setActiveTab('overview')}
             className={`sidebar-link ${activeTab === 'overview' ? 'active' : ''}`}
           >
-            <span className="sidebar-link-icon">📊</span>
+            <span className="sidebar-link-icon"><FiBarChart2 size={18} /></span>
             Overview
           </button>
           <button 
             onClick={() => setActiveTab('cohorts')}
             className={`sidebar-link ${activeTab === 'cohorts' ? 'active' : ''}`}
           >
-            <span className="sidebar-link-icon">🛰️</span>
+            <span className="sidebar-link-icon"><FiCompass size={18} /></span>
             Cohorts
           </button>
           <button 
             onClick={() => setActiveTab('students')}
             className={`sidebar-link ${activeTab === 'students' ? 'active' : ''}`}
           >
-            <span className="sidebar-link-icon">👥</span>
+            <span className="sidebar-link-icon"><FiUsers size={18} /></span>
             Students
           </button>
           <button 
             onClick={() => setActiveTab('materials')}
             className={`sidebar-link ${activeTab === 'materials' ? 'active' : ''}`}
           >
-            <span className="sidebar-link-icon">📎</span>
+            <span className="sidebar-link-icon"><FiPaperclip size={18} /></span>
             Materials
           </button>
           <button 
             onClick={() => setActiveTab('applications')}
             className={`sidebar-link ${activeTab === 'applications' ? 'active' : ''}`}
           >
-            <span className="sidebar-link-icon">📩</span>
+            <span className="sidebar-link-icon"><FiMail size={18} /></span>
             Applications
           </button>
         </nav>
 
         <div className="sidebar-footer">
           <Link to="/" className="sidebar-link text-white/40 hover:text-white">
-            <span className="sidebar-link-icon">🚪</span>
+            <span className="sidebar-link-icon"><FiLogOut size={18} /></span>
             Logout
           </Link>
         </div>
@@ -442,7 +458,6 @@ const TutorDashboardPage: React.FC = () => {
   );
 };
 
-
-
 export default TutorDashboardPage;
+
 

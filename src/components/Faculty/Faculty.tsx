@@ -12,7 +12,7 @@ const Faculty: React.FC = () => {
         <p className="sec-p">
           Every instructor at Talent Factory is an active, senior HR or business professional working at a
           reputable Nigerian organisation. Not retired consultants. Not full-time academics. People who are doing the work
-          right now — and sharing exactly how they do it.
+          right nowand sharing exactly how they do it.
         </p>
       </div>
 
@@ -26,14 +26,14 @@ const Faculty: React.FC = () => {
           <div className="faculty-org">HR & Operations Lead, Mainstack Social Commerce</div>
           <p className="faculty-bio">
             Elizabeth built Talent Factory because she lived through every gap it's designed to close. Six years ago, she
-            started her own HR journey piecing things together — learning on the job, seeking out mentors, building
+            started her own HR journey piecing things togetherlearning on the job, seeking out mentors, building
             systems from scratch in companies that were growing faster than anyone had anticipated. Today, she is the HR &
             Operations Lead at Mainstack, a strategic partner to the CEO, and one of the most respected people-first
             operators in Nigeria's startup ecosystem.
             <br /><br />
             She served as founding HR at Zap Africa, scaling a team 50% in 60 days from zero. She helped bundle Africa
             reach 1 million customers and win LinkedIn's #1 Startup in 2022. She has built HR functions, playbooks, and
-            internship programs from the ground up — and she wants to pass every lesson on to the next generation of HR
+            internship programs from the ground upand she wants to pass every lesson on to the next generation of HR
             professionals in Nigeria.
           </p>
           <div className="faculty-tags">
@@ -61,14 +61,14 @@ const Faculty: React.FC = () => {
           <div className="faculty-promise-title">Paid Fairly for Their Time</div>
           <p className="faculty-promise-desc">
             Our instructors are compensated properly for every session they teach. This is how we attract
-            the best — not the most available. We respect their expertise with what it deserves: money.
+            the bestnot the most available. We respect their expertise with what it deserves: money.
           </p>
         </div>
         <div className="faculty-promise">
           <div className="faculty-promise-icon"><FiTarget size={36} /></div>
           <div className="faculty-promise-title">One Expert Per Topic</div>
           <p className="faculty-promise-desc">
-            Each module is taught by the most qualified practitioner for that specific subject — whether
+            Each module is taught by the most qualified practitioner for that specific subjectwhether
             that's someone who has built 50 payroll structures or someone who has navigated complex ER cases for a decade.
           </p>
         </div>
