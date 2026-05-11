@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StudentSidebar from '../components/Navigation/StudentSidebar';
+import { FiBook, FiMessageCircle, FiPaperclip, FiBarChart2, FiVideo, FiAward, FiZap, FiLock, FiCheck } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const StudentPortalPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'orientation' | 'payment'>('overview');
@@ -68,9 +70,9 @@ const StudentPortalPage: React.FC = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
-                      { label: 'Admissions', status: 'Completed', icon: '✓', active: false },
-                      { label: 'Specialization', status: 'In Progress', icon: '⚡', active: true },
-                      { label: 'Residency', status: 'Locked', icon: '🔒', active: false }
+                      { label: 'Admissions', status: 'Completed', icon: <FiCheck size={16} />, active: false },
+                      { label: 'Specialization', status: 'In Progress', icon: <FiZap size={16} />, active: true },
+                      { label: 'Residency', status: 'Locked', icon: <FiLock size={16} />, active: false }
                     ].map((phase, i) => (
                       <div key={i} className={`p-6 rounded-[32px] border transition-all ${phase.active ? 'bg-white/10 border-white/20 shadow-xl' : 'bg-white/5 border-white/5 opacity-40'}`}>
                         <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xs font-bold mb-6 ${phase.active ? 'bg-gold text-black animate-pulse' : 'bg-white/10 text-white'}`}>
@@ -90,17 +92,19 @@ const StudentPortalPage: React.FC = () => {
               {/* Bento Grid Bottom */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Link to="/portal/learning" className="portal-card p-10 bg-off/50 hover:bg-gold/5 transition-all group border-2 border-transparent hover:border-gold/20">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm group-hover:scale-110 transition-transform">📚</div>
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm group-hover:scale-110 transition-transform"><FiBook /></div>
                   <h4 className="text-2xl font-bold mb-3 italic">Digital Classroom</h4>
                   <p className="text-sm text-muted mb-8 leading-relaxed italic">Access course modules, submitted assignments, and peer reviews.</p>
                   <div className="text-xs font-extrabold text-gold uppercase tracking-[0.2em] flex items-center gap-2">Enter Learning Hub <span className="group-hover:translate-x-2 transition-transform">→</span></div>
                 </Link>
 
                 <div className="portal-card p-10 group bg-white shadow-xl shadow-black/[0.02]">
-                  <div className="w-14 h-14 bg-off rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm">💬</div>
+                  <div className="w-14 h-14 bg-off rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm text-black/70"><FiMessageCircle /></div>
                   <h4 className="text-2xl font-bold mb-3 italic">Cohort Community</h4>
                   <p className="text-sm text-muted mb-8 leading-relaxed italic">Collaboratively solve challenges with fellow HR practitioners.</p>
-                  <button className="flex items-center gap-4 bg-[#25D366] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-[#25D366]/20">Join WhatsApp Hub</button>
+                  <button className="flex items-center gap-4 bg-[#25D366] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-[#25D366]/20">
+                    <FaWhatsapp size={16} /> Join WhatsApp Hub
+                  </button>
                 </div>
               </div>
             </div>
@@ -115,9 +119,9 @@ const StudentPortalPage: React.FC = () => {
                 <div className="portal-card p-0 overflow-hidden border-gray-100/50">
                   <div className="divide-y divide-gray-50">
                     {[
-                      { title: 'Talent Acquisition Handbook', type: 'PDF', size: '2.4MB', icon: '📎' },
-                      { title: 'HR Process Mapping Template', type: 'XLSX', size: '1.2MB', icon: '📊' },
-                      { title: 'Corporate Culture Slides', type: 'PPTX', size: '6.8MB', icon: '🎞️' }
+                      { title: 'Talent Acquisition Handbook', type: 'PDF', size: '2.4MB', icon: <FiPaperclip /> },
+                      { title: 'HR Process Mapping Template', type: 'XLSX', size: '1.2MB', icon: <FiBarChart2 /> },
+                      { title: 'Corporate Culture Slides', type: 'PPTX', size: '6.8MB', icon: <FiVideo /> }
                     ].map((material, i) => (
                       <div key={i} className="p-6 flex items-center justify-between group hover:bg-off transition-all cursor-pointer">
                         <div className="flex items-center gap-5">
@@ -152,7 +156,7 @@ const StudentPortalPage: React.FC = () => {
               </section>
 
               <Link to="/portal/certificates" className="portal-card p-10 flex flex-col items-center justify-center text-center opacity-40 hover:opacity-100 transition-all group grayscale hover:grayscale-0 border-dashed border-2">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎓</div>
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform"><FiAward /></div>
                 <h4 className="text-sm font-bold uppercase tracking-widest mb-1">Credential Vault</h4>
                 <p className="text-[10px] font-medium italic text-muted">Awaiting Completion of Module 08</p>
               </Link>

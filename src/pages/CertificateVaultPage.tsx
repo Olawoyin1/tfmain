@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StudentSidebar from '../components/Navigation/StudentSidebar';
+import { FiAward } from 'react-icons/fi';
 
 const CertificateVaultPage: React.FC = () => {
   const [showLinkedInModal, setShowLinkedInModal] = useState(false);
@@ -86,7 +87,7 @@ const CertificateVaultPage: React.FC = () => {
         <div className="fixed inset-0 bg-black/40 backdrop-blur-[10px] flex items-center justify-center p-6 z-[200] animate-fade-in">
           <div className="bg-white max-w-xl w-full p-16 rounded-[40px] text-center relative overflow-hidden shadow-3xl border border-white/20">
              <button onClick={() => setShowLinkedInModal(false)} className="absolute top-10 right-10 text-3xl font-light hover:rotate-90 transition-transform duration-500">×</button>
-             <div className="text-4xl mb-8">🎖️</div>
+             <div className="text-4xl mb-8 flex justify-center text-gold"><FiAward size={40} /></div>
              <h3 className="sec-h text-4xl mb-6">Celebrate <em>Success</em></h3>
              <p className="sec-p mb-10 mx-auto max-w-md italic opacity-60">Boost your authority. Add this verified accreditation to your LinkedIn profile and showcase your expertise to recruiters.</p>
              

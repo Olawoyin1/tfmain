@@ -1,5 +1,6 @@
 import React from 'react';
 import StudentSidebar from '../components/Navigation/StudentSidebar';
+import { FiFileText, FiBarChart2, FiFile, FiUser } from 'react-icons/fi';
 
 const LearningDashboardPage: React.FC = () => {
   const materials = [
@@ -67,8 +68,8 @@ const LearningDashboardPage: React.FC = () => {
                 {materials.map((m) => (
                   <div key={m.id} className="portal-card p-8 flex items-center justify-between group hover:border-gold transition-all">
                     <div className="flex items-center gap-6">
-                      <div className="w-12 h-12 rounded-xl bg-off border border-gray-100 flex items-center justify-center text-xl shadow-sm group-hover:bg-gold/10 group-hover:border-gold/20 transition-all">
-                        {m.type === 'PDF' ? '📕' : m.type === 'XLSX' ? '📊' : '📄'}
+                      <div className="w-12 h-12 rounded-xl bg-off border border-gray-100 flex items-center justify-center text-xl shadow-sm group-hover:bg-gold/10 group-hover:border-gold/20 transition-all text-black/60">
+                        {m.type === 'PDF' ? <FiFileText /> : m.type === 'XLSX' ? <FiBarChart2 /> : <FiFile />}
                       </div>
                       <div>
                         <h4 className="text-lg font-bold italic">{m.title}</h4>
@@ -117,7 +118,7 @@ const LearningDashboardPage: React.FC = () => {
               </h3>
               <div className="portal-card p-10 bg-off/30 border-dashed">
                 <div className="flex items-center gap-6 mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl shadow-sm text-black">👨‍🏫</div>
+                  <div className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl shadow-sm text-black/70"><FiUser /></div>
                   <div>
                     <h4 className="font-bold text-lg italic">Dr. M. Okonkwo</h4>
                     <p className="text-[10px] text-muted font-bold uppercase tracking-widest">Master Instructor</p>

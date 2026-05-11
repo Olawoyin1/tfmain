@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navigation/Navbar';
 import Hero from '../components/Hero/Hero';
-import Marquee from '../components/UI/Marquee';
+// import Marquee from '../components/UI/Marquee';
 import About from '../components/About/About';
 import Problem from '../components/Problem/Problem';
 import Program from '../components/Program/Program';
