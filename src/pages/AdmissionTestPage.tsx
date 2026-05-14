@@ -62,13 +62,13 @@ const AdmissionTestPage: React.FC = () => {
             <FiCheck size={28} className="text-green-600" />
           </div>
           <h2 className="font-display text-[36px] font-black text-black leading-tight mb-4">
-            Assessment <span className="text-gold italic">submitted.</span>
+           Congratulations! Assessment <span className="text-gold italic">submitted.</span>
           </h2>
           <p className="text-[15px] text-muted leading-relaxed mb-8">
-            Your responses are being reviewed. An admissions decisionOffer, Waitlist, or Declinewill be issued within 5 business days.
+            Your responses are being reviewed. An admissions decision Offer, Waitlist, or Decline will be issued within 5 business days.
           </p>
           <div className="p-4 bg-gold/10 border border-gold/20 rounded-xl text-[13px] font-semibold text-black mb-8">
-            📧 Keep an eye on your inboxcheck spam too.
+            📧 Keep an eye on your inbox. Check spam too.
           </div>
           <Link to="/portal" className="btn-primary w-full flex items-center justify-center gap-2 py-4">
             Proceed to Portal <FiArrowRight />
