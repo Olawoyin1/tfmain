@@ -286,7 +286,7 @@ const TutorRegistrationPage: React.FC = () => {
                   'CIPD (Chartered Institute of Personnel and Development)',
                   'MBA with HR focus',
                   'Other relevant certification',
-                  'No formal certification experience-based expertise'
+                  'No formal certification; experience-based expertise'
                 ].map(c => (
                   <button key={c} onClick={() => toggleList('certs', c)} className={`text-left p-4 rounded-xl border-2 transition-all flex items-start gap-3 ${form.certs.includes(c) ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5'}`}>
                     <div className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center mt-0.5 ${form.certs.includes(c) ? 'bg-gold border-gold' : 'border-black/10'}`}>
