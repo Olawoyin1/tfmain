@@ -97,7 +97,7 @@ const TutorDashboardPage: React.FC = () => {
                             </div>
                           </div>
                         </div>
-                        <button className="btn-primary py-3 px-8 text-xs">Launch Studio →</button>
+                        <button className="btn-primary py-3 px-8 text-xs">Launch Studio </button>
                       </div>
                     ))}
                   </div>
@@ -216,7 +216,7 @@ const TutorDashboardPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  <button className="w-full py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Manage Cohort →</button>
+                  <button className="w-full py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Manage Cohort </button>
                 </div>
               ))}
               
@@ -276,7 +276,7 @@ const TutorDashboardPage: React.FC = () => {
                       </td>
                       <td className="px-8 py-6 text-sm text-muted not-italic">{student.email}</td>
                       <td className="px-8 py-6 text-right">
-                        <button className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-black transition-all">Details →</button>
+                        <button className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-black transition-all">Details </button>
                       </td>
                     </tr>
                   ))}
@@ -294,7 +294,7 @@ const TutorDashboardPage: React.FC = () => {
                 <h2 className="sec-h text-4xl mb-4">Material <em>Repository</em></h2>
                 <p className="text-muted">Upload and manage downloadable resources for your students. These will be accessible on their respective dashboards.</p>
               </div>
-              <button className="btn-primary py-4 px-10 text-xs font-bold uppercase tracking-widest">Upload New File →</button>
+              <button className="btn-primary py-4 px-10 text-xs font-bold uppercase tracking-widest">Upload New File </button>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,7 +365,7 @@ const TutorDashboardPage: React.FC = () => {
                     </div>
                     <div className="flex gap-3">
                       <button className="px-8 py-4 bg-off border border-gray-200 rounded-xl font-bold text-xs hover:border-black transition-all">Reject</button>
-                      <button className="px-8 py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Start Review →</button>
+                      <button className="px-8 py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Start Review </button>
                     </div>
                   </div>
                 </div>

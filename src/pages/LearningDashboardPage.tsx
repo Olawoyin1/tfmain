@@ -46,7 +46,7 @@ const LearningDashboardPage: React.FC = () => {
                     <div className="p-8 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                       <div className="text-[10px] text-gold uppercase tracking-widest mb-2 font-bold">Zoom Classroom</div>
                       <div className="font-bold mb-4 text-white">Process Mapping Workshop</div>
-                      <button className="btn-primary w-full py-4 text-xs font-bold">Join Session →</button>
+                      <button className="btn-primary w-full py-4 text-xs font-bold">Join Session </button>
                     </div>
                     <div className="p-8 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                       <div className="text-[10px] text-white/40 uppercase tracking-widest mb-2 font-bold">Submission</div>
@@ -124,7 +124,7 @@ const LearningDashboardPage: React.FC = () => {
                     <p className="text-[10px] text-muted font-bold uppercase tracking-widest">Master Instructor</p>
                   </div>
                 </div>
-                <button className="w-full py-4 rounded-xl bg-black text-white text-xs font-bold hover:bg-gold hover:text-black transition-all uppercase tracking-widest">Send Message →</button>
+                <button className="w-full py-4 rounded-xl bg-black text-white text-xs font-bold hover:bg-gold hover:text-black transition-all uppercase tracking-widest">Send Message </button>
               </div>
             </section>
           </div>

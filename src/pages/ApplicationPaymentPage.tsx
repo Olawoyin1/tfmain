@@ -126,7 +126,7 @@ const ApplicationPaymentPage: React.FC = () => {
               disabled={isProcessing}
               className="w-full py-4 rounded-xl bg-black text-white text-[14px] font-bold hover:bg-gold hover:text-black transition-all disabled:opacity-60 mb-4"
             >
-              {isProcessing ? 'Redirecting to Paystack...' : 'Pay ₦10,000 via Paystack →'}
+              {isProcessing ? 'Redirecting to Paystack...' : 'Pay ₦10,000 via Paystack '}
             </button>
 
             <p className="text-center text-[11px] text-muted leading-relaxed">

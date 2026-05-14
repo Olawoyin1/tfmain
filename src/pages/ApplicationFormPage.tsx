@@ -277,7 +277,7 @@ const ApplicationFormPage: React.FC = () => {
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 2 of 5</div>
               <h2 className="text-[28px] font-black text-black mb-2">Educational & Professional Background</h2>
-              <p className="text-[14px] text-muted leading-relaxed">Help us understand where you're coming from. There's no wrong answerwe welcome all starting points.</p>
+              <p className="text-[14px] text-muted leading-relaxed">Help us understand where you're coming from. There's no wrong answer. We welcome all starting points.</p>
             </div>
             <Field label="Highest Level of Education Completed" req error={errors.education}>
               <div className="flex flex-col gap-2">
@@ -296,8 +296,8 @@ const ApplicationFormPage: React.FC = () => {
                   { v: 'Employed part-time', s: 'Working but not full-time' },
                   { v: 'Self-employed / Freelance' },
                   { v: 'Student (full-time)' },
-                  { v: 'Unemployedactively job searching' },
-                  { v: 'Unemployednot currently searching' },
+                  { v: 'Unemployed (actively job searching)' },
+                  { v: 'Unemployed (not currently searching)' },
                 ].map(({ v, s }) => (
                   <RadioOpt key={v} label={v} sub={s} selected={form.employment === v} onClick={() => set('employment', v)} />
                 ))}
@@ -327,7 +327,7 @@ const ApplicationFormPage: React.FC = () => {
                 ))}
               </div>
             </Field>
-            <Field label="LinkedIn Profile URL" hint="Optional but recommendedhelps us learn more about your background.">
+            <Field label="LinkedIn Profile URL" hint="Optional but recommended. Helps us learn more about your background.">
               <input type="url" className={inputCls} value={form.linkedin} onChange={e => set('linkedin', e.target.value)} placeholder="https://linkedin.com/in/yourname" />
             </Field>
             <div className="flex justify-between mt-8">
@@ -347,7 +347,7 @@ const ApplicationFormPage: React.FC = () => {
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 3 of 5</div>
               <h2 className="text-[28px] font-black text-black mb-2">Your Motivation</h2>
-              <p className="text-[14px] text-muted leading-relaxed">This is the most important section. We want to understand why you want this, not just what you want. Be genuinewe read every answer.</p>
+              <p className="text-[14px] text-muted leading-relaxed">This is the most important section. We want to understand why you want this, not just what you want. Be genuine. We read every answer.</p>
             </div>
             <Field label="Which best describes your reason for applying?" req error={errors.applyReason}>
               <div className="flex flex-col gap-2">
@@ -356,14 +356,14 @@ const ApplicationFormPage: React.FC = () => {
                 ))}
               </div>
             </Field>
-            <Field label="In your own words, why do you want to join Talent Factory?" req hint="Minimum 100 words. Tell us your storywhat brought you here, what you're hoping for, and what you're committed to putting in." error={errors.whyJoin}>
+            <Field label="In your own words, why do you want to join Talent Factory?" req hint="Minimum 100 words. Tell us your story: what brought you here, what you're hoping for, and what you're committed to putting in." error={errors.whyJoin}>
               <textarea className={textareaCls} value={form.whyJoin} onChange={e => set('whyJoin', e.target.value)} placeholder="Write your answer here. Be honest, be specific, and be yourself..." />
               <p className="text-[11px] text-muted mt-1">{form.whyJoin.length} characters</p>
             </Field>
             <Field label="Where do you see yourself in HR in 2 years?" req hint="This helps us understand your ambition and how Talent Factory fits into your bigger career picture." error={errors.twoYears}>
               <textarea className={textareaCls} value={form.twoYears} onChange={e => set('twoYears', e.target.value)} placeholder="Describe the role, level, or impact you want to have in HR within 2 years..." />
             </Field>
-            <Field label="What is the biggest challenge you've faced in building your HR career so far?" hint="Optionalbut very helpful for us to understand.">
+            <Field label="What is the biggest challenge you've faced in building your HR career so far?" hint="Optional but very helpful for us to understand.">
               <textarea className={textareaCls} value={form.biggestChallenge} onChange={e => set('biggestChallenge', e.target.value)} placeholder="e.g. No clear pathway, lack of mentors, couldn't get internships..." />
             </Field>
             <div className="flex justify-between mt-8">
@@ -438,10 +438,10 @@ const ApplicationFormPage: React.FC = () => {
           <div>
             <div className="mb-9">
               <div className="text-[11px] font-bold uppercase tracking-[2px] text-gold mb-2">Section 5 of 5</div>
-              <h2 className="text-[28px] font-black text-black mb-2">Almost ThereFinal Details</h2>
+              <h2 className="text-[28px] font-black text-black mb-2">Almost There; Final Details</h2>
               <p className="text-[14px] text-muted leading-relaxed">Last few questions. You're doing great.</p>
             </div>
-            <Field label="Payment Preference" req hint="This does not commit you to anythingit helps us plan cohort payment schedules." error={errors.payment}>
+            <Field label="Payment Preference" req hint="This does not commit you to anything; it helps us plan cohort payment schedules." error={errors.payment}>
               <div className="flex flex-col gap-3">
                 {[
                   {
@@ -513,17 +513,17 @@ const ApplicationFormPage: React.FC = () => {
             <Field label="Do you have a laptop/computer with stable internet access?" req error={errors.techAccess}>
               <div className="flex flex-col gap-2">
                 {[
-                  { v: 'Yesreliable laptop and internet' },
+                  { v: 'Yes, reliable laptop and internet' },
                   { v: 'Laptop yes, internet sometimes unstable' },
                   { v: 'I use my phone primarily' },
-                  { v: 'Limited accesswould need support' },
+                  { v: 'Limited access, would need support' },
                 ].map(({ v }) => (
                   <RadioOpt key={v} label={v} selected={form.techAccess === v} onClick={() => set('techAccess', v)} />
                 ))}
               </div>
             </Field>
             <Field label="Is there anything else you'd like us to know?" hint="Additional context, special circumstances, or anything that didn't fit elsewhere.">
-              <textarea className={textareaCls} value={form.additionalInfo} onChange={e => set('additionalInfo', e.target.value)} placeholder="Optionalbut we read everything you write..." />
+              <textarea className={textareaCls} value={form.additionalInfo} onChange={e => set('additionalInfo', e.target.value)} placeholder="Optional but we read everything you write..." />
             </Field>
             <div className="h-px bg-black/8 my-8" />
             <Field label="" error={errors.consent}>

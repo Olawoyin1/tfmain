@@ -95,7 +95,7 @@ const StudentPortalPage: React.FC = () => {
                   <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl mb-8 shadow-sm group-hover:scale-110 transition-transform"><FiBook /></div>
                   <h4 className="text-2xl font-bold mb-3 italic">Digital Classroom</h4>
                   <p className="text-sm text-muted mb-8 leading-relaxed italic">Access course modules, submitted assignments, and peer reviews.</p>
-                  <div className="text-xs font-extrabold text-gold uppercase tracking-[0.2em] flex items-center gap-2">Enter Learning Hub <span className="group-hover:translate-x-2 transition-transform">→</span></div>
+                  <div className="text-xs font-extrabold text-gold uppercase tracking-[0.2em] flex items-center gap-2">Enter Learning Hub <span className="group-hover:translate-x-2 transition-transform"></span></div>
                 </Link>
 
                 <div className="portal-card p-10 group bg-white shadow-xl shadow-black/[0.02]">

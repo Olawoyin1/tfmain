@@ -151,7 +151,7 @@ const WaitlistPage: React.FC = () => {
                 disabled={isSubmitting}
                 className="btn-primary w-full mt-4"
               >
-                {isSubmitting ? 'Joining...' : 'Join Waitlist →'}
+                {isSubmitting ? 'Joining...' : 'Join Waitlist '}
               </button>
             </form>
             

@@ -37,7 +37,7 @@ const Apply: React.FC = () => {
             We've received your email. We'll be in touch with updates on Cohort 1 very soon.
           </p>
           <div className="mt-8">
-            <Link to="/waitlist" className="apply-link">View Full Waitlist Details →</Link>
+            <Link to="/waitlist" className="apply-link">View Full Waitlist Details </Link>
           </div>
         </div>
       </section>
@@ -70,19 +70,19 @@ const Apply: React.FC = () => {
           disabled={isSubmitting}
           className="apply-submit"
         >
-          {isSubmitting ? 'Joining...' : 'Join the Waitlist →'}
+          {isSubmitting ? 'Joining...' : 'Join the Waitlist '}
         </button>
       </form>
       
       <div className="apply-links">
         <Link to="/apply/payment" className="apply-link">
-          Student Application →
+          Student Application 
         </Link>
         <Link to="/waitlist" className="apply-link">
-          Waitlist Details →
+          Waitlist Details 
         </Link>
         <a href="#partners" className="apply-link">
-          Partner Company Registration →
+          Partner Company Registration 
         </a>
       </div>
     </section>
