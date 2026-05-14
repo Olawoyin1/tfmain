@@ -82,6 +82,7 @@ const ApplicationFormPage: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
 
   const [form, setForm] = useState<FormState>({
@@ -152,8 +153,60 @@ const ApplicationFormPage: React.FC = () => {
     // Simulate API call
     await new Promise(r => setTimeout(r, 1500));
     setSubmitting(false);
-    navigate('/apply/test');
+    setIsSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-off flex items-center justify-center px-6">
+        <div className="max-w-md w-full text-center">
+          <div className="w-20 h-20 rounded-full bg-green/10 flex items-center justify-center mx-auto mb-8" style={{ background: 'rgba(27, 77, 62, 0.1)' }}>
+            <FiCheck size={36} style={{ color: '#1B4D3E' }} />
+          </div>
+          <h2 className="text-[32px] font-black text-black leading-tight mb-4">
+            Profile <span className="text-gold italic">Completed!</span>
+          </h2>
+          <p className="text-[15px] text-muted leading-relaxed mb-8">
+            Your application details have been successfully saved for Cohort 1. 
+            <br /><br />
+            To finalize your application, you need to complete the <strong>Pre-Admission Assessment</strong>.
+          </p>
+
+          <div className="bg-white border-2 border-black/5 rounded-2xl p-6 text-left mb-8">
+            <h4 className="text-[13px] font-bold uppercase tracking-widest text-black mb-4 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-gold" /> Assessment Details
+            </h4>
+            <div className="space-y-3">
+              <div className="flex justify-between text-[14px]">
+                <span className="text-muted">Duration</span>
+                <span className="font-bold text-black">30 Minutes</span>
+              </div>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-muted">Sections</span>
+                <span className="font-bold text-black">Knowledge, Judgement, Thinking</span>
+              </div>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-muted">Attempts Allowed</span>
+                <span className="font-bold text-black">1 (One)</span>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => navigate('/apply/test')}
+            className="btn-primary w-full py-5 flex items-center justify-center gap-3"
+          >
+            Start Assessment Now <FiArrowRight />
+          </button>
+          
+          <p className="mt-6 text-[12px] text-muted italic">
+            Make sure you are in a quiet environment with a stable internet connection before beginning.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-off">
@@ -445,7 +498,7 @@ const ApplicationFormPage: React.FC = () => {
               <div className="flex flex-col gap-3">
                 {[
                   {
-                    v: 'Full Payment₦250,000',
+                    v: 'Full Payment ₦250,000',
                     badge: 'Best Value',
                     badgeStyle: 'bg-green-100 text-green-700',
                     price: '₦250,000',
