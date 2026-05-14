@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CustomCursor from './components/UI/CustomCursor';
+
 
 // Pages
 import LandingPage from './pages/LandingPage';
@@ -22,7 +22,7 @@ import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
 const App: React.FC = () => {
   return (
     <Router>
-      <CustomCursor />
+
       <div className="font-syne bg-off text-black overflow-x-hidden">
         <Routes>
           {/* Landing */}
