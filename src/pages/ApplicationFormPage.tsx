@@ -170,7 +170,7 @@ const ApplicationFormPage: React.FC = () => {
           <p className="text-[15px] text-muted leading-relaxed mb-8">
             Your application details have been successfully saved for Cohort 1. 
             <br /><br />
-            To finalize your application, you need to complete the <strong>Pre-Admission Assessment</strong>.
+            To finalize your application, you need to complete the <br /> <strong>Pre-Admission Assessment</strong>.
           </p>
 
           <div className="bg-white border-2 border-black/5 rounded-2xl p-6 text-left mb-8">
