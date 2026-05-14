@@ -62,7 +62,7 @@ const ApplicationPaymentPage: React.FC = () => {
               One step before<br />your profile details.
             </h1>
             <p className="text-[15px] text-muted leading-relaxed mb-10">
-              A non-refundable ₦10,000 fee. This fee is an administrative processing fee and is separate from tuition <strong className="text-black">not</strong> deducted from your tuition.
+              A non-refundable application fee of ₦10,000. This fee is an administrative processing fee and is separate from tuition <strong className="text-black">not</strong> deducted from your tuition.
             </p>
 
             {/* What's included */}
