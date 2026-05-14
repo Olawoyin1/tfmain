@@ -25,11 +25,11 @@ const ApplicationPaymentPage: React.FC = () => {
             Payment <span className="text-gold italic">confirmed.</span>
           </h2>
           <p className="text-[15px] text-muted leading-relaxed mb-2">
-            Your ₦10,000 application fee has been received. You've unlocked the admission assessment.
+            Your ₦10,000 application fee has been received. You can now complete your profile.
           </p>
           <p className="text-[12px] text-muted mb-10">Reference: TF-{Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
           <Link to="/apply/form" className="btn-primary w-full block text-center py-4">
-            Complete Your Full Profile →
+            Complete Your Full Profile 
           </Link>
         </div>
       </div>
