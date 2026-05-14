@@ -87,12 +87,12 @@ const TutorRegistrationPage: React.FC = () => {
 
       {/* Hero */}
       <div className="bg-black px-6 pt-12 pb-24 text-center relative overflow-hidden">
-        <div className="text-[10px] font-bold uppercase tracking-[3px] text-gold/70 mb-4">Instructor Applications — Cohort 1</div>
+        <div className="text-[10px] font-bold uppercase tracking-[3px] text-gold/70 mb-4">Instructor Applications Cohort 1</div>
         <h1 className="font-display text-[clamp(28px,5vw,52px)] font-black text-white leading-[1.1] mb-6">
           Teach at Talent <em className="text-gold italic">Factory</em>
         </h1>
         <p className="text-[15px] text-white/50 max-w-2xl mx-auto leading-relaxed">
-          We're looking for Nigeria's finest HR practitioners to shape the next generation. If you have the experience, the passion, and the desire to teach — we want to hear from you.
+          We're looking for Nigeria's finest HR practitioners to shape the next generation. If you have the experience, the passion, and the desire to teach we want to hear from you.
         </p>
 
         {/* Progress */}
@@ -185,7 +185,7 @@ const TutorRegistrationPage: React.FC = () => {
 
             <div className="mb-6">
               <label className={lbl}>LinkedIn Profile URL <span className="text-gold">*</span></label>
-              <p className={hint}>Required — we use this to verify your professional background before reviewing your application.</p>
+              <p className={hint}>Required we use this to verify your professional background before reviewing your application.</p>
               <input type="url" className={inp} placeholder="https://linkedin.com/in/yourname" value={form.linkedin} onChange={e => set('linkedin', e.target.value)} />
             </div>
 
@@ -195,7 +195,7 @@ const TutorRegistrationPage: React.FC = () => {
                 <SelectTrigger className="rounded-xl border-2 py-6"><SelectValue placeholder="Select your state" /></SelectTrigger>
                 <SelectContent>
                   {[
-                    'FCT — Abuja', 'Lagos', 'Rivers', 'Oyo', 'Kano', 'Kaduna', 'Delta', 'Ogun', 'Enugu', 'Anambra', 'Edo', 'Imo', 'Abia', 'Outside Nigeria'
+                    'FCT Abuja', 'Lagos', 'Rivers', 'Oyo', 'Kano', 'Kaduna', 'Delta', 'Ogun', 'Enugu', 'Anambra', 'Edo', 'Imo', 'Abia', 'Outside Nigeria'
                   ].map(s => (
                     <SelectItem key={s} value={s}>{s}</SelectItem>
                   ))}
@@ -271,22 +271,22 @@ const TutorRegistrationPage: React.FC = () => {
 
             <div className="mb-8">
               <label className={lbl}>List up to 3 notable organisations you've worked at <span className="text-gold">*</span></label>
-              <p className={hint}>Include your most recognisable employers — this helps students connect with your credibility.</p>
-              <textarea className={inp + " min-h-[140px]"} placeholder="e.g.&#10;1. Flutterwave — Head of People (2021–2023)&#10;2. Access Bank — Senior HR Business Partner (2018–2021)&#10;3. PwC Nigeria — HR Consultant (2015–2018)" value={form.notableOrgs} onChange={e => set('notableOrgs', e.target.value)} />
+              <p className={hint}>Include your most recognisable employers this helps students connect with your credibility.</p>
+              <textarea className={inp + " min-h-[140px]"} placeholder="e.g.&#10;1. Flutterwave Head of People (2021–2023)&#10;2. Access Bank Senior HR Business Partner (2018–2021)&#10;3. PwC Nigeria HR Consultant (2015–2018)" value={form.notableOrgs} onChange={e => set('notableOrgs', e.target.value)} />
             </div>
 
             <div className="mb-8">
               <label className={lbl}>HR Certifications or Qualifications (if any)</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                  'PHRi (Professional in Human Resources — International)',
+                  'PHRi (Professional in Human Resources International)',
                   'SPHR / PHR (HRCI Certified)',
                   'SHRM-CP / SHRM-SCP',
                   'CIPM (Chartered Institute of Personnel Management Nigeria)',
                   'CIPD (Chartered Institute of Personnel and Development)',
                   'MBA with HR focus',
                   'Other relevant certification',
-                  'No formal certification — experience-based expertise'
+                  'No formal certification experience-based expertise'
                 ].map(c => (
                   <button key={c} onClick={() => toggleList('certs', c)} className={`text-left p-4 rounded-xl border-2 transition-all flex items-start gap-3 ${form.certs.includes(c) ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5'}`}>
                     <div className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center mt-0.5 ${form.certs.includes(c) ? 'bg-gold border-gold' : 'border-black/10'}`}>
@@ -321,25 +321,25 @@ const TutorRegistrationPage: React.FC = () => {
             <div className="mb-10">
               <div className="text-[11px] font-bold text-gold uppercase tracking-widest mb-2">Section 3 of 5</div>
               <h2 className="text-3xl font-black text-black mb-2">Your Teaching Preferences</h2>
-              <p className="text-muted leading-relaxed">Tell us what you want to teach and how confident you are. One expert per module — we'll match you to the topic you can teach best.</p>
+              <p className="text-muted leading-relaxed">Tell us what you want to teach and how confident you are. One expert per module we'll match you to the topic you can teach best.</p>
             </div>
 
             <div className="mb-8">
               <label className={lbl}>Which modules would you be best qualified to teach? <span className="text-gold">*</span></label>
-              <p className={hint}>Select all that genuinely match your deep expertise — not just areas you're familiar with.</p>
+              <p className={hint}>Select all that genuinely match your deep expertise not just areas you're familiar with.</p>
               <div className="grid grid-cols-1 gap-3">
                 {[
-                  { t: 'The HR Landscape & Career Paths in Nigeria', s: 'Week 1 — Overview & orientation' },
-                  { t: 'Recruitment, Talent Acquisition & Interviewing', s: 'Week 2 — Sourcing, JDs, interview design' },
-                  { t: 'Onboarding, EVP & Employee Experience Design', s: 'Week 3 — 30/60/90 plans, experience mapping' },
-                  { t: 'HR Operations, Policies & Labour Law Compliance', s: 'Week 4 — NSITF, ITF, Nigerian Labour Act' },
-                  { t: 'Performance Management Frameworks', s: 'Week 5 — Goal setting, KPIs, feedback cultures, PIPs' },
-                  { t: 'Compensation, Benefits & Total Rewards Design', s: 'Week 6 — Pay structures, benchmarking, benefits' },
-                  { t: 'Learning & Development Strategy', s: 'Week 7 — TNA, L&D frameworks, LMS tools' },
-                  { t: 'Employee Relations & Conflict Resolution', s: 'Week 8 — Grievances, disciplinary, difficult conversations' },
-                  { t: 'People Analytics & HR Metrics', s: 'Week 9 — Dashboards, data storytelling, KPIs' },
-                  { t: 'Strategic HR Business Partnering', s: 'Week 10 — HRBP mindset, CEO partnership, OKRs' },
-                  { t: 'Scaling HR in Startups & Growing Companies', s: 'Week 11 — Building from zero, playbooks, SOPs' }
+                  { t: 'The HR Landscape & Career Paths in Nigeria', s: 'Week 1 Overview & orientation' },
+                  { t: 'Recruitment, Talent Acquisition & Interviewing', s: 'Week 2 Sourcing, JDs, interview design' },
+                  { t: 'Onboarding, EVP & Employee Experience Design', s: 'Week 3 30/60/90 plans, experience mapping' },
+                  { t: 'HR Operations, Policies & Labour Law Compliance', s: 'Week 4 NSITF, ITF, Nigerian Labour Act' },
+                  { t: 'Performance Management Frameworks', s: 'Week 5 Goal setting, KPIs, feedback cultures, PIPs' },
+                  { t: 'Compensation, Benefits & Total Rewards Design', s: 'Week 6 Pay structures, benchmarking, benefits' },
+                  { t: 'Learning & Development Strategy', s: 'Week 7 TNA, L&D frameworks, LMS tools' },
+                  { t: 'Employee Relations & Conflict Resolution', s: 'Week 8 Grievances, disciplinary, difficult conversations' },
+                  { t: 'People Analytics & HR Metrics', s: 'Week 9 Dashboards, data storytelling, KPIs' },
+                  { t: 'Strategic HR Business Partnering', s: 'Week 10 HRBP mindset, CEO partnership, OKRs' },
+                  { t: 'Scaling HR in Startups & Growing Companies', s: 'Week 11 Building from zero, playbooks, SOPs' }
                 ].map(m => (
                   <button key={m.t} onClick={() => toggleList('teachModules', m.t)} className={`text-left p-5 rounded-xl border-2 transition-all flex items-start gap-4 ${form.teachModules.includes(m.t) ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                     <div className={`w-6 h-6 rounded border-2 shrink-0 flex items-center justify-center mt-1 ${form.teachModules.includes(m.t) ? 'bg-gold border-gold' : 'border-black/10'}`}>
@@ -356,7 +356,7 @@ const TutorRegistrationPage: React.FC = () => {
 
             <div className="mb-8">
               <label className={lbl}>Which single module would you most want to teach? <span className="text-gold">*</span></label>
-              <p className={hint}>If you could only teach one — which would it be? This helps us make the best match.</p>
+              <p className={hint}>If you could only teach one which would it be? This helps us make the best match.</p>
               <input className={inp} placeholder="e.g. Compensation & Benefits Design" value={form.topModule} onChange={e => set('topModule', e.target.value)} />
             </div>
 
@@ -364,9 +364,9 @@ const TutorRegistrationPage: React.FC = () => {
               <label className={lbl}>Have you taught, trained, or facilitated before? <span className="text-gold">*</span></label>
               <div className="flex flex-col gap-3">
                 {[
-                  { v: 'Yes — frequently (workshops, training, speaking)', s: 'I regularly run workshops, training sessions, or speak at events' },
-                  { v: 'Yes — occasionally', s: 'I\'ve done it before but not as a regular activity' },
-                  { v: 'Internally only — to my team or colleagues', s: '' },
+                  { v: 'Yes frequently (workshops, training, speaking)', s: 'I regularly run workshops, training sessions, or speak at events' },
+                  { v: 'Yes occasionally', s: 'I\'ve done it before but not as a regular activity' },
+                  { v: 'Internally only to my team or colleagues', s: '' },
                   { v: 'Not formally, but comfortable doing so', s: 'Not formally, but I\'m confident I can' }
                 ].map(r => (
                   <button key={r.v} onClick={() => set('taughtBefore', r.v)} className={`text-left p-5 rounded-xl border-2 transition-all ${form.taughtBefore === r.v ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
@@ -410,7 +410,7 @@ const TutorRegistrationPage: React.FC = () => {
             <div className="mb-10">
               <div className="text-[11px] font-bold text-gold uppercase tracking-widest mb-2">Section 4 of 5</div>
               <h2 className="text-3xl font-black text-black mb-2">Availability & Logistics</h2>
-              <p className="text-muted leading-relaxed">Help us plan the cohort schedule around you. Classes are held online via Zoom — so no travel required.</p>
+              <p className="text-muted leading-relaxed">Help us plan the cohort schedule around you. Classes are held online via Zoom so no travel required.</p>
             </div>
 
             <div className="bg-gold/5 border-2 border-gold/20 p-8 mb-10 rounded-2xl relative overflow-hidden">
@@ -427,14 +427,14 @@ const TutorRegistrationPage: React.FC = () => {
 
             <div className="mb-10">
               <label className={lbl}>Which time slots work best for you? <span className="text-gold">*</span></label>
-              <p className={hint}>Select all that apply — we'll match you to available slots.</p>
+              <p className={hint}>Select all that apply we'll match you to available slots.</p>
               <div className="grid grid-cols-1 gap-3">
                 {[
-                  'Weekday evenings — 7:00PM to 9:00PM',
-                  'Saturday mornings — 9:00AM to 12:00PM',
-                  'Saturday afternoons — 12:00PM to 3:00PM',
+                  'Weekday evenings 7:00PM to 9:00PM',
+                  'Saturday mornings 9:00AM to 12:00PM',
+                  'Saturday afternoons 12:00PM to 3:00PM',
                   'Sunday mornings',
-                  'Flexible — any of the above works for me'
+                  'Flexible any of the above works for me'
                 ].map(t => (
                    <button key={t} onClick={() => toggleList('timeSlots', t)} className={`text-left p-5 rounded-xl border-2 transition-all flex items-center justify-between ${form.timeSlots.includes(t) ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                    <span className="font-bold text-[14px]">{t}</span>
@@ -451,7 +451,7 @@ const TutorRegistrationPage: React.FC = () => {
                   { v: '1 session only', s: 'A single 2-hour class' },
                   { v: '1–2 sessions', s: 'Flexible based on need' },
                   { v: '2–3 sessions across the cohort', s: '' },
-                  { v: 'Open to more — whatever the program needs', s: '' }
+                  { v: 'Open to more whatever the program needs', s: '' }
                 ].map(r => (
                   <button key={r.v} onClick={() => set('sessionCount', r.v)} className={`text-left p-5 rounded-xl border-2 transition-all ${form.sessionCount === r.v ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                     <div className="font-bold text-[14px]">{r.v}</div>
@@ -464,7 +464,7 @@ const TutorRegistrationPage: React.FC = () => {
             <div className="mb-10">
               <label className={lbl}>Are you willing to be on call as a backup instructor if another is unavailable?</label>
               <div className="flex flex-col gap-3">
-                {['Yes — I\'m happy to serve as a backup', 'Maybe — depends on the topic and notice given', 'No — I can only commit to my assigned sessions'].map(r => (
+                {['Yes I\'m happy to serve as a backup', 'Maybe depends on the topic and notice given', 'No I can only commit to my assigned sessions'].map(r => (
                   <button key={r} onClick={() => set('backup', r)} className={`text-left p-5 rounded-xl border-2 transition-all ${form.backup === r ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                     <div className="font-bold text-[14px]">{r}</div>
                   </button>
@@ -476,7 +476,7 @@ const TutorRegistrationPage: React.FC = () => {
               <label className={lbl}>Cancellation Policy Acknowledgement <span className="text-gold">*</span></label>
               <p className={hint}>We require a minimum of 14 days notice if you need to cancel a confirmed session.</p>
               <div className="flex flex-col gap-3">
-                {['Yes — I understand and agree to the 14-day cancellation policy', 'I may need some flexibility — I\'d like to discuss'].map(r => (
+                {['Yes I understand and agree to the 14-day cancellation policy', 'I may need some flexibility I\'d like to discuss'].map(r => (
                   <button key={r} onClick={() => set('cancelPolicy', r)} className={`text-left p-5 rounded-xl border-2 transition-all ${form.cancelPolicy === r ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                     <div className="font-bold text-[14px]">{r}</div>
                   </button>
@@ -501,7 +501,7 @@ const TutorRegistrationPage: React.FC = () => {
             <div className="mb-10">
               <div className="text-[11px] font-bold text-gold uppercase tracking-widest mb-2">Section 5 of 5</div>
               <h2 className="text-3xl font-black text-black mb-2">Your Motivation & Final Submission</h2>
-              <p className="text-muted leading-relaxed">Last section — and the most personal one. Tell us why you want to teach.</p>
+              <p className="text-muted leading-relaxed">Last section and the most personal one. Tell us why you want to teach.</p>
             </div>
 
             <div className="mb-8">
@@ -518,7 +518,7 @@ const TutorRegistrationPage: React.FC = () => {
 
             <div className="mb-8">
               <label className={lbl}>Do you have a short bio (2–3 sentences) we could use? (Optional)</label>
-              <p className={hint}>Optional — we'll write one for you if not. But yours is always better.</p>
+              <p className={hint}>Optional we'll write one for you if not. But yours is always better.</p>
               <textarea className={inp + " min-h-[120px]"} placeholder="e.g. Chidi Nwosu is the Head of People at Kuda Bank..." value={form.bio} onChange={e => set('bio', e.target.value)} />
             </div>
 

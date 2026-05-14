@@ -75,7 +75,7 @@ const PartnerRegistrationPage: React.FC = () => {
                     { n: 1, t: 'Confirmation email', d: 'Sent to your registered address within the next few minutes.' },
                     { n: 2, t: 'TF Partnerships team', d: 'Will call or email you within 24 business hours to confirm your application.' },
                     { n: 3, t: 'Intern profile sharing', d: 'Begins approximately 2 weeks before your preferred start date.' },
-                    { n: 4, t: 'MOU signing', d: 'Completes your onboarding as a TF partner — simple, two-page document.' }
+                    { n: 4, t: 'MOU signing', d: 'Completes your onboarding as a TF partner simple, two-page document.' }
                 ].map(s => (
                     <div key={s.n} className="flex gap-5">
                         <div className="w-7 h-7 rounded-full bg-black text-white text-[12px] font-bold flex items-center justify-center shrink-0">{s.n}</div>
@@ -337,9 +337,9 @@ const PartnerRegistrationPage: React.FC = () => {
                             <label className={lbl}>Preferred experience level of intern <span className="text-gold">*</span></label>
                             <div className="flex flex-col gap-3">
                                 {[
-                                    { v: 'Entry level', t: 'Entry level — fresh graduate / career changer, no prior HR experience' },
-                                    { v: 'Some exposure', t: 'Some exposure — 1–2 years in an adjacent role (admin, operations, etc.)' },
-                                    { v: 'No preference', t: 'No preference — send your best match based on our department needs' }
+                                    { v: 'Entry level', t: 'Entry level fresh graduate / career changer, no prior HR experience' },
+                                    { v: 'Some exposure', t: 'Some exposure 1–2 years in an adjacent role (admin, operations, etc.)' },
+                                    { v: 'No preference', t: 'No preference send your best match based on our department needs' }
                                 ].map(a => (
                                     <button key={a.v} onClick={() => set('experienceLevel', a.v)} className={`text-left p-5 rounded-2xl border-2 transition-all flex items-start gap-4 ${form.experienceLevel === a.v ? 'bg-gold/5 border-gold text-black' : 'bg-white border-black/5 hover:border-gold/30'}`}>
                                         <div className={`w-6 h-6 rounded-full border-2 shrink-0 flex items-center justify-center mt-0.5 transition-all ${form.experienceLevel === a.v ? 'bg-gold border-gold' : 'border-black/5'}`}>
@@ -443,8 +443,8 @@ const PartnerRegistrationPage: React.FC = () => {
                                     <SelectTrigger className="rounded-xl border-2 py-6"><SelectValue placeholder="Select..." /></SelectTrigger>
                                     <SelectContent>
                                         {[
-                                            'Yes — we will provide a monthly stipend',
-                                            'Yes — we will provide transport/meal allowance only',
+                                            'Yes we will provide a monthly stipend',
+                                            'Yes we will provide transport/meal allowance only',
                                             'Under discussion / to be agreed',
                                             'No stipend at this time'
                                         ].map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
