@@ -127,7 +127,7 @@ const StudentInfoPage: React.FC = () => {
             <div>
               <div className="text-[13px] font-bold text-white">₦10,000 non-refundable application fee</div>
               <p className="text-[12px] text-white mt-0.5 leading-relaxed">
-                This fee is an administrative processing fee and is separate from tuition.. <strong>Not</strong> deducted from tuition.
+                This fee is an administrative processing fee and is separate from tuition. <strong>Not</strong> deducted from tuition.
               </p>
             </div>
           </div>
