@@ -71,7 +71,7 @@ const AdmissionTestPage: React.FC = () => {
             📧 Keep an eye on your inboxcheck spam too.
           </div>
           <Link to="/portal" className="btn-primary w-full flex items-center justify-center gap-2 py-4">
-            Complete Your Profile <FiArrowRight />
+            Proceed to Portal <FiArrowRight />
           </Link>
         </div>
       </div>

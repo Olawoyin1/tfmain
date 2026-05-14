@@ -6,10 +6,10 @@ const StudentInfoPage: React.FC = () => {
   const navigate = useNavigate();
 
   const appSteps = [
-    { n: 1, label: 'Create your account', sub: '3 steps · personal, academic, professional' },
+    { n: 1, label: 'Create your account', sub: 'Basic details · secure your portal access' },
     { n: 2, label: 'Pay ₦10,000 application fee', sub: 'Non-refundable · secures your assessment slot' },
-    { n: 3, label: 'Take the admission test', sub: '30 minutes · 3 sections · auto-scored' },
-    { n: 4, label: 'Complete your full profile', sub: '5 sections · reviewed by our admissions team' },
+    { n: 3, label: 'Complete your full profile', sub: '5 sections · personal, background, motivation' },
+    { n: 4, label: 'Take the admission test', sub: '30 minutes · 3 sections · auto-scored' },
     { n: 5, label: 'Receive your offer', sub: 'Decision within 7 working days' },
   ];
 

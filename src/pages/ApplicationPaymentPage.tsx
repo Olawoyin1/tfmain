@@ -28,8 +28,8 @@ const ApplicationPaymentPage: React.FC = () => {
             Your ₦10,000 application fee has been received. You've unlocked the admission assessment.
           </p>
           <p className="text-[12px] text-muted mb-10">Reference: TF-{Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
-          <Link to="/apply/test" className="btn-primary w-full block text-center py-4">
-            Start Admission Assessment →
+          <Link to="/apply/form" className="btn-primary w-full block text-center py-4">
+            Complete Your Full Profile →
           </Link>
         </div>
       </div>
@@ -59,7 +59,7 @@ const ApplicationPaymentPage: React.FC = () => {
               Application Fee
             </div>
             <h1 className="text-[clamp(32px,4vw,52px)] font-black text-black leading-[1.1] mb-5">
-              One step before<br />your assessment.
+              One step before<br />your profile details.
             </h1>
             <p className="text-[15px] text-muted leading-relaxed mb-10">
               A non-refundable ₦10,000 fee covers your assessment slot and application processing. It is <strong className="text-black">not</strong> deducted from your tuition.
@@ -68,10 +68,10 @@ const ApplicationPaymentPage: React.FC = () => {
             {/* What's included */}
             <div className="flex flex-col gap-3 mb-10">
               {[
+                'Proceed to complete your detailed profile',
                 'Access to the 30-minute admission assessment',
                 'Application reviewed by our admissions team',
-                'Decision within 5 business days of submission',
-                'Offer letter issued directly to your email',
+                'Decision within 7 business days of completion',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">

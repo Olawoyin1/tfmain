@@ -4,6 +4,7 @@ import {
   SelectTrigger, SelectValue,
 } from '../components/UI/Select';
 import { FiCheck, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface FormState {
@@ -78,9 +79,9 @@ const textareaCls = `${inputCls} min-h-[110px] resize-y leading-relaxed`;
 
 // ── Main Component ─────────────────────────────────────────────────────────
 const ApplicationFormPage: React.FC = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
 
   const [form, setForm] = useState<FormState>({
@@ -148,31 +149,11 @@ const ApplicationFormPage: React.FC = () => {
   const handleSubmit = async () => {
     if (!validate(5)) return;
     setSubmitting(true);
+    // Simulate API call
     await new Promise(r => setTimeout(r, 1500));
-    setSubmitted(true);
+    setSubmitting(false);
+    navigate('/apply/test');
   };
-
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-off flex flex-col">
-        <div className="bg-black px-10 py-4 flex items-center justify-between">
-          <a href="/" className="nav-logo-link"><div className="logo-box">TF</div><div className="logo-name text-white">Talent<span>Factory</span></div></a>
-        </div>
-        <div className="flex-1 flex items-center justify-center px-6 py-20 text-center">
-          <div className="max-w-md">
-            <div className="text-6xl mb-6 text-gold flex justify-center">
-              <FiCheck size={64} />
-            </div>
-            <h2 className="font-display text-[40px] font-black text-black leading-tight mb-4">Application <em className="text-gold not-italic">Received!</em></h2>
-            <p className="text-[16px] text-muted leading-relaxed mb-8">Thank you for applying to Talent Factory Cohort 1. We've received your application and our team will review it personally. You'll hear from us within <strong>7 working days</strong>.</p>
-            <div className="inline-block px-6 py-4 bg-gold/10 border border-gold/30 rounded-lg text-[13px] font-semibold text-black">
-              📧 Keep an eye on your inboxand check your spam folder just in case.
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-off">
@@ -182,9 +163,9 @@ const ApplicationFormPage: React.FC = () => {
           <div className="logo-box">TF</div>
           <div className="logo-name" style={{ color: 'white' }}>Talent<span>Factory</span></div>
         </a>
-        <a href="/" className="text-[13px] font-semibold text-white/40 hover:text-gold transition-colors flex items-center gap-2">
-          <FiArrowLeft /> Back to website
-        </a>
+        <button onClick={() => navigate('/apply/payment')} className="text-[13px] font-semibold text-white/40 hover:text-gold transition-colors flex items-center gap-2 bg-transparent border-0 cursor-pointer">
+          <FiArrowLeft /> Back to payment
+        </button>
       </div>
 
       {/* ── Hero strip with progress ── */}
