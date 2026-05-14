@@ -507,7 +507,7 @@ const ApplicationFormPage: React.FC = () => {
                     note: 'No interest. Spot secured immediately on payment.',
                   },
                   {
-                    v: '3-Part Instalment₦87,500 × 3',
+                    v: '3-Part Instalment ₦87,500 × 3',
                     badge: 'Most Popular',
                     badgeStyle: 'bg-gold/15 text-gold',
                     price: '₦87,500 × 3 months',
