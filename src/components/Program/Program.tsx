@@ -59,7 +59,7 @@ const Program: React.FC = () => {
             The Internship PhaseWhere You Use What You've Learned
           </h3>
           <p className="ph-desc">
-            The learning phase builds your knowledge. The internship phase tests itin a real company, with real people,
+            The learning phase builds your knowledge. The internship phase tests it in a real company, with real people,
             doing real HR work. Every student who completes the learning phase is placed with a Talent
             Factory partner company.
             <br /><br />
@@ -74,7 +74,7 @@ const Program: React.FC = () => {
             </div>
             <div>
               <div className="phf-v">Real</div>
-              <div className="phf-l">Nigerian Company</div>
+              <div className="phf-l">Company</div>
             </div>
             <div>
               <div className="phf-v">Guided</div>

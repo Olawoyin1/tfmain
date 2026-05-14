@@ -15,6 +15,11 @@
     padding: 0;
   }
 
+  button,
+  a {
+    cursor: pointer;
+  }
+
   :root {
     --black: #0A0A0A;
     --off: #F5F0E8;

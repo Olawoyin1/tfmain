@@ -67,7 +67,7 @@ const StudentInfoPage: React.FC = () => {
           Six Months. Two Phases.<br /><em className="text-gold">One Complete Career Transformation.</em>
         </h1>
         <p className="text-[15px] text-white/50 max-w-xl mx-auto leading-relaxed">
-          Talent Factory is not a course. It is not a workshop. It is a full career development programthe most structured and complete pathway into the HR profession that exists in Nigeria today.
+          Talent Factory is not a course. It is not a workshop. It is a full career development program, the most structured and complete pathway into the HR profession that exists in Nigeria today.
         </p>
         <div className="absolute bottom-[-1px] left-0 right-0 h-10 bg-off" style={{ clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
       </div>
@@ -120,14 +120,14 @@ const StudentInfoPage: React.FC = () => {
         {/* ── Right: application steps + CTA ── */}
         <div className="lg:sticky lg:top-8">
           {/* Fee notice */}
-          <div className="flex gap-3 items-start p-4 rounded-xl border border-gold/30 bg-gold/5 mb-7">
+          <div className="flex gap-3 items-start p-4 rounded-xl border border-gold/30 bg-black text-white mb-7">
             <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-0.5">
-              <span className="text-gold text-[11px] font-black">!</span>
+              <span className="text-gold text-[11px] text-white">!</span>
             </div>
             <div>
-              <div className="text-[13px] font-bold text-black">₦10,000 non-refundable application fee</div>
-              <p className="text-[12px] text-muted mt-0.5 leading-relaxed">
-                Covers your assessment slot and processing. <strong>Not</strong> deducted from tuition.
+              <div className="text-[13px] font-bold text-white">₦10,000 non-refundable application fee</div>
+              <p className="text-[12px] text-white mt-0.5 leading-relaxed">
+                This fee is an administrative processing fee and is separate from tuition.. <strong>Not</strong> deducted from tuition.
               </p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiArrowRight, FiLock, FiMail, FiUser, FiPhone } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiLock, FiMail, FiUser, FiPhone, FiEye, FiEyeOff } from 'react-icons/fi';
 
 const MiniRegistrationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +9,10 @@ const MiniRegistrationPage: React.FC = () => {
     email: '',
     phone: '',
     password: '',
+    confirmPassword: '',
   });
+  const [showPass, setShowPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm(p => ({ ...p, [e.target.name]: e.target.value }));
@@ -17,6 +20,10 @@ const MiniRegistrationPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
     // Simulate registration logic
     navigate('/apply/payment');
   };
@@ -127,7 +134,7 @@ const MiniRegistrationPage: React.FC = () => {
                 <div className="relative">
                   <FiLock className="absolute left-5 top-1/2 -translate-y-1/2 text-muted" />
                   <input 
-                    type="password"
+                    type={showPass ? "text" : "password"}
                     name="password"
                     value={form.password}
                     onChange={handleChange}
@@ -135,6 +142,36 @@ const MiniRegistrationPage: React.FC = () => {
                     className={inp} 
                     required 
                   />
+                  <button 
+                    type="button"
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute right-5 top-1/2 -translate-y-1/2 text-muted hover:text-black transition-colors"
+                  >
+                    {showPass ? <FiEyeOff size={18} /> : <FiEye size={18} />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="relative">
+                <label className={lbl}>Confirm Password</label>
+                <div className="relative">
+                  <FiLock className="absolute left-5 top-1/2 -translate-y-1/2 text-muted" />
+                  <input 
+                    type={showConfirmPass ? "text" : "password"}
+                    name="confirmPassword"
+                    value={form.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="••••••••" 
+                    className={inp} 
+                    required 
+                  />
+                  <button 
+                    type="button"
+                    onClick={() => setShowConfirmPass(!showConfirmPass)}
+                    className="absolute right-5 top-1/2 -translate-y-1/2 text-muted hover:text-black transition-colors"
+                  >
+                    {showConfirmPass ? <FiEyeOff size={18} /> : <FiEye size={18} />}
+                  </button>
                 </div>
               </div>
 

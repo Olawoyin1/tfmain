@@ -39,7 +39,7 @@ const RoleSelectionPage: React.FC = () => {
           {/* Student */}
           <button
             onClick={() => navigate('/apply/student')}
-            className="group text-left p-8 rounded-2xl border-2 bg-black border-black hover:border-gold transition-all duration-200"
+            className="group text-left p-8 rounded-2xl border-2 bg-black border-black hover:border-gold transition-all duration-200 cursor-pointer"
           >
             <div className="w-14 h-14 rounded-xl bg-gold flex items-center justify-center mb-6">
               <FiBookOpen size={28} className="text-black" />
@@ -57,7 +57,7 @@ const RoleSelectionPage: React.FC = () => {
           {/* Instructor */}
           <button
             onClick={() => navigate('/apply/tutor')}
-            className="group text-left p-8 rounded-2xl border-2 bg-white border-transparent hover:border-black shadow-sm transition-all duration-200"
+            className="group text-left p-8 rounded-2xl border-2 bg-white border-transparent hover:border-black shadow-sm transition-all duration-200 cursor-pointer"
           >
             <div className="w-14 h-14 rounded-xl bg-off flex items-center justify-center mb-6">
               <FiUser size={28} className="text-black" />
@@ -75,7 +75,7 @@ const RoleSelectionPage: React.FC = () => {
           {/* Partner */}
           <button
             onClick={() => navigate('/apply/partner')}
-            className="group text-left p-8 rounded-2xl border-2 bg-white border-transparent hover:border-black shadow-sm transition-all duration-200"
+            className="group text-left p-8 rounded-2xl border-2 bg-white border-transparent hover:border-black shadow-sm transition-all duration-200 cursor-pointer"
           >
             <div className="w-14 h-14 rounded-xl bg-off flex items-center justify-center mb-6">
               <FiBriefcase size={28} className="text-black" />
