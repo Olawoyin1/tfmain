@@ -16,6 +16,8 @@ import LearningDashboardPage from './pages/LearningDashboardPage';
 import InternshipPortalPage from './pages/InternshipPortalPage';
 import CertificateVaultPage from './pages/CertificateVaultPage';
 import TutorDashboardPage from './pages/TutorDashboardPage';
+import TutorRegistrationPage from './pages/TutorRegistrationPage';
+import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
 
 const App: React.FC = () => {
   return (
@@ -42,6 +44,8 @@ const App: React.FC = () => {
           <Route path="/portal/certificates" element={<CertificateVaultPage />} />
 
           {/* Tutor */}
+          <Route path="/apply/tutor" element={<TutorRegistrationPage />} />
+          <Route path="/apply/partner" element={<PartnerRegistrationPage />} />
           <Route path="/tutor" element={<TutorDashboardPage />} />
         </Routes>
       </div>
