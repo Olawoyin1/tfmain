@@ -402,7 +402,7 @@ const PartnerRegistrationPage: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                             <div>
                                 <label className={lbl}>Preferred internship start date <span className="text-gold">*</span></label>
-                                <input className={inp} placeholder="e.g. September 2025 or Q4 2025" value={form.startDate} onChange={e => set('startDate', e.target.value)} />
+                                <input type="date" className={inp} value={form.startDate} onChange={e => set('startDate', e.target.value)} />
                             </div>
                             <div>
                                 <label className={lbl}>Intended placement duration <span className="text-gold">*</span></label>
@@ -494,7 +494,7 @@ const PartnerRegistrationPage: React.FC = () => {
                             <textarea className={inp + " min-h-[120px]"} placeholder="Tell us anything that would help us make the perfect match..." value={form.additionalInfo} onChange={e => set('additionalInfo', e.target.value)} />
                         </div>
 
-                        <div className="bg-gold/10 border border-gold/20 p-8 rounded-3xl mb-12 flex gap-5 items-start">
+                        {/* <div className="bg-gold/10 border border-gold/20 p-8 rounded-3xl mb-12 flex gap-5 items-start">
                             <div className="w-12 h-12 rounded-2xl bg-gold flex items-center justify-center shrink-0">📋</div>
                             <div>
                                 <div className="text-[14px] font-bold text-black mb-2">Our Guarantee</div>
@@ -502,7 +502,7 @@ const PartnerRegistrationPage: React.FC = () => {
                                     We will share candidate profiles for your review before any placement is confirmed. You can request interviews. If a placement isn't working within the first 2 weeks, we will replace the intern within 48 hours at no disruption to you.
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="flex justify-between pt-6">
                             <button onClick={back} className="px-8 py-4 text-muted font-bold hover:text-black flex items-center gap-2">
