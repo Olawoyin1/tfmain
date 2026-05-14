@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiCheck, FiArrowRight, FiAward, FiShield, FiLock, FiPhone, FiMail, FiUser, FiLinkedin, FiMapPin, FiInfo } from 'react-icons/fi';
+import { FiArrowLeft, FiCheck, FiArrowRight, FiAward, FiInfo } from 'react-icons/fi';
 import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
