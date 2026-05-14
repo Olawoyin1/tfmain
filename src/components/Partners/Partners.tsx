@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiCheck, FiArrowRight } from 'react-icons/fi';
 
 const Partners: React.FC = () => {
@@ -28,9 +28,9 @@ const Partners: React.FC = () => {
           <p className="sec-p mb-10">
             We do the screening, matching, and onboarding. You get the talent. And if you find someone exceptional, we make it easy to convert them into a full-time hire.
           </p>
-          <a href="#apply" className="btn-primary">
+          <Link to="/apply/partner" className="btn-primary">
             Register as a Partner Company
-          </a>
+          </Link>
         </div>
         
         <div className="partner-card">
@@ -51,9 +51,9 @@ const Partners: React.FC = () => {
               </div>
             ))}
           </div>
-          <a href="#apply" className="partner-cta flex items-center justify-center gap-2">
+          <Link to="/apply/partner" className="partner-cta flex items-center justify-center gap-2">
             Partner With Talent Factory <FiArrowRight />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

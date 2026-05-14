@@ -39,9 +39,9 @@ const Navbar: React.FC = () => {
         <Link to="/tutor" className="nav-link">
           Tutor
         </Link>
-        <a href="#partners" className="nav-ghost">
+        <Link to="/apply/partner" className="nav-ghost">
           Partner With Us
-        </a>
+        </Link>
 
         <Link to="/apply" className="nav-solid flex items-center gap-2">
           Apply Now <FiArrowRight />

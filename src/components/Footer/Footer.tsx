@@ -1,5 +1,5 @@
-import React from 'react';
 import { FaXTwitter, FaLinkedin } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -47,9 +47,9 @@ const Footer: React.FC = () => {
           <a href="#about">
             About Us
           </a>
-          <a href="#partners">
+          <Link to="/apply/partner">
             Partner With Us
-          </a>
+          </Link>
           <a href="#testi">
             Community Voices
           </a>
@@ -68,9 +68,9 @@ const Footer: React.FC = () => {
           <a href="#apply">
             Instructor Application
           </a>
-          <a href="#apply">
+          <Link to="/apply/partner">
             Company Registration
-          </a>
+          </Link>
           <a href="#pricing">
             Tuition
           </a>

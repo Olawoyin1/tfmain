@@ -81,9 +81,9 @@ const Apply: React.FC = () => {
         <Link to="/waitlist" className="apply-link">
           Waitlist Details 
         </Link>
-        <a href="#partners" className="apply-link">
+        <Link to="/apply/partner" className="apply-link">
           Partner Company Registration 
-        </a>
+        </Link>
       </div>
     </section>
   );

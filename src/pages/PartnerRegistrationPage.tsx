@@ -6,6 +6,14 @@ import {
   SelectTrigger, SelectValue,
 } from '../components/UI/Select';
 
+const NIGERIAN_STATES = [
+  'Abia','Adamawa','Akwa Ibom','Anambra','Bauchi','Bayelsa','Benue','Borno',
+  'Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','FCTAbuja','Gombe',
+  'Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos',
+  'Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto',
+  'Taraba','Yobe','Zamfara','Outside Nigeria',
+];
+
 const PartnerRegistrationPage: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
@@ -218,8 +226,13 @@ const PartnerRegistrationPage: React.FC = () => {
                                 <input type="url" className={inp} placeholder="https://yourcompany.com" value={form.website} onChange={e => set('website', e.target.value)} />
                             </div>
                             <div>
-                                <label className={lbl}>City / State <span className="text-gold">*</span></label>
-                                <input className={inp} placeholder="e.g. Lagos, Lagos State" value={form.location} onChange={e => set('location', e.target.value)} />
+                                <label className={lbl}>State of Operation <span className="text-gold">*</span></label>
+                                <Select value={form.location} onValueChange={v => set('location', v)}>
+                                    <SelectTrigger className="rounded-xl border-2 py-6"><SelectValue placeholder="Select state..." /></SelectTrigger>
+                                    <SelectContent>
+                                        {NIGERIAN_STATES.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                                    </SelectContent>
+                                </Select>
                             </div>
                             <div>
                                 <label className={lbl}>Number of Employees <span className="text-gold">*</span></label>
