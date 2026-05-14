@@ -163,14 +163,14 @@ const ApplicationFormPage: React.FC = () => {
           <div className="logo-box">TF</div>
           <div className="logo-name" style={{ color: 'white' }}>Talent<span>Factory</span></div>
         </a>
-        <button onClick={() => navigate('/apply/payment')} className="text-[13px] font-semibold text-white/40 hover:text-gold transition-colors flex items-center gap-2 bg-transparent border-0 cursor-pointer">
+        <button onClick={() => navigate('/apply/payment')} className="text-[13px] font-semibold text-white hover:text-gold transition-colors flex items-center gap-2 bg-transparent border-0 cursor-pointer">
           <FiArrowLeft /> Back to payment
         </button>
       </div>
 
       {/* ── Hero strip with progress ── */}
       <div className="bg-black px-6 pt-12 pb-20 text-center relative overflow-hidden">
-        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1Applications Open</div>
+        <div className="text-[10px] font-bold uppercase tracking-[2.5px] text-gold/70 mb-4">Cohort 1 Applications Open</div>
         <h1 className="text-[clamp(28px,4vw,48px)] font-black text-white leading-tight mb-4">
           Complete Your <span className="text-gold italic">Profile</span>
         </h1>

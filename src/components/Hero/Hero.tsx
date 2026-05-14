@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       <div className="hero-left">
         <div className="hero-tag">
           <span className="hero-tag-dot"></span>
-          Cohort 1Applications Open Now
+          Cohort 1 Applications Open Now
         </div>
         
         <h1 className="hero-title">
