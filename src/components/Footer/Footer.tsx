@@ -82,12 +82,12 @@ const Footer: React.FC = () => {
           © 2024 Talent Factory. All rights reserved.
         </div>
         <div className="flex gap-6">
-          <a href="#">
+          <Link to="/privacy">
             Privacy Policy
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/terms">
             Terms of Service
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

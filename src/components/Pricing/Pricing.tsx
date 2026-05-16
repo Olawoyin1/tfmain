@@ -73,7 +73,7 @@ const Pricing: React.FC = () => {
         <h2 className="sec-h">
           One Investment.<br />A Career That <em>Lasts Forever.</em>
         </h2>
-        <p className="sec-p">
+        <p className="max-w-5xl mx-auto text-center">
           Every tuition option includes the full 6-month programlearning, internship, both certificates,
           and community access. We offer instalment plans because your financial situation should never be
           what stops you from starting.

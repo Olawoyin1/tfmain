@@ -18,6 +18,8 @@ import CertificateVaultPage from './pages/CertificateVaultPage';
 import TutorDashboardPage from './pages/TutorDashboardPage';
 import TutorRegistrationPage from './pages/TutorRegistrationPage';
 import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 
 const App: React.FC = () => {
   return (
@@ -47,6 +49,10 @@ const App: React.FC = () => {
           <Route path="/apply/tutor" element={<TutorRegistrationPage />} />
           <Route path="/apply/partner" element={<PartnerRegistrationPage />} />
           <Route path="/tutor" element={<TutorDashboardPage />} />
+
+          {/* Legal */}
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
         </Routes>
       </div>
     </Router>

@@ -38,7 +38,7 @@ const Testimonials: React.FC = () => {
         <h2 className="sec-h">
           People Have Been Waiting<br /><em>For This.</em>
         </h2>
-        <p className="sec-p">
+        <p className="max-w-4xl mx-auto text-white">
           We're still building Cohort 1but our community is already talking. Here's what people who've
           seen what Talent Factory is doing have to say.
         </p>

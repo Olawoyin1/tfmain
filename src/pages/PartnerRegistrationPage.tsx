@@ -571,7 +571,7 @@ const PartnerRegistrationPage: React.FC = () => {
                             <textarea className={inp + " min-h-[100px]"} placeholder="Anything else you'd like us to know before we reach out..." value={form.comments} onChange={e => set('comments', e.target.value)} />
                         </div>
 
-                        <div className="bg-black text-white p-8 rounded-3xl mb-12 flex gap-5 items-start">
+                        {/* <div className="bg-black text-white p-8 rounded-3xl mb-12 flex gap-5 items-start">
                             <div className="w-12 h-12 rounded-2xl bg-gold flex items-center justify-center shrink-0">✅</div>
                             <div>
                                 <div className="text-[14px] font-bold mb-1 uppercase tracking-widest text-gold">Ready to submit?</div>
@@ -579,7 +579,7 @@ const PartnerRegistrationPage: React.FC = () => {
                                     A member of the TF Partnerships team will contact you within <strong>24 business hours</strong> to confirm receipt, answer questions, and outline next steps.
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="flex justify-between pt-6">
                             <button onClick={back} className="px-8 py-4 text-muted font-bold hover:text-black flex items-center gap-2">
