@@ -65,7 +65,7 @@ const Faculty: React.FC = () => {
 
       <div className="faculty-grid">
         {facultyData.map((faculty) => (
-          <div key={faculty.id} className="faculty-card">
+          <div key={faculty.id} className="faculty-card bg-black">
             <div className="faculty-avatar">
               <FiUser size={60} color="rgba(255,255,255,0.6)" />
             </div>
@@ -90,7 +90,7 @@ const Faculty: React.FC = () => {
       {/* Modal */}
       {isModalOpen && selectedFaculty && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content bg-black" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>
               <FiX size={24} />
             </button>

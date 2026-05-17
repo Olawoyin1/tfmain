@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiBook, FiHome, FiAward, FiZap } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ const Hero: React.FC = () => {
         </p>
         
         <div className="hero-actions">
-          <a href="#apply" className="btn-primary">Apply for Cohort 1</a>
+          <Link to="/apply" className="btn-primary">Apply for Cohort 1</Link>
           <a href="#who" className="btn-secondary">Who It's For</a>
         </div>
         
@@ -101,12 +102,12 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <button 
-            className="hero-big-card-btn"
-            onClick={() => document.getElementById('apply')?.scrollIntoView({behavior: 'smooth'})}
+          <Link 
+            to="/apply"
+            className="hero-big-card-btn block text-center"
           >
-            Apply NowCohort 1 Open
-          </button>
+            Apply Now Cohort 1 Open
+          </Link>
         </div>
       </div>
     </section>

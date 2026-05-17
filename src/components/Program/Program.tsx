@@ -21,7 +21,7 @@ const Program: React.FC = () => {
           <div className="ph-n">01</div>
           <div className="ph-tag">Phase 1 · Months 1–3</div>
           <h3 className="ph-h">
-            The Learning PhaseWhere You Build Your Foundation
+            The Learning Phase Where You Build Your Foundation
           </h3>
           <p className="ph-desc">
             Twelve weeks of live, online instruction from senior HR practitioners across Nigeria's best companies. One
@@ -56,7 +56,7 @@ const Program: React.FC = () => {
           <div className="ph-n">02</div>
           <div className="ph-tag">Phase 2 · Months 4–6</div>
           <h3 className="ph-h">
-            The Internship PhaseWhere You Use What You've Learned
+            The Internship Phase Where You Use What You've Learned
           </h3>
           <p className="ph-desc">
             The learning phase builds your knowledge. The internship phase tests it in a real company, with real people,

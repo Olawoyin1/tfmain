@@ -1,318 +1,329 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import StudentSidebar from '../components/Navigation/StudentSidebar';
 import { 
-  FiZap, 
-  FiClock,
-  FiArrowRight,
-  FiMail,
-  FiPhone,
-  FiMapPin,
-  FiCreditCard,
-  FiBook,
-  FiMessageCircle
+  FiActivity, 
+  FiCheckCircle, 
+  FiClock, 
+  FiArrowRight, 
+  FiBook, 
+  FiMessageCircle,
+  FiFileText,
+  FiTarget,
+  FiShield
 } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import StudentSidebar from '../components/Navigation/StudentSidebar';
 
 const StudentPortalPage: React.FC = () => {
-  const { tab = 'overview' } = useParams<{ tab: string }>();
-
-  const studentData = {
-    name: 'Sarah Johnson',
-    email: 'sarah.j@example.com',
-    phone: '+234 812 345 6789',
-    location: 'Lagos, Nigeria',
-    cohort: 'Cohort 01',
-    specialization: 'Human Capital Specialization',
-    progress: 42,
-    plan: 'Full Professional Pass',
-    paymentStatus: 'Verified',
-    balance: '₦0.00',
-    totalTuition: '₦240,000'
-  };
+  const { tab } = useParams<{ tab?: string }>();
+  const activeTab = tab || 'overview';
 
   const renderContent = () => {
-    switch (tab) {
+    switch (activeTab) {
       case 'overview':
         return (
           <div className="space-y-16">
-            <div className="max-w-3xl">
+            <div>
               <div className="hero-tag">
                 <span className="hero-tag-dot"></span>
-                {studentData.cohort}
+                Command Center
               </div>
-              <h1>
-                Welcome to your workspace, <br/>
-                <span className="text-gold">{studentData.name.split(' ')[0]}.</span>
-              </h1>
-              <p className="text-xl">You have 2 pending assignments and a live session in 4 hours.</p>
+              <h1 className="mb-2">Operational Overview</h1>
+              <p className="text-xl">Welcome back, Sarah. Your strategic learning pulse is at 94%.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { label: 'Assessments Passed', value: '4', icon: <FiFileText />, trend: '+2' },
+                { label: 'Module Completion', value: '78%', icon: <FiCheckCircle />, trend: 'On Track' },
+                { label: 'Studio Hours', value: '164h', icon: <FiClock />, trend: '+12h' },
+                { label: 'Peer Ranking', value: '#12', icon: <FiTarget />, trend: 'Top 5%' }
+              ].map((stat, i) => (
+                <div key={i} className="portal-card h-48 flex flex-col justify-between group hover:border-black transition-all">
+                  <div className="flex justify-between items-start">
+                    <div className="w-14 h-14 rounded-2xl bg-off flex items-center justify-center text-black group-hover:bg-black group-hover:text-gold transition-colors">
+                      {stat.icon}
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-muted">{stat.trend}</span>
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase font-black text-muted tracking-[0.3em] mb-2">{stat.label}</div>
+                    <div className="text-3xl font-black text-black">{stat.value}</div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-8 space-y-12">
-                <div className="portal-card bg-black text-white p-12 relative overflow-hidden group">
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-8">
-                      <span className="px-4 py-1 bg-gold text-black text-[10px] font-black uppercase tracking-widest rounded-full">Module 04</span>
-                      <span className="text-[10px] font-black text-white/40 uppercase">Ongoing</span>
-                    </div>
-                    <h2 className="text-4xl font-black mb-4">Strategic Organizational Design</h2>
-                    <p className="text-white/50 text-lg mb-12">Faculty: Dr. Michael Okonkwo</p>
-                    <div className="flex flex-col md:flex-row items-center gap-8">
-                       <button className="w-full md:w-auto btn-primary py-5 px-12 text-[10px] uppercase tracking-widest flex items-center gap-3 bg-gold text-black border-none">
-                          Resume Learning <FiArrowRight />
-                       </button>
-                       <div className="flex items-center gap-3">
-                          <div className="text-3xl font-black text-gold">42%</div>
-                          <div className="text-[10px] font-black text-white/30 uppercase tracking-widest">Completed</div>
-                       </div>
-                    </div>
-                  </div>
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                </div>
+                <section>
+                   <h3 className="text-2xl font-black mb-8 border-b border-gray-100 pb-6">Current Sprint</h3>
+                   <div className="portal-card bg-black text-white p-12 overflow-hidden relative group border-none">
+                      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+                         <div>
+                            <div className="text-gold font-black text-[10px] uppercase tracking-[0.4em] mb-6">Module 04: Active Now</div>
+                            <h2 className="text-4xl font-black mb-4 leading-tight">Advanced Talent <br/>Architectures</h2>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-sm">Designing scalable human capital frameworks for the next generation of tech unicorns.</p>
+                         </div>
+                         <button className="btn-primary bg-gold text-black border-none shadow-gold/20 hover:bg-white px-12 py-5">Jump to Case Study</button>
+                      </div>
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                   </div>
+                </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="portal-card hover:bg-off transition-all cursor-pointer group">
-                    <div className="w-16 h-16 bg-black text-gold rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform"><FiBook /></div>
-                    <h3 className="text-2xl font-black mb-3 tracking-tight">Curriculum Vault</h3>
-                    <p className="mb-8">Access your recorded lectures, slide decks, and case studies.</p>
-                    <div className="text-[10px] font-black text-gold uppercase tracking-[0.2em] flex items-center gap-2">View Resources <FiArrowRight /></div>
-                  </div>
-
-                  <div className="portal-card bg-warm/50">
-                    <div className="w-16 h-16 bg-white border border-gray-100 text-black rounded-2xl flex items-center justify-center text-2xl mb-8"><FiMessageCircle /></div>
-                    <h3 className="text-2xl font-black mb-3 tracking-tight">Community Hub</h3>
-                    <p className="mb-8">Connect with other HR practitioners in your cohort.</p>
-                    <button className="w-full flex items-center justify-center gap-4 bg-[#25D366] text-white py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-[#25D366]/20">
-                      <FaWhatsapp size={18} /> Join WhatsApp Village
-                    </button>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                   <div className="portal-card bg-white p-12 space-y-8">
+                      <div className="w-16 h-16 bg-off text-black rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"><FiBook /></div>
+                      <div>
+                         <h4 className="text-xl font-black mb-2">Curriculum Progress</h4>
+                         <p className="text-sm text-muted font-bold leading-relaxed mb-8">You are currently 4 days ahead of the global average participation rate.</p>
+                         <div className="w-full bg-off h-2 rounded-full overflow-hidden">
+                            <div className="bg-black h-full w-[78%]"></div>
+                         </div>
+                      </div>
+                   </div>
+                   <div className="portal-card bg-white p-12 space-y-8">
+                      <div className="w-16 h-16 bg-white border border-gray-100 text-black rounded-2xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform"><FiMessageCircle /></div>
+                      <div>
+                         <h4 className="text-xl font-black mb-2">Peer Feedback</h4>
+                         <p className="text-sm text-muted font-bold leading-relaxed mb-6">4 colleagues reviewed your last architecture design. Insight score: 9.2/10.</p>
+                         <button className="text-[10px] font-black uppercase tracking-widest text-gold flex items-center gap-2">Read Reviews <FiArrowRight /></button>
+                      </div>
+                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-4 space-y-12">
-                <div className="portal-card bg-gold text-black border-none">
-                   <div className="flex items-center gap-2 mb-8">
-                      <FiClock size={16} className="animate-pulse" />
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em]">Live Workshop</span>
-                   </div>
-                   <div className="text-5xl font-black tracking-tighter mb-4">03:42:12</div>
-                   <p className="text-black/60 font-bold uppercase text-[10px] tracking-widest">Professional Ethics Deep Dive</p>
-                </div>
-
-                <section>
-                   <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted mb-8 ml-2">Deadlines</h4>
-                   <div className="space-y-6">
-                      {[
-                        { title: 'Org Audit Report', date: 'Tomorrow, 11:59PM', active: true },
-                        { title: 'Peer Review: Unit 4', date: 'Jun 22, 2026', active: false },
-                        { title: 'Goal Setting M05', date: 'Jun 28, 2026', active: false }
-                      ].map((item, i) => (
-                        <div key={i} className="flex gap-6 group cursor-pointer hover:translate-x-2 transition-transform">
-                           <div className={`w-1.5 h-auto rounded-full ${item.active ? 'bg-gold' : 'bg-gray-100'}`}></div>
-                           <div>
-                              <div className="text-sm font-black text-black uppercase tracking-tight">{item.title}</div>
-                              <div className="text-[10px] text-muted font-bold uppercase tracking-widest mt-1">{item.date}</div>
-                           </div>
-                        </div>
-                      ))}
-                   </div>
-                </section>
-
-                <div className="portal-card bg-off border-none relative overflow-hidden group p-8">
-                   <FiZap className="text-gold mb-6 animate-pulse" size={24} />
-                   <p className="text-sm font-bold leading-relaxed text-black/80">"The ESG metrics presentation has been updated. Please review before tonight's call."</p>
-                   <div className="mt-8 flex items-center justify-between">
-                      <span className="text-[9px] font-black uppercase tracking-widest text-muted">Facilitator O.</span>
-                      <FiArrowRight className="group-hover:translate-x-2 transition-transform opacity-30 group-hover:opacity-100" />
-                   </div>
-                </div>
+                 <section className="portal-card bg-white p-12 space-y-10">
+                    <h3 className="text-xl font-black border-b border-gray-50 pb-6">Scheduled Events</h3>
+                    <div className="space-y-8">
+                       {[
+                         { date: 'MAY 18', time: '14:00', title: 'Live Workshop' },
+                         { date: 'MAY 20', time: '10:00', title: 'Advisory Sync' },
+                         { date: 'MAY 24', time: '16:00', title: 'Sprint Review' }
+                       ].map((event, i) => (
+                         <div key={i} className="flex gap-6 items-start group cursor-pointer">
+                            <div className="bg-off rounded-2xl p-4 text-center min-w-[70px] group-hover:bg-black group-hover:text-gold transition-all">
+                               <div className="text-[9px] font-black">{event.date.split(' ')[0]}</div>
+                               <div className="text-lg font-black">{event.date.split(' ')[1]}</div>
+                            </div>
+                            <div>
+                               <div className="text-sm font-black text-black group-hover:text-gold transition-colors">{event.title}</div>
+                               <div className="text-[10px] text-muted font-bold uppercase tracking-widest mt-1">{event.time} WAT</div>
+                            </div>
+                         </div>
+                       ))}
+                    </div>
+                    <button className="w-full py-5 bg-off rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all">View Full Calendar</button>
+                 </section>
               </div>
             </div>
           </div>
         );
-
       case 'profile':
         return (
           <div className="space-y-16 max-w-5xl">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-               <div className="w-48 h-48 rounded-[48px] bg-black text-gold flex items-center justify-center text-6xl font-black shadow-2xl relative border-8 border-white">
-                  SJ
-                  <button className="absolute -bottom-2 -right-2 w-14 h-14 bg-gold text-black rounded-2xl flex items-center justify-center border-4 border-off text-xl hover:scale-110 transition-transform shadow-xl">✎</button>
-               </div>
-               <div className="text-center md:text-left">
-                  <div className="hero-tag">{studentData.cohort}</div>
-                  <h1 className="mb-2">{studentData.name}</h1>
-                  <p className="text-lg font-bold uppercase tracking-widest text-gold flex items-center justify-center md:justify-start gap-3">
-                     {studentData.specialization}
-                  </p>
-               </div>
+            <div>
+              <div className="hero-tag">
+                <span className="hero-tag-dot"></span>
+                Active Candidate Profile
+              </div>
+              <h1 className="mb-2">Sarah Johnson</h1>
+              <p className="text-xl">Managing your institutional credentials and application audit trail.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-               <section className="portal-card space-y-10">
-                  <h3 className="text-2xl font-black tracking-tight border-b border-gray-50 pb-6">Information</h3>
-                  <div className="space-y-8">
-                     {[
-                       { label: 'Email Address', value: studentData.email, icon: <FiMail /> },
-                       { label: 'Phone Number', value: studentData.phone, icon: <FiPhone /> },
-                       { label: 'Location', value: studentData.location, icon: <FiMapPin /> }
-                     ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-8 group">
-                          <div className="w-14 h-14 bg-off rounded-2xl flex items-center justify-center text-muted group-hover:bg-black group-hover:text-gold transition-all">{item.icon}</div>
-                          <div>
-                             <div className="text-[10px] font-black text-muted uppercase tracking-[0.2em] mb-1">{item.label}</div>
-                             <div className="text-lg font-bold text-black">{item.value}</div>
-                          </div>
-                        </div>
-                     ))}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+               <div className="md:col-span-4 space-y-12">
+                  <div className="portal-card p-12 flex flex-col items-center text-center space-y-8 border-none bg-white">
+                      <div className="w-40 h-40 bg-black text-gold rounded-[40%] flex items-center justify-center font-black text-5xl border-8 border-off shadow-2xl">SJ</div>
+                      <div>
+                         <h3 className="text-2xl font-black mb-2">Sarah Johnson</h3>
+                         <div className="px-6 py-2 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-widest inline-block">Verified Student</div>
+                      </div>
+                      <div className="w-full pt-8 border-t border-gray-50 flex justify-around">
+                         <div>
+                            <div className="text-[10px] font-black text-muted uppercase tracking-widest">Cohort</div>
+                            <div className="text-lg font-black">C.08</div>
+                         </div>
+                         <div>
+                            <div className="text-[10px] font-black text-muted uppercase tracking-widest">Assessments</div>
+                            <div className="text-lg font-black">4</div>
+                         </div>
+                      </div>
                   </div>
-               </section>
 
-               <section className="portal-card space-y-10 bg-warm/30">
-                  <h3 className="text-2xl font-black tracking-tight border-b border-gray-50 pb-6">Academic Status</h3>
-                  <div className="space-y-8">
-                     <div className="flex justify-between items-center p-6 bg-white rounded-2xl shadow-sm">
-                        <span className="text-[10px] font-black text-muted uppercase tracking-widest">Active Specialization</span>
-                        <span className="text-xs font-black text-black">Human Capital Ops</span>
-                     </div>
-                     <div className="flex justify-between items-center px-6">
-                        <span className="text-[10px] font-black text-muted uppercase tracking-widest">Enrollment Date</span>
-                        <span className="text-lg font-bold text-black">Jan 12, 2026</span>
-                     </div>
-                  </div>
-                  <button className="w-full py-6 bg-black text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] shadow-xl shadow-black/10 hover:bg-gold hover:text-black transition-all mt-8">
-                    Request Document
-                  </button>
-               </section>
-            </div>
-          </div>
-        );
-
-      case 'finance':
-        return (
-          <div className="space-y-16 max-w-6xl">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-               <div>
-                  <h1 className="mb-2">Finance</h1>
-                  <p className="text-xl">Review your historical transactions and current tuition status.</p>
-               </div>
-               <div className="portal-card p-10 bg-black text-white border-none flex items-center gap-10 shadow-2xl shadow-black/20">
-                  <div>
-                     <div className="text-[10px] font-black text-gold uppercase tracking-[0.3em] mb-2">Portfolio Balance</div>
-                     <div className="text-5xl font-black tracking-tighter">{studentData.balance}</div>
-                  </div>
-                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-3xl"><FiCreditCard /></div>
-               </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-               <div className="lg:col-span-8 space-y-12">
-                  <div className="portal-card bg-gold text-black border-none relative overflow-hidden p-12 group">
-                     <div className="relative z-10">
-                        <h3 className="text-3xl font-black mb-10 tracking-tight">Full Professional Pass</h3>
-                        <div className="grid grid-cols-2 gap-12">
-                           <div>
-                              <div className="text-black/40 text-[10px] font-black uppercase tracking-widest mb-2">Contract Total</div>
-                              <div className="text-3xl font-black tracking-tighter">{studentData.totalTuition}</div>
+                  <div className="portal-card p-12 space-y-8 border-none bg-black text-white">
+                     <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gold">Admission Intelligence</h4>
+                     <div className="space-y-10">
+                        <div>
+                           <div className="text-[9px] font-black uppercase tracking-widest opacity-40 mb-2">Assessment Score</div>
+                           <div className="flex items-center gap-4">
+                              <div className="text-4xl font-black text-gold">94<span className="text-sm opacity-60">/100</span></div>
+                              <div className="text-xs font-bold leading-tight opacity-80">Top 3% of Applicants</div>
                            </div>
-                           <div>
-                              <div className="text-black/40 text-[10px] font-black uppercase tracking-widest mb-2">Billing Method</div>
-                              <div className="text-2xl font-black tracking-tighter">One-Time Deposit</div>
+                        </div>
+                        <div className="p-6 bg-white/5 rounded-2xl border border-white/10">
+                           <div className="text-[10px] font-black uppercase tracking-widest opacity-40 mb-3">Admission Path</div>
+                           <div className="flex items-center gap-4 text-xs font-bold">
+                              <FiCheckCircle className="text-green-400" /> Strategic Leadership Track
                            </div>
                         </div>
                      </div>
-                     <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-black/5 rounded-full blur-3xl group-hover:scale-110 transition-transform"></div>
                   </div>
+               </div>
 
-                  <section className="portal-card p-0 overflow-hidden shadow-xl shadow-black/5 border-none">
-                     <div className="p-10 border-b border-gray-50 flex justify-between items-center">
-                        <h3 className="text-xl font-black m-0">Ledger</h3>
-                        <span className="text-[9px] font-black text-muted uppercase tracking-widest">Digital Audit Trails</span>
-                     </div>
-                     <div className="divide-y divide-gray-50">
+               <div className="md:col-span-8 space-y-12">
+                  <section className="portal-card p-12 space-y-10 border-none bg-white">
+                     <h3 className="text-2xl font-black border-b border-gray-50 pb-6 flex items-center gap-4">
+                       <FiFileText className="text-gold" /> Personal Taxonomy
+                     </h3>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {[
-                          { title: 'Full Tuition Payment', ref: 'TF-9042', amount: '₦240,000', date: 'May 17, 2026' },
-                          { title: 'Application Intake Fee', ref: 'TF-1022', amount: '₦10,000', date: 'Jan 10, 2026' }
-                        ].map((tx, i) => (
-                           <div key={i} className="p-10 flex flex-col md:flex-row justify-between items-center gap-8 hover:bg-off/50 transition-all">
-                              <div className="flex items-center gap-10">
-                                 <div className="text-[10px] font-black text-muted tracking-widest opacity-30">0{i+1}</div>
-                                 <div>
-                                    <div className="font-black text-black uppercase tracking-tight">{tx.title}</div>
-                                    <div className="text-[9px] text-muted font-bold uppercase tracking-widest mt-1">Ref: {tx.ref}</div>
-                                 </div>
-                              </div>
-                              <div className="text-center md:text-right">
-                                 <div className="text-xl font-black text-black">{tx.amount}</div>
-                                 <div className="text-[9px] text-green-600 font-black uppercase tracking-widest mt-2 flex items-center justify-end gap-2">
-                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                                    Cleared • {tx.date}
-                                 </div>
-                              </div>
+                          { label: 'Full Legal Name', val: 'Sarah Elizabeth Johnson' },
+                          { label: 'Professional ID', val: 'TF-2026-0812' },
+                          { label: 'Primary Node', val: 'Lagos, Nigeria' },
+                          { label: 'Learning Specialization', val: 'Talent Architecture' },
+                          { label: 'Digital Contact', val: 'sarah.j@talentfactory.com' },
+                          { label: 'Candidate Bio', val: 'HR Specialist focused on technological integration in human capital.' }
+                        ].map((item, i) => (
+                           <div key={i} className="space-y-2">
+                              <div className="text-[10px] font-black text-muted uppercase tracking-[0.2em]">{item.label}</div>
+                              <div className="text-sm font-bold text-black border-l-4 border-off pl-4 py-1">{item.val}</div>
                            </div>
                         ))}
                      </div>
                   </section>
-               </div>
 
-               <div className="lg:col-span-4 space-y-8">
-                  <div className="portal-card p-10 bg-off border-none text-center">
-                     <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-12 text-muted">Authenticated Wallet</h4>
-                     <div className="space-y-4 mb-12">
-                        <div className="p-6 bg-white rounded-3xl border border-gray-100 flex items-center justify-between shadow-sm">
-                           <span className="font-black">VISA</span>
-                           <span className="text-sm font-mono tracking-[0.2em]">•••• 9042</span>
+                  <section className="portal-card p-12 space-y-10 border-none bg-white">
+                     <h3 className="text-2xl font-black border-b border-gray-50 pb-6 flex items-center gap-4">
+                       <FiShield className="text-gold" /> Application Flow Registry
+                     </h3>
+                     <div className="space-y-8">
+                        {[
+                          { step: 'Initial Registration', status: 'Completed', date: 'APR 12, 2026' },
+                          { step: 'Aptitude & Logic Test', status: 'Passed (94%)', date: 'APR 15, 2026' },
+                          { step: 'Tuition Verification', status: 'Verified', date: 'APR 20, 2026' },
+                          { step: 'Final Admissions Letter', status: 'Issued', date: 'APR 25, 2026' }
+                        ].map((s, i) => (
+                          <div key={i} className="flex justify-between items-center bg-off/50 p-6 rounded-2xl hover:bg-off transition-all">
+                             <div className="flex items-center gap-6">
+                                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-black border border-gray-100"><FiCheckCircle /></div>
+                                <div>
+                                   <div className="text-sm font-black text-black">{s.step}</div>
+                                   <div className="text-[10px] text-muted font-bold uppercase tracking-widest">{s.date}</div>
+                                </div>
+                             </div>
+                             <div className="text-[9px] font-black bg-black text-white px-4 py-2 rounded-full uppercase tracking-widest">{s.status}</div>
+                          </div>
+                        ))}
+                     </div>
+                  </section>
+               </div>
+            </div>
+          </div>
+        );
+      case 'finance':
+        return (
+          <div className="space-y-16 max-w-5xl pb-24">
+            <div>
+              <div className="hero-tag">
+                <span className="hero-tag-dot"></span>
+                Financial Intelligence
+              </div>
+              <h1 className="mb-2">Financial Ledger</h1>
+              <p className="text-xl">Detailed breakdown of your institutional investment and future payment roadmap.</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+               <div className="lg:col-span-5 space-y-12">
+                  <div className="portal-card bg-black text-white p-12 relative overflow-hidden border-none shadow-2xl">
+                     <div className="relative z-10">
+                        <div className="text-[10px] font-black uppercase tracking-[0.4em] text-gold mb-12">Educational Plan 2026</div>
+                        <h2 className="text-3xl font-black mb-4">Premium Leadership Track</h2>
+                        <div className="flex items-baseline gap-4 mb-12">
+                           <span className="text-5xl font-black text-white tracking-tighter">₦250,000</span>
+                           <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Total Valuation</span>
+                        </div>
+                        <div className="space-y-6">
+                           <div className="flex justify-between text-xs font-bold">
+                              <span className="opacity-40">Status</span>
+                              <span className="text-gold">Active • Paid Partial</span>
+                           </div>
+                           <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                              <div className="bg-gold h-full w-[64%]"></div>
+                           </div>
+                           <div className="text-[10px] font-black uppercase tracking-widest text-right opacity-60">64% Settled</div>
                         </div>
                      </div>
-                     <button className="w-full py-5 border-2 border-dashed border-gray-200 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-muted hover:border-gold hover:text-gold transition-all">Inject New Card +</button>
+                     <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
                   </div>
+
+                  <div className="portal-card bg-white p-12 space-y-8 border-none shadow-sm">
+                     <h3 className="text-xl font-black border-b border-gray-50 pb-6 flex items-center gap-4">
+                        <FiClock className="text-rust" /> Upcoming Commitment
+                     </h3>
+                     <div className="bg-rust/5 p-8 rounded-[32px] border border-rust/10">
+                        <div className="flex justify-between items-start mb-6">
+                           <div>
+                              <div className="text-[10px] font-black text-rust uppercase tracking-widest mb-1">Final Installment</div>
+                              <div className="text-3xl font-black text-black tracking-tighter">₦100,000</div>
+                           </div>
+                           <div className="bg-white px-4 py-2 rounded-xl border border-rust/20 text-rust font-black text-[10px] uppercase">JUL 15</div>
+                        </div>
+                        <p className="text-[10px] text-muted font-bold leading-relaxed mb-8 uppercase tracking-widest">This payment finalizes your tuition for the current academic session.</p>
+                        <button className="w-full py-5 bg-black text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.3em] hover:bg-gold hover:text-black transition-all">Authorize Now</button>
+                     </div>
+                  </div>
+               </div>
+
+               <div className="lg:col-span-7 space-y-12">
+                  <section className="portal-card bg-white p-12 space-y-10 border-none shadow-sm h-full">
+                     <h3 className="text-2xl font-black border-b border-gray-50 pb-6 flex items-center gap-4">
+                       <FiActivity className="text-gold" /> Transaction Registry
+                     </h3>
+                     <div className="space-y-6">
+                        {[
+                          { item: 'Application Fee', amount: '₦10,000', date: 'APR 12, 2026', method: 'Paystack', status: 'Success' },
+                          { item: 'Tuition Deposit', amount: '₦150,000', date: 'APR 20, 2026', method: 'Transfer', status: 'Success' },
+                          { item: 'Study Materials', amount: '₦0 (Included)', date: 'MAY 01, 2026', method: 'Internal', status: 'Settled' }
+                        ].map((t, i) => (
+                           <div key={i} className="flex items-center justify-between p-8 border border-gray-50 rounded-[32px] hover:border-black transition-all group">
+                              <div className="flex items-center gap-6">
+                                 <div className="w-14 h-14 bg-off rounded-2xl flex items-center justify-center text-black group-hover:bg-black group-hover:text-gold transition-colors"><FiArrowRight /></div>
+                                 <div>
+                                    <div className="text-sm font-black text-black uppercase">{t.item}</div>
+                                    <div className="text-[10px] text-muted font-bold mt-1 uppercase tracking-widest">{t.date} • {t.method}</div>
+                                 </div>
+                              </div>
+                              <div className="text-right">
+                                 <div className="text-lg font-black text-black mb-1">{t.amount === '₦10,000' && <span className="text-green-600 mr-2">●</span>}{t.amount}</div>
+                                 <div className="text-[9px] font-black uppercase tracking-widest text-muted">{t.status}</div>
+                              </div>
+                           </div>
+                        ))}
+                     </div>
+                     <button className="w-full py-5 bg-off rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all mt-8">Export Full Audit Log (PDF)</button>
+                  </section>
                </div>
             </div>
           </div>
         );
-
       case 'schedule':
         return (
-          <div className="space-y-16 max-w-4xl">
+          <div className="space-y-16">
             <div>
-              <h1 className="mb-2">Orientation</h1>
-              <p className="text-xl">Key dates and onboarding schedule for your upcoming cohort entry.</p>
+              <div className="hero-tag">
+                <span className="hero-tag-dot"></span>
+                Timeline Operations
+              </div>
+              <h1 className="mb-2">Institutional Schedule</h1>
+              <p className="text-xl">Your synchronized roadmap of lectures, peer-reflections, and studio residency.</p>
             </div>
-
-            <div className="portal-card p-0 overflow-hidden shadow-2xl shadow-black/10 border-none">
-              <div className="p-16 bg-black text-white flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
-                <div>
-                  <div className="text-gold font-black text-[10px] uppercase tracking-[0.4em] mb-6">Cohort 01 Launch</div>
-                  <h2 className="text-5xl font-black mb-4 tracking-tighter">January 15, 2026</h2>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-6 text-[10px] font-black uppercase tracking-widest text-white/40">
-                     <span>19:00 WAT</span>
-                     <span>Microsoft Teams</span>
-                  </div>
-                </div>
-                <button className="btn-primary py-5 px-12 bg-gold text-black border-none">Add to Calendar</button>
-              </div>
-
-              <div className="p-16 space-y-16 bg-white">
-                {[
-                  { time: '19:00', title: 'Executive Welcome', desc: 'Program vision and core mission brief.' },
-                  { time: '19:30', title: 'Curriculum Mastery', desc: 'Understanding the academic roadmap.' },
-                  { time: '20:15', title: 'Ecosystem Tour', desc: 'Navigating the portal and shared resources.' }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-16 group relative">
-                    <div className="min-w-[80px] text-lg font-black text-black/10 group-hover:text-gold transition-colors">{item.time}</div>
-                    <div className="flex-1 pb-16 border-l-2 border-off pl-16 relative">
-                       <div className="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-off group-hover:bg-gold transition-colors"></div>
-                       <h4 className="text-3xl font-black mb-3 tracking-tight">{item.title}</h4>
-                       <p className="text-muted leading-relaxed font-bold">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            
+            <div className="portal-card bg-white p-12 border-none shadow-sm min-h-[600px] flex items-center justify-center italic text-muted">
+               [Calendar Interface Component Integrated Here]
             </div>
           </div>
         );
-      
       default:
         return <div>Sub-page not found.</div>;
     }
@@ -320,7 +331,9 @@ const StudentPortalPage: React.FC = () => {
 
   return (
     <StudentSidebar>
-      {renderContent()}
+      <div className="animate-slideUp">
+        {renderContent()}
+      </div>
     </StudentSidebar>
   );
 };

@@ -16,7 +16,6 @@ import {
   FiDatabase,
   FiBell,
   FiLock,
-  FiArrowRight,
   FiMenu,
   FiX
 } from 'react-icons/fi';
@@ -136,7 +135,7 @@ const AdminDashboardPage: React.FC = () => {
     { header: 'Expertise', accessorKey: 'role' },
     { header: 'Workload', accessorKey: 'classes', cell: info => `${info.getValue()} Active Batches` },
     {
-      header: 'Vetting',
+      header: 'Status',
       accessorKey: 'status',
       cell: info => (
         <span className={`px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${
@@ -153,9 +152,9 @@ const AdminDashboardPage: React.FC = () => {
   ], []);
 
   const paymentColumns = useMemo<ColumnDef<PaymentData>[]>(() => [
-    { header: 'Entity', accessorKey: 'user' },
-    { header: 'Logic Type', accessorKey: 'type' },
-    { header: 'Yield', accessorKey: 'amount', cell: info => <span className="font-black">{info.getValue() as string}</span> },
+    { header: 'Student', accessorKey: 'user' },
+    { header: 'Payment Type', accessorKey: 'type' },
+    { header: 'Amount', accessorKey: 'amount', cell: info => <span className="font-black">{info.getValue() as string}</span> },
     {
       header: 'Status',
       accessorKey: 'status',
@@ -172,14 +171,14 @@ const AdminDashboardPage: React.FC = () => {
     switch (activeTab) {
       case 'overview':
         return (
-          <div className="space-y-20">
+          <div className="space-y-12">
             <div>
               <div className="hero-tag">
                 <span className="hero-tag-dot"></span>
-                Root Console
+                Dashboard
               </div>
-              <h1 className="mb-2">Integrity Operations</h1>
-              <p className="text-xl">Monitor and manage the global ecosystem performance.</p>
+              <h1 className="mb-2">Overview</h1>
+              <p className="text-xl">Monitor and manage the platform.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -199,12 +198,12 @@ const AdminDashboardPage: React.FC = () => {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-8 space-y-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-8 space-y-12">
                 <section>
-                  <h3 className="text-2xl font-black mb-8 border-b border-gray-50 pb-6 flex items-center gap-4">
+                  <h3 className="text-2xl font-black mb-6 border-b border-gray-50 pb-4 flex items-center gap-4">
                     <span className="w-2 h-2 rounded-full bg-gold"></span>
-                    Operational Stream
+                    Activity Stream
                   </h3>
                   <div className="portal-card p-0 overflow-hidden shadow-xl shadow-black/[0.02] border-none">
                     <div className="divide-y divide-gray-50">
@@ -235,9 +234,9 @@ const AdminDashboardPage: React.FC = () => {
                   </div>
                 </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                   <div className="portal-card bg-off border-none p-12">
-                      <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-12 text-muted">Core Metrics</h4>
+                <div className="grid grid-cols-1 gap-8">
+                   <div className="portal-card bg-off border-none p-8">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-muted">Core Metrics</h4>
                       <div className="space-y-10">
                          {[
                            { label: 'Daily Active', val: '432', tr: '+8%' },
@@ -254,32 +253,19 @@ const AdminDashboardPage: React.FC = () => {
                          ))}
                       </div>
                    </div>
-                   <div className="portal-card bg-black text-white p-12 group overflow-hidden relative border-none">
-                      <div className="relative z-10 flex flex-col h-full justify-between">
-                         <div>
-                            <FiActivity className="text-gold mb-10 animate-pulse" size={32} />
-                            <h4 className="text-3xl font-black mb-4 leading-tight">System Status: <br/><span className="text-gold">NOMINAL</span></h4>
-                            <p className="text-sm text-white/40 leading-relaxed font-bold">All micro-services responding within threshold. No critical anomalies.</p>
-                         </div>
-                         <button className="text-[10px] font-black text-gold uppercase tracking-[0.3em] flex items-center gap-4 group-hover:text-white transition-colors">
-                            Access Audit Logs <FiArrowRight />
-                         </button>
-                      </div>
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 space-y-16">
+              <div className="lg:col-span-4 space-y-12">
                  <section>
-                   <h3 className="text-xl font-black mb-8 border-b border-gray-50 pb-6 ml-2">Pending Logic</h3>
-                   <div className="space-y-8">
+                   <h3 className="text-xl font-black mb-6 border-b border-gray-50 pb-4 ml-2">Pending Approvals</h3>
+                   <div className="space-y-6">
                       {[
                         { id: 1, name: 'Grace Adewale', type: 'Faculty', date: 'May 15' },
                         { id: 2, name: 'Kevin Hart', type: 'Learner', date: 'May 16' }
                       ].map(v => (
-                        <div key={v.id} className="portal-card border-none bg-white shadow-xl shadow-black/[0.02] p-10 group hover:bg-black hover:text-white transition-all">
-                           <div className="flex justify-between items-center mb-8">
+                        <div key={v.id} className="portal-card border-none bg-white shadow-xl shadow-black/[0.02] p-8 group hover:bg-black hover:text-white transition-all">
+                           <div className="flex justify-between items-center mb-6">
                               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gold">{v.type}</span>
                               <span className="text-[10px] text-muted font-bold group-hover:text-white/40 uppercase">{v.date}</span>
                            </div>
@@ -293,10 +279,10 @@ const AdminDashboardPage: React.FC = () => {
                    </div>
                  </section>
 
-                 <div className="portal-card bg-gold/10 border-gold/20 p-12 relative overflow-hidden">
-                   <h3 className="text-gold font-black uppercase text-[11px] tracking-[0.4em] mb-6">Broadcast Notification</h3>
-                   <textarea className="w-full bg-white border border-gold/10 rounded-2xl p-6 text-xs mb-8 min-h-[180px] focus:outline-none focus:border-gold font-bold placeholder:opacity-30" placeholder="Type ecosystem announcement..."></textarea>
-                   <button className="w-full py-5 bg-black text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl shadow-black/20 hover:bg-gold hover:text-black transition-all">Transmit Node</button>
+                 <div className="portal-card bg-gold/10 border-gold/20 p-8 relative overflow-hidden">
+                   <h3 className="text-gold font-black uppercase text-[11px] tracking-[0.4em] mb-4">Broadcast Notification</h3>
+                   <textarea className="w-full bg-white border border-gold/10 rounded-2xl p-4 text-xs mb-6 min-h-[120px] focus:outline-none focus:border-gold font-bold placeholder:opacity-30" placeholder="Type ecosystem announcement..."></textarea>
+                   <button className="w-full py-4 bg-black text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl shadow-black/20 hover:bg-gold hover:text-black transition-all">Send Notification</button>
                  </div>
               </div>
             </div>
@@ -304,8 +290,8 @@ const AdminDashboardPage: React.FC = () => {
         );
       case 'students':
         return (
-          <div className="space-y-20">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div className="space-y-12">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
               <div>
                 <h1 className="mb-2">Student Database</h1>
                 <p className="text-xl">Coordinate enrollment, vetting, and performance tracking.</p>
@@ -322,10 +308,10 @@ const AdminDashboardPage: React.FC = () => {
         );
       case 'tutors':
         return (
-          <div className="space-y-20">
-             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div className="space-y-12">
+             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
               <div>
-                <h1 className="mb-2">Faculty Command</h1>
+                <h1 className="mb-2">Faculty Management</h1>
                 <p className="text-xl">Manage program directors and subject leads.</p>
               </div>
               <button className="btn-primary py-5 px-12">+ New Faculty Entry</button>
@@ -337,11 +323,11 @@ const AdminDashboardPage: React.FC = () => {
         );
       case 'payments':
         return (
-          <div className="space-y-20">
-             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div className="space-y-12">
+             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
               <div>
-                <h1 className="mb-2">Yield Ledger</h1>
-                <p className="text-xl">Transactions and financial audit stream.</p>
+                <h1 className="mb-2">Payments</h1>
+                <p className="text-xl">Transactions and financial history.</p>
               </div>
             </div>
             <div className="overflow-x-auto">
@@ -352,17 +338,17 @@ const AdminDashboardPage: React.FC = () => {
       
       case 'settings':
         return (
-          <div className="space-y-20 max-w-6xl pb-24">
+          <div className="space-y-12 max-w-6xl pb-24">
             <div>
-              <h1 className="mb-2">Console Config</h1>
-              <p className="text-xl">Modify global parameters and security logic of the platform.</p>
+              <h1 className="mb-2">Platform Settings</h1>
+              <p className="text-xl">Modify global settings and configuration of the platform.</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-               <div className="space-y-12">
-                  <section className="portal-card p-12 space-y-12 border-none">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+               <div className="space-y-8">
+                  <section className="portal-card p-8 space-y-8 border-none">
                      <h3 className="text-2xl font-black flex items-center gap-4">
-                        <FiGlobe className="text-gold" /> System State
+                        <FiGlobe className="text-gold" /> Platform Status
                      </h3>
                      <div className="space-y-8">
                         {[
@@ -382,21 +368,21 @@ const AdminDashboardPage: React.FC = () => {
                      </div>
                   </section>
 
-                  <section className="portal-card p-12 space-y-12 border-none bg-warm">
+                  <section className="portal-card p-8 space-y-8 border-none bg-warm">
                     <h3 className="text-2xl font-black flex items-center gap-4">
-                       <FiDollarSign className="text-gold" /> Financial Logic
+                       <FiDollarSign className="text-gold" /> Financial Settings
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                        <div className="space-y-3">
-                          <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] ml-2">APP ENTRY (₦)</label>
-                          <input type="text" defaultValue="10,000" className="w-full bg-white border border-gray-100 rounded-2xl py-5 px-8 text-sm font-black focus:border-gold outline-none" />
+                          <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] ml-2">APPLICATION FEE (₦)</label>
+                          <input type="text" defaultValue="10,000" className="w-full bg-white border border-gray-100 rounded-2xl py-4 px-6 text-sm font-black focus:border-gold outline-none" />
                        </div>
                        <div className="space-y-3">
-                          <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] ml-2">CORE TUITION (₦)</label>
-                          <input type="text" defaultValue="250,000" className="w-full bg-white border border-gray-100 rounded-2xl py-5 px-8 text-sm font-black focus:border-gold outline-none" />
+                          <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] ml-2">TUITION FEE (₦)</label>
+                          <input type="text" defaultValue="250,000" className="w-full bg-white border border-gray-100 rounded-2xl py-4 px-6 text-sm font-black focus:border-gold outline-none" />
                        </div>
                     </div>
-                    <button className="w-full py-6 bg-black text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl shadow-black/10 hover:bg-gold hover:text-black transition-all">Apply Financial Hooks</button>
+                    <button className="w-full py-5 bg-black text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl shadow-black/10 hover:bg-gold hover:text-black transition-all">Save Financial Settings</button>
                   </section>
                </div>
 
