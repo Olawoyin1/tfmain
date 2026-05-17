@@ -1,456 +1,281 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FiUsers, 
   FiCalendar, 
   FiPaperclip, 
-  FiTrash2, 
   FiFolder, 
   FiBarChart2, 
-  FiMail, 
   FiLogOut,
-  FiCompass
+  FiCompass,
+  FiActivity,
+  FiArrowRight,
+  FiSearch,
+  FiBell,
+  FiPlus,
+  FiClock,
+  FiBook,
+  FiMenu,
+  FiX
 } from 'react-icons/fi';
-import { FaRocket } from 'react-icons/fa6';
+import { type ColumnDef } from '@tanstack/react-table';
+import { BaseTable } from '../components/UI/BaseTable';
+
+interface EnrolledStudent {
+  id: number;
+  name: string;
+  specialization: string;
+  attendance: string;
+  grade: string;
+  status: string;
+}
 
 const TutorDashboardPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'cohorts' | 'students' | 'applications' | 'materials'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'students' | 'admissions' | 'materials'>('overview');
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  const stats = [
-    { label: 'Total Students', value: '128', icon: <FiUsers size={24} /> },
-    { label: 'Upcoming Sessions', value: '4', icon: <FiCalendar size={24} /> },
-    { label: 'Materials Shared', value: '24', icon: <FiPaperclip size={24} /> },
-    { label: 'Active Cohorts', value: '2', icon: <FaRocket size={24} /> }
-  ];
+  const studentData = useMemo<EnrolledStudent[]>(() => [
+    { id: 1, name: 'Sarah Johnson', specialization: 'Human Capital', attendance: '92%', grade: 'A', status: 'Active' },
+    { id: 2, name: 'Michael Chen', specialization: 'Business Strategy', attendance: '88%', grade: 'B+', status: 'Active' },
+    { id: 3, name: 'Amina Yusuf', specialization: 'Human Capital', attendance: '95%', grade: 'A', status: 'Active' },
+  ], []);
 
-  const upcomingSessions = [
-    { id: 1, title: 'Advanced Talent Acquisition', cohort: 'Cohort 1', time: 'Today, 7:00 PM', type: 'Live Workshop' },
-    { id: 2, title: 'Strategic HR Frameworks', cohort: 'Cohort 2', time: 'Tomorrow, 6:00 PM', type: 'Lecture' }
-  ];
-
-  const cohorts = [
-    { id: 1, name: 'Cohort 1', students: 64, status: 'Active', start: 'Jan 2026', end: 'April 2026' },
-    { id: 2, name: 'Cohort 2', students: 64, status: 'Onboarding', start: 'April 2026', end: 'July 2026' },
-    { id: 3, name: 'Cohort 0 (Alpha)', students: 32, status: 'Completed', start: 'Sept 2025', end: 'Dec 2025' }
-  ];
-
-  const applications = [
-    { id: 1, name: 'Michael Chen', role: 'HR Generalist', experience: '4 Years', status: 'Pending Review', date: '2 hours ago' },
-    { id: 2, name: 'Amina Yusuf', role: 'Admin Officer', experience: '2 Years', status: 'Payment Verified', date: '5 hours ago' },
-    { id: 3, name: 'Robert Smith', role: 'People Ops', experience: '6 Years', status: 'In Review', date: '1 day ago' }
-  ];
-
-  const materials = [
-    { id: 1, title: 'Talent Acquisition Handbook', size: '2.4 MB', date: 'Feb 10, 2026', type: 'PDF' },
-    { id: 2, title: 'HR Process Mapping Template', size: '1.2 MB', date: 'Feb 12, 2026', type: 'XLSX' },
-    { id: 3, title: 'Strategic People Ops Slides', size: '8.5 MB', date: 'Feb 15, 2026', type: 'PPTX' }
-  ];
+  const studentColumns = useMemo<ColumnDef<EnrolledStudent>[]>(() => [
+    {
+      header: 'Student',
+      accessorKey: 'name',
+      cell: info => (
+        <div className="flex items-center gap-4">
+           <div className="w-10 h-10 rounded-xl bg-black text-gold flex items-center justify-center font-bold text-[10px]">{info.row.original.name[0]}</div>
+           <div className="font-bold text-black">{info.row.original.name}</div>
+        </div>
+      ),
+    },
+    { header: 'Major', accessorKey: 'specialization' },
+    { header: 'Presense', accessorKey: 'attendance' },
+    { header: 'Grade', accessorKey: 'grade', cell: info => <span className="font-black">{info.getValue() as string}</span> },
+    {
+      header: 'Actions',
+      cell: () => (
+        <button className="text-[10px] font-black uppercase tracking-[0.2em] text-gold">Deep Dive</button>
+      ),
+    },
+  ], []);
 
   const renderContent = () => {
     switch (activeTab) {
       case 'overview':
         return (
-          <div className="animate-slide-up">
-            <div className="mb-12">
-              <div className="hero-tag mb-4">
-                <span className="hero-tag-dot"></span>
-                Faculty Command Center
-              </div>
-              <h1 className="sec-h text-5xl">Welcome Back, <em>Professor.</em></h1>
+          <div className="space-y-20">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+               <div className="max-w-2xl">
+                 <div className="hero-tag">
+                   <span className="hero-tag-dot"></span>
+                   Faculty Workspace
+                 </div>
+                 <h1 className="mb-2">Academic Operations</h1>
+                 <p className="text-xl">Manage your cohorts, evaluate performance, and curate curriculum materials.</p>
+               </div>
+               <div className="flex gap-4">
+                  <button className="btn-primary py-5 px-10 bg-off border border-gray-100 text-black shadow-none flex items-center gap-3">
+                     <FiCalendar /> Schedule
+                  </button>
+                  <button className="btn-primary py-5 px-10 flex items-center gap-3">
+                     <FiPlus /> New Session
+                  </button>
+               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {stats.map((stat, i) => (
-                <div key={i} className="portal-card p-8 flex items-center gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-gold shadow-sm">
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-black italic leading-none mb-1">{stat.value}</div>
-                    <div className="text-[10px] uppercase font-bold text-muted tracking-widest">{stat.label}</div>
-                  </div>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               {[
+                 { label: 'Active Students', val: '432', icon: <FiUsers /> },
+                 { label: 'Avg Attendance', val: '91.4%', icon: <FiBarChart2 /> },
+                 { label: 'Submissions', val: '28', icon: <FiPaperclip /> }
+               ].map((s, i) => (
+                 <div key={i} className="portal-card border-none bg-white shadow-sm h-40 flex flex-col justify-between group hover:bg-black hover:text-white transition-all">
+                    <div className="w-12 h-12 bg-off group-hover:bg-white/10 rounded-2xl flex items-center justify-center text-muted group-hover:text-gold transition-colors">{s.icon}</div>
+                    <div>
+                       <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted group-hover:text-white/40 mb-1">{s.label}</div>
+                       <div className="text-3xl font-black tracking-tighter">{s.val}</div>
+                    </div>
+                 </div>
+               ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              <div className="lg:col-span-2 space-y-12">
-                <section>
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-gold"></span>
-                    Upcoming Sessions
-                  </h3>
-                  <div className="space-y-4">
-                    {upcomingSessions.map(session => (
-                      <div key={session.id} className="portal-card p-8 flex justify-between items-center group hover:border-gold transition-all cursor-pointer">
-                        <div className="flex items-center gap-8">
-                          <div className="text-center min-w-[80px] pr-8 border-r border-gray-100">
-                            <div className="text-xs font-bold text-muted uppercase tracking-tighter mb-1">Status</div>
-                            <div className="text-xs font-bold text-gold">Ready</div>
-                          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+               <div className="lg:col-span-8 space-y-16">
+                  <section>
+                    <h3 className="text-2xl font-black mb-8 border-b border-gray-50 pb-6 flex items-center gap-4">
+                      <span className="w-2 h-2 rounded-full bg-gold"></span>
+                      Next Live Workshop
+                    </h3>
+                    <div className="portal-card bg-black text-white p-16 relative overflow-hidden group border-none">
+                       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
                           <div>
-                            <div className="text-[10px] font-bold text-muted uppercase tracking-widest mb-1">{session.cohort} • {session.type}</div>
-                            <h4 className="text-xl font-bold mb-1">{session.title}</h4>
-                            <div className="text-xs text-muted flex items-center gap-2">
-                               <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
-                               {session.time}
-                            </div>
+                             <div className="text-gold font-black text-[10px] uppercase tracking-[0.4em] mb-6 flex items-center justify-center md:justify-start gap-3"><FiClock className="animate-pulse" /> Commencing in 12m</div>
+                             <h2 className="text-4xl font-black mb-4 tracking-tighter">Strategic Talent Acquisition M04</h2>
+                             <div className="text-white/40 font-bold uppercase text-[11px] tracking-widest">Cohort 01 • Advanced Track</div>
                           </div>
-                        </div>
-                        <button className="btn-primary py-3 px-8 text-xs">Launch Studio </button>
-                      </div>
-                    ))}
-                  </div>
-                </section>
+                          <button className="btn-primary py-5 px-12 bg-gold text-black border-none shadow-gold/20">Launch Microsoft Teams</button>
+                       </div>
+                       <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                    </div>
+                  </section>
 
-                <section>
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-gold"></span>
-                    Student Progress Highlight
-                  </h3>
-                  <div className="portal-card p-0 overflow-hidden overflow-x-auto">
-                    <table className="w-full text-left min-w-[700px]">
-                      <thead className="bg-off border-b border-gray-100">
-                        <tr>
-                          <th className="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-muted">Student</th>
-                          <th className="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-muted">Attendance</th>
-                          <th className="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-muted">Current Grade</th>
-                          <th className="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-muted text-right">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100 italic">
+                  <section>
+                    <h3 className="text-xl font-black mb-8 border-b border-gray-50 pb-6 ml-2">Recent Submissions</h3>
+                    <div className="space-y-6">
+                       {[
+                         { user: 'Boluwatife S.', task: 'Case Study: Tech Layoffs', time: '2m ago' },
+                         { user: 'Ibrahim O.', task: 'Recruitment Flowchart', time: '14m ago' },
+                         { user: 'Chinelo A.', task: 'KPI Design Framework', time: '45m ago' }
+                       ].map((sub, i) => (
+                         <div key={i} className="portal-card py-8 px-10 border-none bg-white shadow-sm flex items-center justify-between hover:translate-x-2 transition-transform cursor-pointer group">
+                            <div className="flex items-center gap-8">
+                               <div className="w-12 h-12 bg-off rounded-xl flex items-center justify-center font-black text-xs group-hover:bg-black group-hover:text-gold">{sub.user[0]}</div>
+                               <div>
+                                  <div className="text-sm font-black text-black uppercase tracking-tight">{sub.user}</div>
+                                  <div className="text-[10px] text-muted font-bold tracking-widest uppercase mt-1">{sub.task}</div>
+                                </div>
+                            </div>
+                            <FiArrowRight className="text-muted opacity-20 group-hover:opacity-100 group-hover:text-gold transition-all" />
+                         </div>
+                       ))}
+                    </div>
+                  </section>
+               </div>
+
+               <div className="lg:col-span-4 space-y-16">
+                  <section className="portal-card bg-gold text-black border-none p-12">
+                     <FiActivity className="mb-8" size={32} />
+                     <h3 className="text-3xl font-black tracking-tighter">Batch Pulse</h3>
+                     <p className="text-sm font-bold text-black/60 mb-10 leading-relaxed">Systematic analysis indicates a 4.2% increase in peer-to-peer engagement this week.</p>
+                     <div className="w-full bg-black/10 h-2 rounded-full overflow-hidden">
+                        <div className="w-[82%] h-full bg-black"></div>
+                     </div>
+                     <div className="mt-4 flex justify-between text-[10px] font-black uppercase tracking-widest">
+                        <span>Engagement</span>
+                        <span>82%</span>
+                     </div>
+                  </section>
+
+                  <div className="portal-card bg-off border-none p-12">
+                     <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-muted">Faculty Drive</h4>
+                     <div className="space-y-6">
                         {[
-                          { name: 'Sarah Johnson', attendance: '100%', grade: '84%', avatar: 'SJ' },
-                          { name: 'John Doe', attendance: '92%', grade: '76%', avatar: 'JD' },
-                          { name: 'Emily Davis', attendance: '85%', grade: '89%', avatar: 'ED' }
-                        ].map((student, i) => (
-                           <tr key={i} className="hover:bg-off/50 transition-colors">
-                            <td className="px-8 py-6">
-                              <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-black text-white text-[10px] font-bold flex items-center justify-center not-italic">{student.avatar}</div>
-                                <span className="font-bold text-sm text-black not-italic">{student.name}</span>
-                              </div>
-                            </td>
-                            <td className="px-8 py-6 text-sm font-bold text-black not-italic">{student.attendance}</td>
-                            <td className="px-8 py-6 text-sm font-bold text-gold not-italic">{student.grade}</td>
-                            <td className="px-8 py-6 text-right">
-                              <button className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-gold transition-all">View Analytics</button>
-                            </td>
-                          </tr>
+                          { name: 'Unit 4 Slidedeck', icon: <FiPaperclip /> },
+                          { name: 'Onboarding.pdf', icon: <FiFolder /> },
+                          { name: 'Recap M03 Video', icon: <FiArrowRight /> }
+                        ].map((f, i) => (
+                          <div key={i} className="flex items-center gap-6 p-4 rounded-xl hover:bg-white transition-all cursor-pointer group">
+                             <div className="text-muted group-hover:text-black transition-colors">{f.icon}</div>
+                             <span className="text-sm font-bold tracking-tight">{f.name}</span>
+                          </div>
                         ))}
-                      </tbody>
-                    </table>
+                     </div>
+                     <button className="w-full mt-10 py-5 bg-white border border-gray-200 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:border-black transition-all">Upload Asset</button>
                   </div>
-                </section>
-              </div>
-
-              <div className="space-y-12">
-                <section>
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-gold"></span>
-                    Admin Notices
-                  </h3>
-                  <div className="portal-card bg-black text-white p-8">
-                    <div className="space-y-8">
-                      <div>
-                        <div className="text-[10px] font-bold text-gold uppercase tracking-widest mb-2">Notice • High Priority</div>
-                        <p className="text-sm font-medium leading-relaxed mb-4">Grading deadline for Module 3 is this Friday at 11:59PM.</p>
-                        <button className="text-[10px] font-bold text-gold underline underline-offset-8">Open Panel</button>
-                      </div>
-                      <div className="w-full h-[1px] bg-white/10"></div>
-                      <div>
-                        <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-2">Internal Memo</div>
-                        <p className="text-xs text-white/60 leading-relaxed">Cohort 3 review meeting next Monday at 10:00 AM.</p>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section>
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-gold"></span>
-                    Support
-                  </h3>
-                  <div className="portal-card">
-                    <p className="text-xs text-muted mb-6">Need assistance with student coordination?</p>
-                    <button className="w-full py-4 rounded-xl border border-black font-bold text-xs hover:bg-black hover:text-white transition-all">Contact Operations</button>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'cohorts':
-        return (
-          <div className="animate-slide-up">
-            <div className="mb-12">
-              <h2 className="sec-h text-4xl mb-4">Cohort <em>Management</em></h2>
-              <p className="text-muted max-w-xl">Oversee active, upcoming, and archived student groups. Manage curriculum delivery and session scheduling for each cohort.</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {cohorts.map(cohort => (
-                <div key={cohort.id} className="portal-card p-10 group hover:border-gold transition-all">
-                  <div className="flex justify-between items-start mb-8">
-                    <div className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${
-                      cohort.status === 'Active' ? 'bg-gold/10 text-gold border border-gold/20' : 
-                      cohort.status === 'Onboarding' ? 'bg-black text-white' : 
-                      'bg-gray-100 text-muted'
-                    }`}>
-                      {cohort.status}
-                    </div>
-                    <div className="text-[10px] font-bold text-muted">{cohort.start}{cohort.end}</div>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-2 italic">0{cohort.id}</h3>
-                  <h4 className="text-xl font-bold mb-6">{cohort.name}</h4>
-                  
-                  <div className="space-y-4 mb-10">
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-muted">Total Students</span>
-                      <span className="font-bold">{cohort.students}</span>
-                    </div>
-                    <div className="w-full h-[1px] bg-gray-100"></div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-muted">Avg. Attendance</span>
-                      <span className="font-bold">94%</span>
-                    </div>
-                  </div>
-                  
-                  <button className="w-full py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Manage Cohort </button>
-                </div>
-              ))}
-              
-              <button className="portal-card border-dashed p-10 flex flex-col items-center justify-center gap-4 text-muted hover:text-gold hover:border-gold transition-all min-h-[350px]">
-                <div className="text-4xl">+</div>
-                <div className="text-[10px] font-bold uppercase tracking-widest">Create New Cohort</div>
-              </button>
+               </div>
             </div>
           </div>
         );
 
       case 'students':
         return (
-          <div className="animate-slide-up">
-            <div className="flex justify-between items-end mb-12">
+          <div className="space-y-20">
+             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
               <div>
-                <h2 className="sec-h text-4xl mb-4">Student <em>Database</em></h2>
-                <p className="text-muted">Directory of all students across all cohorts. Track progress, attendance, and academic standing.</p>
+                <h1 className="mb-2">Student Insights</h1>
+                <p className="text-xl">Monitor individual performance and specialized track progress.</p>
               </div>
               <div className="flex gap-4">
-                <input type="text" placeholder="Search students..." className="input-field max-w-xs py-3 text-xs" />
-                <button className="btn-primary py-3 px-8 text-xs">Export CSV</button>
+                 <button className="btn-primary py-5 px-10 bg-off border border-gray-100 text-black shadow-none">Export Ledger</button>
+                 <button className="btn-primary py-5 px-10">Broadcast Batch</button>
               </div>
             </div>
-            
-            <div className="portal-card p-0 overflow-hidden overflow-x-auto">
-              <table className="w-full text-left min-w-[700px]">
-                <thead className="bg-off border-b border-gray-100">
-                  <tr>
-                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted">Name</th>
-                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted">Cohort</th>
-                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted">Status</th>
-                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted">Email</th>
-                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-widest text-muted text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 italic">
-                  {[
-                    { name: 'Sarah Johnson', cohort: 'Cohort 1', status: 'Enrolled', email: 'sarah.j@example.com' },
-                    { name: 'Michael Chen', cohort: 'Cohort 2', status: 'Onboarding', email: 'm.chen@example.com' },
-                    { name: 'Amina Yusuf', cohort: 'Cohort 1', status: 'Enrolled', email: 'amina@example.com' },
-                    { name: 'Robert Smith', cohort: 'Cohort 1', status: 'Suspended', email: 'rob.s@example.com' },
-                    { name: 'Lisa Wang', cohort: 'Cohort 2', status: 'Pending', email: 'lisa.w@example.com' }
-                  ].map((student, i) => (
-                    <tr key={i} className="hover:bg-off/50 transition-colors">
-                      <td className="px-8 py-6 font-bold text-black not-italic">{student.name}</td>
-                      <td className="px-8 py-6 text-sm text-muted not-italic">{student.cohort}</td>
-                      <td className="px-8 py-6 not-italic">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold ${
-                          student.status === 'Enrolled' ? 'bg-green-100 text-green-700' : 
-                          student.status === 'Onboarding' ? 'bg-gold-pale text-gold' :
-                          student.status === 'Suspended' ? 'bg-red-50 text-red-600' :
-                          'bg-gray-100 text-muted'
-                        }`}>
-                          {student.status}
-                        </span>
-                      </td>
-                      <td className="px-8 py-6 text-sm text-muted not-italic">{student.email}</td>
-                      <td className="px-8 py-6 text-right">
-                        <button className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-black transition-all">Details </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="overflow-x-auto">
+              <BaseTable data={studentData} columns={studentColumns} pageSize={10} />
             </div>
           </div>
         );
-
-      case 'materials':
-        return (
-          <div className="animate-slide-up">
-            <div className="flex justify-between items-end mb-12">
-              <div>
-                <h2 className="sec-h text-4xl mb-4">Material <em>Repository</em></h2>
-                <p className="text-muted">Upload and manage downloadable resources for your students. These will be accessible on their respective dashboards.</p>
-              </div>
-              <button className="btn-primary py-4 px-10 text-xs font-bold uppercase tracking-widest">Upload New File </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {materials.map(file => (
-                <div key={file.id} className="portal-card p-10 group hover:border-gold transition-all relative overflow-hidden">
-                  <div className="text-[8px] font-extrabold text-gold uppercase tracking-[0.3em] mb-4 py-1 px-3 border border-gold/20 rounded-full inline-block">{file.type} Material</div>
-                  <h4 className="text-2xl font-bold mb-2 italic">{file.title}</h4>
-                  <div className="flex items-center gap-4 text-[10px] text-muted font-bold uppercase tracking-widest mb-10">
-                    <span>{file.size}</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-                    <span>Uploaded {file.date}</span>
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    <button className="flex-1 py-4 bg-off border border-gray-100 text-black rounded-xl font-bold text-xs hover:bg-black hover:text-white transition-all">Download View</button>
-                    <button className="w-14 h-14 bg-red-50 text-red-600 rounded-xl font-bold flex items-center justify-center hover:bg-red-600 hover:text-white transition-all" title="Delete Material">
-                      <FiTrash2 size={20} />
-                    </button>
-                  </div>
-
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                </div>
-              ))}
-              
-              <div className="portal-card border-dashed p-10 flex flex-col items-center justify-center gap-6 text-muted hover:text-gold hover:border-gold transition-all min-h-[250px] cursor-pointer">
-                <div className="w-16 h-16 rounded-3xl bg-off border border-gray-100 flex items-center justify-center text-gold">
-                  <FiFolder size={32} />
-                </div>
-                <div className="text-center">
-                  <div className="text-xs font-extrabold uppercase tracking-widest mb-1 text-black">Drag & Drop</div>
-                  <div className="text-[10px] font-medium leading-relaxed">Limit 50MB per file. PDF, PPTX, XLS preferred.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'applications':
-        return (
-          <div className="animate-slide-up">
-            <div className="mb-12">
-              <h2 className="sec-h text-4xl mb-4">Admissions <em>Portal</em></h2>
-              <p className="text-muted">Review incoming student applications, interview notes, and assessment results for future cohorts.</p>
-            </div>
-            
-            <div className="space-y-6">
-              {applications.map(app => (
-                <div key={app.id} className="portal-card p-10 flex flex-col md:flex-row justify-between items-center gap-8 group hover:border-gold transition-all">
-                  <div className="flex items-center gap-10 flex-1">
-                    <div className="w-16 h-16 rounded-2xl bg-off border border-gray-100 flex items-center justify-center text-xl font-bold shadow-sm">
-                      {app.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-bold text-gold uppercase tracking-widest mb-1">{app.date}</div>
-                      <h4 className="text-2xl font-bold mb-1">{app.name}</h4>
-                      <div className="flex gap-6 text-xs text-muted font-medium italic">
-                        <span>{app.role}</span>
-                        <span>•</span>
-                        <span>{app.experience} EXP</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-12 w-full md:w-auto">
-                    <div className="text-center md:text-left min-w-[140px]">
-                      <div className="text-[10px] font-bold text-muted uppercase tracking-widest mb-1">Status</div>
-                      <div className="text-sm font-bold text-black italic">{app.status}</div>
-                    </div>
-                    <div className="flex gap-3">
-                      <button className="px-8 py-4 bg-off border border-gray-200 rounded-xl font-bold text-xs hover:border-black transition-all">Reject</button>
-                      <button className="px-8 py-4 bg-black text-white rounded-xl font-bold text-xs hover:bg-gold hover:text-black transition-all">Start Review </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
+      
+      default:
+        return <div>Sub-page not found.</div>;
     }
   };
 
   return (
-    <div className="portal-wrapper">
-      {/* Sidebar Navigation */}
-      <aside className="portal-sidebar font-syne">
+    <div className="portal-wrapper font-sans">
+      <button className="mobile-toggle" onClick={() => setIsMobileOpen(!isMobileOpen)}>
+        {isMobileOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+      </button>
+
+      {isMobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 z-[95] lg:hidden backdrop-blur-sm"
+          onClick={() => setIsMobileOpen(false)}
+        ></div>
+      )}
+
+      <aside className={`portal-sidebar shadow-sm ${isMobileOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
-          <Link to="/" className="nav-logo-link no-underline">
-            <div className="logo-box bg-gold text-black border-none font-sans">TF</div>
-            <div className="logo-name text-white font-sans">Talent<span>Factory</span></div>
+           <Link to="/" className="nav-logo-link no-underline flex items-center gap-3">
+            <div className="w-12 h-12 bg-black text-gold rounded-2xl flex items-center justify-center font-black">TF</div>
+            <div className="text-2xl font-black text-black tracking-tighter">FACULTY</div>
           </Link>
-          <div className="mt-4">
-            <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-gold/60">Faculty Dashboard</span>
-          </div>
         </div>
 
         <nav className="sidebar-nav">
-          <button 
-            onClick={() => setActiveTab('overview')}
-            className={`sidebar-link ${activeTab === 'overview' ? 'active' : ''}`}
-          >
-            <span className="sidebar-link-icon"><FiBarChart2 size={18} /></span>
-            Overview
+          <div className="text-[10px] font-black text-muted uppercase tracking-[0.4em] mb-6 ml-4">Command Center</div>
+          <button onClick={() => {setActiveTab('overview'); setIsMobileOpen(false)}} className={`sidebar-link ${activeTab === 'overview' ? 'active' : ''}`}>
+            <FiActivity className="sidebar-link-icon" /> Dashboard
           </button>
-          <button 
-            onClick={() => setActiveTab('cohorts')}
-            className={`sidebar-link ${activeTab === 'cohorts' ? 'active' : ''}`}
-          >
-            <span className="sidebar-link-icon"><FiCompass size={18} /></span>
-            Cohorts
+          <button onClick={() => {setActiveTab('students'); setIsMobileOpen(false)}} className={`sidebar-link ${activeTab === 'students' ? 'active' : ''}`}>
+            <FiUsers className="sidebar-link-icon" /> My Cohort
           </button>
-          <button 
-            onClick={() => setActiveTab('students')}
-            className={`sidebar-link ${activeTab === 'students' ? 'active' : ''}`}
-          >
-            <span className="sidebar-link-icon"><FiUsers size={18} /></span>
-            Students
+          <button onClick={() => {setActiveTab('admissions'); setIsMobileOpen(false)}} className={`sidebar-link ${activeTab === 'admissions' ? 'active' : ''}`}>
+             <FiCompass className="sidebar-link-icon" /> Vetting
           </button>
-          <button 
-            onClick={() => setActiveTab('materials')}
-            className={`sidebar-link ${activeTab === 'materials' ? 'active' : ''}`}
-          >
-            <span className="sidebar-link-icon"><FiPaperclip size={18} /></span>
-            Materials
-          </button>
-          <button 
-            onClick={() => setActiveTab('applications')}
-            className={`sidebar-link ${activeTab === 'applications' ? 'active' : ''}`}
-          >
-            <span className="sidebar-link-icon"><FiMail size={18} /></span>
-            Applications
+          <button onClick={() => {setActiveTab('materials'); setIsMobileOpen(false)}} className={`sidebar-link ${activeTab === 'materials' ? 'active' : ''}`}>
+            <FiBook className="sidebar-link-icon" /> Research
           </button>
         </nav>
 
         <div className="sidebar-footer">
-          <Link to="/" className="sidebar-link text-white/40 hover:text-white">
-            <span className="sidebar-link-icon"><FiLogOut size={18} /></span>
-            Logout
+          <Link to="/" className="sidebar-link group">
+            <FiLogOut className="sidebar-link-icon group-hover:rotate-12 transition-transform" /> Leave Workspace
           </Link>
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <div className="portal-main font-syne">
+      <div className="portal-main">
         <header className="portal-topbar">
-          <div className="flex items-center gap-4">
-            <div className="text-right hidden sm:block">
-              <div className="text-[10px] font-bold text-muted uppercase tracking-widest">Faculty Member</div>
-              <div className="text-sm font-bold text-black">Dr. Michael Okonkwo</div>
-            </div>
-            <div className="w-12 h-12 rounded-2xl bg-gold flex items-center justify-center font-bold text-black border-2 border-white/10 shadow-sm">
-              MO
+          <div className="relative w-full max-w-lg hidden md:block group">
+            <FiSearch className="absolute left-8 top-1/2 -translate-y-1/2 text-muted" />
+            <input 
+              type="text" 
+              placeholder="Search cohort database, materials, or student IDs..." 
+              className="w-full bg-white border border-gray-100 rounded-3xl py-5 pl-16 pr-8 text-xs font-bold focus:outline-none focus:border-black transition-all shadow-sm"
+            />
+          </div>
+          <div className="flex items-center gap-12 ml-12">
+            <button className="relative w-12 h-12 flex items-center justify-center text-muted hover:text-black bg-white rounded-2xl shadow-sm">
+              <FiBell size={24} />
+              <span className="absolute top-2 right-2 w-2 h-2 bg-rust rounded-full"></span>
+            </button>
+            <div className="flex items-center gap-6">
+              <div className="text-right hidden sm:block">
+                <div className="text-[10px] font-black text-muted uppercase tracking-[0.2em] mb-1">Active Expert</div>
+                <div className="text-lg font-black text-black tracking-tighter">DR. MICHAEL</div>
+              </div>
+              <div className="w-16 h-16 rounded-[40%] bg-black flex items-center justify-center font-black text-gold border-4 border-white shadow-2xl hover:scale-105 transition-transform">
+                MO
+              </div>
             </div>
           </div>
         </header>
 
-        <div className="portal-container">
+        <div className="portal-container animate-slideUp">
           {renderContent()}
         </div>
       </div>
@@ -459,5 +284,3 @@ const TutorDashboardPage: React.FC = () => {
 };
 
 export default TutorDashboardPage;
-
-

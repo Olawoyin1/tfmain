@@ -20,16 +20,20 @@ import TutorRegistrationPage from './pages/TutorRegistrationPage';
 import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 
 const App: React.FC = () => {
   return (
     <Router>
 
-      <div className="font-syne bg-off text-black overflow-x-hidden">
+      <div className="font-sans bg-off text-black overflow-x-hidden">
         <Routes>
           {/* Landing */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
+
+          {/* Admin */}
+          <Route path="/admin" element={<AdminDashboardPage />} />
 
           {/* Application flow */}
           <Route path="/apply" element={<RoleSelectionPage />} />
@@ -41,6 +45,7 @@ const App: React.FC = () => {
 
           {/* Student portal */}
           <Route path="/portal" element={<StudentPortalPage />} />
+          <Route path="/portal/:tab" element={<StudentPortalPage />} />
           <Route path="/portal/learning" element={<LearningDashboardPage />} />
           <Route path="/portal/internship" element={<InternshipPortalPage />} />
           <Route path="/portal/certificates" element={<CertificateVaultPage />} />
